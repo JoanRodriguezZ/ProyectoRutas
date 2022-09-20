@@ -10,6 +10,10 @@ namespace ProyectoFinalASP.DAL
     public class DALUsuario
     {
         DbConnect cnx;
+        public DALUsuario()
+        {
+            cnx = new DbConnect();
+        }
         public void InsertUsuario(Usuario user)
         {
             try

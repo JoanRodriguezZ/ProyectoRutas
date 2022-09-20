@@ -10,6 +10,10 @@ namespace ProyectoFinalASP.DAL
     public class DALRuta
     {
         DbConnect cnx;
+        public DALRuta()
+        {
+            cnx = new DbConnect();
+        }
         public void InsertRuta(Ruta ruta)
         {
             try
