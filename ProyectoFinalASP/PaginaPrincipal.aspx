@@ -108,20 +108,11 @@
         <div class="row" style="max-width: 100%">
             <div class="container">
                 <div class="col-sm-12" style="text-align:center">
-                    <img src="https://www.mexicodesconocido.com.mx/sites/default/files/styles/adaptive/public/fichas-destino/ciudad-mexico-recorrido-silla-ruedas-roma-condesa-entrada.jpg"/>
+                    <img style="height:280px" src="./Content/gente_silla_ruedas.png"/>
                     <p style="text-align: center">¡Regístrate y disfruta de nuestra comunidad! :)</p>
                 </div>
             </div>
         </div>
-
-        <!-- Botones para testear
-    <div class="p-4 m-4">
-        <button onclick="crearSesion()">Crear</button>
-        <button onclick="mostrar()">Mostrar</button>
-        <button onclick="modificar()">Modificar</button>
-        <button onclick="cerrarSesion()">Elminar</button>
-    </div>
-    -->
 
         <!-- Floor content -->
         <div class=" fixed-bottom" id="footer">

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RegisterManual2.aspx.cs" Inherits="ProyectoFinalASP.RegisterManual2" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RegisterManual.aspx.cs" Inherits="ProyectoFinalASP.RegisterManual" %>
 
 <!DOCTYPE html>
 
@@ -59,29 +59,35 @@
         <!-- Dinamic Content -->
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-7   mt-5 mb-5">
-                    <h4 id="textoTitle" class="text-center pb-4">Registro Manual</h4>
+                <div class="col-7   mt-4 mb-5">
+                    <h4 id="textoTitle" class="text-center pb-4">Información Adicional</h4>
+
 
                     <form>
                         <div class="row">
                             <div class="col">
 
-                                <label id="textoBirth" for="fechaNacimiento" class="form-label">Fecha de nacimiento</label>
+                                <label class="form-label">Nombre</label>
+                                <input type="text" class="form-control" id="userName">
+                                <br>
+                                <br>
+
+                                <label class="form-label">Fecha de nacimiento</label>
                                 <input type="date" class="form-control" id="fechaNacimiento">
                                 <br>
                                 <br>
 
-                                <label for="email" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="email">
-                                <span class="form-text" id="errorEmail"></span>
+                                <label class="form-label">Móvil</label>
+                                <input type="text" class="form-control" id="telf">
+                                <span class="form-text" id="errorTelf"></span>
                                 <br>
                                 <br>
 
-                                <label for="passwordV2" class="form-label">Repetir Contraseña</label>
-                                <input type="password" class="form-control" id="passwordV2">
-                                <span class="form-text" id="errorPasswordV2"></span>
+                                <label class="form-label">Tipo Minusvalía</label>
+                                <input type="text" class="form-control" id="tipoMinusvalia">
                                 <br>
                                 <br>
+                                <asp:CheckBox ID="CheckBox2" runat="server" Text="&nbsp;Minusválido" />
                             </div>
 
                             <div class="col">
@@ -91,24 +97,28 @@
                                 <br>
                                 <br>
 
-                                <label for="email" class="form-label">Repetir Email</label>
-                                <input type="email" class="form-control" id="email">
-                                <span class="form-text" id="errorEmail"></span>
+                                <label class="form-label">Localidad</label>
+                                <input type="text" class="form-control" id="localidad">
                                 <br>
                                 <br>
 
-                                <label for="password" class="form-label">Repetir Contraseña</label>
-                                <input type="password" class="form-control" id="password">
-                                <span class="form-text" id="errorPassword"></span>
+                                <label class="form-label">Dependencia</label>
+                                <input type="text" class="form-control" id="Dependencia">
                                 <br>
                                 <br>
+
+                                <label class="form-label">Porcentaje Minusvalía</label>
+                                <input type="number" class="form-control" id="porcentajeMinusvalia">
+                                <br>
+                                <br>
+                                <asp:CheckBox ID="CheckBox1" runat="server" Text="&nbsp;Inscribirse como voluntario" />
                             </div>
                         </div>
-
                     </form>
+                    <br />
 
-                    <asp:Button class="btn btn-primary d-block m-auto" runat="server" Text="Enviar Datos" ID="btnContinuarRegistro" OnClick="btnContinuarRegistro_Click" />
-                    <br>
+                    <asp:Button class="btn btn-primary d-block m-auto" runat="server" Text="Enviar datos" ID="btnRegistrar" OnClick="btnRegistrar_Click" />
+                    <br />
                 </div>
             </div>
         </div>

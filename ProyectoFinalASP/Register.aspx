@@ -57,11 +57,52 @@
         </div>
 
         <!-- Dinamic Content -->
-        <div class="container" style="width:50%">
+        <div class="container">
             <div class="row justify-content-center">
-                <asp:Button ID="btnRegistroManual" runat="server" Text="Registro Manual" OnClick="btnRegistroManual_Click"/>
+                <div class="col-7 mt-5 mb-5">
+                    <h4 id="textoTitle" class="text-center pb-4">Saca el máximo partido a tus rutas</h4>
+
+                    <form>
+                        <div class="row">
+                            <div class="col">
+
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email">
+                                <span class="form-text" id="errorEmail"></span>
+                                <br>
+                                <br>
+
+                                <label for="passwordV2" class="form-label">Repetir Contraseña</label>
+                                <input type="password" class="form-control" id="passwordV2">
+                                <span class="form-text" id="errorPasswordV2"></span>
+                                <br>
+                                <br>
+                            </div>
+
+                            <div class="col">
+
+                                <label for="email" class="form-label">Repetir Email</label>
+                                <input type="email" class="form-control" id="email">
+                                <span class="form-text" id="errorEmail"></span>
+                                <br>
+                                <br>
+
+                                <label for="password" class="form-label">Repetir Contraseña</label>
+                                <input type="password" class="form-control" id="password">
+                                <span class="form-text" id="errorPassword"></span>
+                                <br>
+                            </div>
+                        </div>
+
+                    </form>
+
+                    <asp:Button class="btn btn-primary d-block m-auto" runat="server" Text="Continuar" ID="btnContinuarRegistro" OnClick="btnContinuarRegistro_Click" />
+                </div>
             </div>
-            <br/>
+        </div>
+
+        <div class="container" style="width:30%">
+
             <div class="row justify-content-center">
                 <asp:Button ID="Button2" runat="server" Text="Sign up with Google"/>
             </div>
@@ -72,7 +113,7 @@
         </div>
 
         <!-- Floor content -->
-        <div class=" fixed-bottom" id="footer">
+        <div class="fixed-bottom" id="footer">
             <p id="textoFooter" style="color: rgb(231, 231, 231);" class="text-center p-1">
                 Todos los derechos reservados
             2022

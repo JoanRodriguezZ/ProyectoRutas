@@ -14,10 +14,9 @@ namespace ProyectoFinalASP
             
         }
 
-        protected void btnRegistroManual_Click(object sender, EventArgs e)
+        protected void btnContinuarRegistro_Click(object sender, EventArgs e)
         {
-            Response.Redirect("RegistroManual1");
+            Response.Redirect("RegisterManual");
         }
-
     }
 }
