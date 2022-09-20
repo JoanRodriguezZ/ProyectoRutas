@@ -9,7 +9,7 @@
         string email;
         string telefono;
         string localidad;
-        int porcentajeMinusvalia;
+        int? porcentajeMinusvalia;
         string tipoMinusvalia;
         string dependencias;
         bool esMinusvalido;
@@ -20,7 +20,7 @@
         {
 
         }
-        public Usuario(int idUsuario, string password, string nombre, string apellidos, string email, string telefono, string localidad, int porcentajeMinusvalia, string tipoMinusvalia, string dependencias, bool esMinusvalido, bool esVoluntario, bool esAdmin)
+        public Usuario(int idUsuario, string password, string nombre, string apellidos, string email, string telefono, string localidad, int? porcentajeMinusvalia, string tipoMinusvalia, string dependencias, bool esMinusvalido, bool esVoluntario, bool esAdmin)
         {
             this.idUsuario = idUsuario;
             this.password = password;
@@ -44,7 +44,7 @@
         public string Email { get => email; set => email = value; }
         public string Telefono { get => telefono; set => telefono = value; }
         public string Localidad { get => localidad; set => localidad = value; }
-        public int PorcentajeMinusvalia { get => porcentajeMinusvalia; set => porcentajeMinusvalia = value; }
+        public int? PorcentajeMinusvalia { get => porcentajeMinusvalia; set => porcentajeMinusvalia = value; }
         public string TipoMinusvalia { get => tipoMinusvalia; set => tipoMinusvalia = value; }
         public string Dependencias { get => dependencias; set => dependencias = value; }
         public bool EsMinusvalido { get => esMinusvalido; set => esMinusvalido = value; }

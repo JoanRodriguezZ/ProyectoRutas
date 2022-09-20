@@ -138,6 +138,7 @@ namespace ProyectoFinalASP.DAL
 
                 SqlDataReader dr = cmd.ExecuteReader();
 
+
                 while (dr.Read())
                 {
                     user = new Usuario();
@@ -148,7 +149,7 @@ namespace ProyectoFinalASP.DAL
                     user.Email = (string)(dr["Email"]);
                     user.Telefono = (string)GestionarNulos(dr["Telefono"]);
                     user.Localidad = (string)GestionarNulos(dr["Localidad"]);
-                    user.PorcentajeMinusvalia = (int)GestionarNulos(dr["PorcentajeMinusvalia"]);
+                    user.PorcentajeMinusvalia = (int?)GestionarNulos(dr["PorcentajeMinusvalia"]);
                     user.TipoMinusvalia = (string)GestionarNulos(dr["TipoMinusvalia"]);
                     user.Dependencias = (string)GestionarNulos(dr["Dependencias"]);
                     user.EsMinusvalido = (bool)GestionarNulos(dr["EsMinusvalido"]);

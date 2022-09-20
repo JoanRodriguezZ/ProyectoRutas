@@ -28,7 +28,7 @@ namespace ProyectoFinalASP
             loginPassword = passwordBox.Text;
             Usuario usuario = dalUsuario.SelectUsuarioByEmailPassword(loginEmail, loginPassword);
             
-            if (dalUsuario != null)
+            if (usuario != null)
             {
                 labelEmailPassword.Text ="Credenciales correctas";
             }
