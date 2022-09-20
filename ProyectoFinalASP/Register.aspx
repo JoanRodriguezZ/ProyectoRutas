@@ -6,7 +6,7 @@
 <head runat="server">
     <!-- Required meta tags -->
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title id="titleRPage">Registro</title>
+    <title>Registro</title>
 
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -34,25 +34,24 @@
 
         <!-- NAV -->
         <nav class="navbar navbar-light bg-light menuPrincipal">
-            <h1 class="navbar-brand pt-4" id="tituloPagina">Proyecto</h1>
+            <h1 class="navbar-brand pt-4" id="tituloPagina">Registro</h1>
         </nav>
 
         <div class="sticky-top">
             <ul class="nav justify-content-center  menuPrincipal pb-4 " id="listadoPaginas">
 
                 <li class="nav-item">
-                    <a id="textoRegister" class="nav-link" href="./Register.aspx">REGISTRARSE</a>
+                    <a class="nav-link" href="./PaginaPrincipal.aspx">Página Principal</a>
                 </li>
 
                 <li class="nav-item">
-                    <a id="textoLogin" class="nav-link" href="./Login.aspx">INICIAR SESION</a>
+                    <a class="nav-link" href="./Register.aspx">Registrarse</a>
                 </li>
 
-                <img class="imgIdioma" onclick="localStorage.setItem('idioma', 'es'); idioma();" src="./img/spain.png"
-                    height="40px" style="cursor: pointer;">
+                <li class="nav-item">
+                    <a class="nav-link" href="./Login.aspx">Iniciar Sesión</a>
+                </li>
 
-                <img class="imgIdioma" onclick="localStorage.setItem('idioma', 'en'); idioma();"
-                    src="./img/united-kingdom.png" height="40px" style="cursor: pointer; margin-left: 10px;">
             </ul>
 
         </div>
@@ -141,7 +140,7 @@
             <p id="textoFooter" style="color: rgb(231, 231, 231);" class="text-center p-1">
                 Todos los derechos reservados
             2022
-            @Copyright
+            @ Copyright
             </p>
         </div>
 

@@ -11,7 +11,7 @@ namespace ProyectoFinalASP
 {
 
 
-    public partial class Login
+    public partial class PaginaPrincipal
     {
 
         /// <summary>
