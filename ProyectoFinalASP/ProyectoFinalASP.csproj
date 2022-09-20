@@ -190,7 +190,9 @@
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Modelos\Chat.cs" />
+    <Compile Include="Modelos\Estado.cs" />
     <Compile Include="Modelos\Evento.cs" />
+    <Compile Include="Modelos\Participante.cs" />
     <Compile Include="Modelos\PuntoDeControl.cs" />
     <Compile Include="Modelos\Ruta.cs" />
     <Compile Include="Modelos\Usuario.cs" />
