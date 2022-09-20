@@ -166,6 +166,12 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DAL\DALChat.cs" />
+    <Compile Include="DAL\DALEvento.cs" />
+    <Compile Include="DAL\DALPuntoDeControl.cs" />
+    <Compile Include="DAL\DALRuta.cs" />
+    <Compile Include="DAL\DALUsuario.cs" />
+    <Compile Include="DAL\DbConnect.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
