@@ -62,24 +62,21 @@
                 <div class="col-sm-4 mt-5 mb-5">
                     <h4 id="textoLTitle" class="center">Iniciar sesión</h4>
 
-                    <form>
+                    </div>
 
                         <div class="pt-1 pb-3">
-                            <label id="textoLEmail" for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" required>
+                            <label id="textoLEmail" for="email" class="form-label">Email</label>                            
+                            <asp:TextBox type="email" class="form-control" id="emailBox" required runat="server"></asp:TextBox>
                         </div>
 
                         <div class="pt-1 pb-3">
                             <label id="textoLPass" for="password" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="password" required>
+                            <asp:TextBox type="password" class="form-control" id="passwordBox" required runat="server"></asp:TextBox>
                         </div>
-
-                    </form>
-
-                    <button id="textoLBtnSubmit" onclick="validarLogin()" class="btn btn-primary d-block m-auto">
-                        Iniciar
-                    sesión</button>
-
+                        
+                        <asp:Label ID="labelEmailPassword" runat="server"></asp:Label>
+                        
+                        <asp:Button ID="ButtonSubmit" runat="server" Text="INICIAR SESION" class="btn btn-primary d-block m-auto" OnClick="ButtonSubmit_Click" Width="176px"/>
                 </div>
             </div>
         </div>
@@ -110,5 +107,6 @@
             crossorigin="anonymous"></script>
 
     </form>
+        
 </body>
 </html>
