@@ -16,6 +16,10 @@
         bool esVoluntario;
         bool esAdmin;
 
+        public Usuario()
+        {
+
+        }
         public Usuario(int idUsuario, string password, string nombre, string apellidos, string email, string telefono, string localidad, int porcentajeMinusvalia, string tipoMinusvalia, string dependencias, bool esMinusvalido, bool esVoluntario, bool esAdmin)
         {
             this.idUsuario = idUsuario;
