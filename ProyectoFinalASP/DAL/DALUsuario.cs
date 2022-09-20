@@ -33,25 +33,29 @@ namespace ProyectoFinalASP.DAL
                 SqlCommand cmd = new SqlCommand(sql, cnx.MiCnx);
 
                 SqlParameter pPassword = new SqlParameter("@pPassword", System.Data.SqlDbType.NVarChar, 40);
-                pPassword.Value = user.Nombre;
+                pPassword.Value = user.Password;
                 SqlParameter pNombre = new SqlParameter("@pNombre", System.Data.SqlDbType.NVarChar, 50);
                 pNombre.Value = user.Nombre;
                 SqlParameter pApellidos = new SqlParameter("@pApellidos", System.Data.SqlDbType.NVarChar, 200);
-                pApellidos.Value = user.Nombre;
+                pApellidos.Value = user.Apellidos;
                 SqlParameter pEmail = new SqlParameter("@pEmail", System.Data.SqlDbType.NVarChar, 150);
-                pEmail.Value = user.Nombre;
+                pEmail.Value = user.Email;
                 SqlParameter pTelefono = new SqlParameter("@pTelefono", System.Data.SqlDbType.NVarChar, 15);
-                pTelefono.Value = user.Nombre;
+                pTelefono.Value = user.Telefono;
                 SqlParameter pLocalidad = new SqlParameter("@pLocalidad", System.Data.SqlDbType.NVarChar, 100);
-                pLocalidad.Value = user.Nombre;
+                pLocalidad.Value = user.Localidad;
                 SqlParameter pPorcentajeMinusvalia = new SqlParameter("@pPorcentajeMinusvalia", System.Data.SqlDbType.Int);
+                pPorcentajeMinusvalia.Value = user.PorcentajeMinusvalia;
                 SqlParameter pTipoMinusvalia = new SqlParameter("@pTipoMinusvalia", System.Data.SqlDbType.NVarChar, 100);
-                pTipoMinusvalia.Value = user.Nombre;
+                pTipoMinusvalia.Value = user.TipoMinusvalia;
                 SqlParameter pDependencias = new SqlParameter("@pDependencias", System.Data.SqlDbType.NVarChar, 200);
-                pDependencias.Value = user.Nombre;
+                pDependencias.Value = user.Dependencias;
                 SqlParameter pEsMinusvalido = new SqlParameter("@pEsMinusvalido", System.Data.SqlDbType.Bit);
+                pEsMinusvalido.Value = user.EsMinusvalido;
                 SqlParameter pEsVoluntario = new SqlParameter("@pEsVoluntario", System.Data.SqlDbType.Bit);
+                pEsVoluntario.Value = user.EsVoluntario;
                 SqlParameter pEsAdmin = new SqlParameter("@pEsAdmin", System.Data.SqlDbType.Bit);
+                pEsAdmin.Value = user.EsAdmin;
 
                 cmd.Parameters.Add(pPassword);
                 cmd.Parameters.Add(pNombre);
@@ -71,6 +75,7 @@ namespace ProyectoFinalASP.DAL
             catch (Exception ex)
             {
                 //MessageBox.Show("Error en Insert: " + ex.Message);
+                Console.WriteLine(ex.Message);
             }
         }
         public List<Usuario> SelectUsuarios()
@@ -109,6 +114,7 @@ namespace ProyectoFinalASP.DAL
             catch (Exception ex)
             {
                 //MessageBox.Show("Error en Insert: " + ex.Message);
+                Console.WriteLine(ex.Message);
             }
 
             return users;
@@ -150,6 +156,7 @@ namespace ProyectoFinalASP.DAL
             catch (Exception ex)
             {
                 //MessageBox.Show("Error en Insert: " + ex.Message);
+                Console.WriteLine(ex.Message);
             }
 
             return user;
