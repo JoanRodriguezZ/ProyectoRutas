@@ -57,83 +57,19 @@
         </div>
 
         <!-- Dinamic Content -->
-        <div class="container">
+        <div class="container" style="width:50%">
             <div class="row justify-content-center">
-                <div class="col-7   mt-5 mb-5">
-                    <h4 id="textoTitle" class="text-center pb-4">Registrarse</h4>
-
-                    <form>
-                        <div class="row">
-                            <div class="col">
-
-                                <label id="textoName" for="userName" class="form-label">Nombre</label>
-                                <input type="text" class="form-control" id="userName">
-                                <br>
-                                <br>
-
-                                <label id="textoBirth" for="fechaNacimiento" class="form-label">Fecha de nacimiento</label>
-                                <input type="date" class="form-control" id="fechaNacimiento">
-                                <br>
-                                <br>
-
-                                <label id="textoEmail" for="email" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="email">
-                                <span class="form-text" id="errorEmail"></span>
-                                <br>
-                                <br>
-
-                                <label id="textoTel" for="telf" class="form-label">Móvil</label>
-                                <input type="text" class="form-control" id="telf">
-                                <span class="form-text" id="errorTelf"></span>
-                                <br>
-                                <br>
-                            </div>
-
-                            <div class="col">
-
-                                <label id="textoSurname" for="surname" class="form-label">Apellidos</label>
-                                <input type="text" class="form-control" id="surname">
-                                <br>
-                                <br>
-
-                                <label id="textoDni" for="dni" class="form-label">DNI</label>
-                                <input type="text" class="form-control" id="dni">
-                                <span class="form-text" id="errorDNI"></span>
-                                <br>
-                                <br>
-
-                                <label id="textoPass" for="password" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="password">
-                                <span class="form-text" id="errorPassword"></span>
-                                <br>
-                                <br>
-
-                                <label id="textoPass" for="passwordV2" class="form-label">Password Confirm</label>
-                                <input type="password" class="form-control" id="passwordV2">
-                                <span class="form-text" id="errorPasswordV2"></span>
-                                <br>
-                                <br>
-                            </div>
-                        </div>
-
-                    </form>
-
-                    <button id="textoBtnSubmit" onclick="programa()" class="btn btn-primary d-block m-auto">
-                        Enviar
-                    datos</button>
-                    <br>
-                </div>
+                <asp:Button ID="btnRegistroManual" runat="server" Text="Registro Manual" OnClick="btnRegistroManual_Click"/>
+            </div>
+            <br/>
+            <div class="row justify-content-center">
+                <asp:Button ID="Button2" runat="server" Text="Sign up with Google"/>
+            </div>
+            <br/>
+            <div class="row justify-content-center">
+                <asp:Button ID="Button3" runat="server" Text="Facebook"/>
             </div>
         </div>
-
-        <!-- Botones para testear
-    <div class="p-4 m-4">
-        <button onclick="crearSesion()">Crear</button>
-        <button onclick="mostrar()">Mostrar</button>
-        <button onclick="alertCookie()">Modificar</button>
-        <button onclick="cerrarSesion()">Elminar</button>
-    </div>
-    -->
 
         <!-- Floor content -->
         <div class=" fixed-bottom" id="footer">
@@ -144,15 +80,11 @@
             </p>
         </div>
 
-        <script src="./js/register.js"></script>
-        <script src="./js/login.js"></script>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
             crossorigin="anonymous"></script>
 
-        <script src="./js/preferedLanguage.js"></script>
-        <script>idioma()</script>
     </form>
 </body>
 </html>

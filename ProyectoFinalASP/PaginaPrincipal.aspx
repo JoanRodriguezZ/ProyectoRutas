@@ -45,7 +45,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="./Login.aspx">Registrarse</a>
+                    <a class="nav-link" href="./Register.aspx">Registrarse</a>
                 </li>
 
                 <li class="nav-item">
@@ -139,8 +139,6 @@
             integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
             crossorigin="anonymous"></script>
 
-        <script src="./js/preferedLanguage.js"></script>
-        <script>idioma()</script>
     </form>
 </body>
 </html>

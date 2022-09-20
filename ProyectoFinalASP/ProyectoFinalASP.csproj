@@ -120,6 +120,8 @@
     <Content Include="Login.aspx" />
     <Content Include="PaginaPrincipal.aspx" />
     <Content Include="Register.aspx" />
+    <Content Include="RegisterManual2.aspx" />
+    <Content Include="RegistroManual1.aspx" />
     <Content Include="Scripts\login.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\register.js" />
@@ -211,6 +213,20 @@
     </Compile>
     <Compile Include="Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegisterManual2.aspx.cs">
+      <DependentUpon>RegisterManual2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegisterManual2.aspx.designer.cs">
+      <DependentUpon>RegisterManual2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegistroManual1.aspx.cs">
+      <DependentUpon>RegistroManual1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistroManual1.aspx.designer.cs">
+      <DependentUpon>RegistroManual1.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
