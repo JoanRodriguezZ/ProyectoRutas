@@ -13,5 +13,11 @@ namespace ProyectoFinalASP
         {
 
         }
+
+
     }
 }
+
+//Layer layer = Json.Convert.DeserializeObject<Layer>(jsonString);
+//public class Layer {
+//public string a { get; set; }

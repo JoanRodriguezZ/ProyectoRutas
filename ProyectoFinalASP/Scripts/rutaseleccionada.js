@@ -10,37 +10,52 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 //Funcion para abrir un popup que indique las coordenadas exactas de donde se clica
 var popup = L.popup();
 
-function onMapClick(e) {
-    popup
-        .setLatLng(e.latlng)
-        .setContent("You clicked the map at " + e.latlng.toString())
-        .openOn(map);
-}
-
 map.on('click', onMapClick);
 
-//Añade las funcionalidades de geoJSON para poder dibujar en el mapa.
-//L.geoJSON(geojsonFeature).addTo(map);
-
-//Creo el objeto geoJSON de tipo LineString con las coordenadas especificas en un array por lo que puedo concatenar los puntos como me cunda
-var myLines = [{
-    "type": "LineString",
-    "coordinates": [[-100, 40], [-105, 45]]
-}, {
-    "type": "LineString",
-    "coordinates": [[-105, 40], [-110, 45]]
-    }];
-
-//var myLayer = L.geoJSON().addTo(map);
-//myLayer.addData(myLines);
+var trazado = L.geoJSON().addTo(map);
 
 var lineaA = null;
 var lineaB = null;
+var lineaTotal = null;
 
-lineaA = e.latlng;
-lineaB = null;
+var lAlat = null;
+var lAlng = null;
+var lBlat = null;
+var lBlng = null;
 
-lineaB = lineaA;
-lineaA = e.latlng;
+var puntoSalida = null;
 
-L.geoJSON(myLines).addTo(map);
+function onMapClick(e) {
+
+    lineaB = lineaA;
+    lineaA = e.latlng;
+
+    if (lineaA == null || lineaB == null) {
+        lAlat = lineaA.lat;
+        lAlng = lineaA.lng;
+        L.marker([lAlat, lAlng]).addTo(map)
+            .bindPopup('Punto de salida')
+            .openPopup();
+
+    } else {
+        lAlat = lineaA.lat;
+        lAlng = lineaA.lng;
+        lBlat = lineaB.lat;
+        lBlng = lineaB.lng;
+
+        lineaTotal = [{
+            "type": "LineString",
+            "coordinates": [[lAlng, lAlat], [lBlng, lBlat]]
+        }];
+
+        trazado.addData(lineaTotal);
+        
+        //L.geoJSON(lineaTotal).addTo(map);
+
+    }
+
+    //L.geoJSON(myLines).addTo(map);
+}
+
+var patientString = JSON.stringify(trazado);
+$('#mapInfo').val(patientString);
