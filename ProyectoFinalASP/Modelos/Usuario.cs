@@ -20,9 +20,8 @@
         {
 
         }
-        public Usuario(int idUsuario, string password, string nombre, string apellidos, string email, string telefono, string localidad, int? porcentajeMinusvalia, string tipoMinusvalia, string dependencias, bool esMinusvalido, bool esVoluntario, bool esAdmin)
+        public Usuario(string password, string nombre, string apellidos, string email, string telefono, string localidad, int? porcentajeMinusvalia, string tipoMinusvalia, string dependencias, bool esMinusvalido, bool esVoluntario, bool esAdmin)
         {
-            this.idUsuario = idUsuario;
             this.password = password;
             this.nombre = nombre;
             this.apellidos = apellidos;
@@ -34,7 +33,7 @@
             this.dependencias = dependencias;
             this.esMinusvalido = esMinusvalido;
             this.esVoluntario = esVoluntario;
-            this.esAdmin = esAdmin;
+            this.EsAdmin = esAdmin;
         }
 
         public int IdUsuario { get => idUsuario; set => idUsuario = value; }

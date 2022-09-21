@@ -16,6 +16,8 @@ namespace ProyectoFinalASP
 
         protected void btnContinuarRegistro_Click(object sender, EventArgs e)
         {
+            Session["email"] = emailBox.Text;
+            Session["password"] = passwordBox.Text;
             Response.Redirect("RegisterManual");
         }
     }

@@ -60,23 +60,23 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-sm-4 mt-5 mb-5">
-                    <h4 id="textoLTitle" class="center">Iniciar sesión</h4>
+                    <h4 class="center">Iniciar sesión</h4>
 
+
+
+                    <div class="pt-1 pb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <asp:TextBox type="email" class="form-control" ID="emailBox" required runat="server"></asp:TextBox>
                     </div>
 
-                        <div class="pt-1 pb-3">
-                            <label id="textoLEmail" for="email" class="form-label">Email</label>                            
-                            <asp:TextBox type="email" class="form-control" id="emailBox" required runat="server"></asp:TextBox>
-                        </div>
+                    <div class="pt-1 pb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <asp:TextBox type="password" class="form-control" ID="passwordBox" required runat="server"></asp:TextBox>
+                    </div>
 
-                        <div class="pt-1 pb-3">
-                            <label id="textoLPass" for="password" class="form-label">Password</label>
-                            <asp:TextBox type="password" class="form-control" id="passwordBox" required runat="server"></asp:TextBox>
-                        </div>
-                        
-                        <asp:Label ID="labelEmailPassword" runat="server"></asp:Label>
-                        
-                        <asp:Button ID="ButtonSubmit" runat="server" Text="INICIAR SESION" class="btn btn-primary d-block m-auto" OnClick="ButtonSubmit_Click" Width="176px"/>
+                    <asp:Button ID="ButtonSubmit" runat="server" Text="Iniciar Sesión" class="btn btn-primary d-block m-auto" OnClick="ButtonSubmit_Click"/>
+                    <br />
+                    <asp:Label ID="labelEmailPassword" runat="server"></asp:Label>
                 </div>
             </div>
         </div>
@@ -107,6 +107,6 @@
             crossorigin="anonymous"></script>
 
     </form>
-        
+
 </body>
 </html>

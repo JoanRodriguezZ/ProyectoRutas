@@ -21,7 +21,7 @@ namespace ProyectoFinalASP.DAL
                 string sql = @"INSERT INTO Usuario 
                     (Password, Nombre, Apellidos, Email, 
                     Telefono, Localidad, PorcentajeMinusvalia, TipoMinusvalia, 
-                    Dependencias, EsMinusvalido, EsVoluntario, EsAdmin)
+                    Dependencias, EsMinusvalido, EsVoluntario, EsAdministrador)
                     VALUES (@pPassword,
                         @pNombre,
                         @pApellidos,
@@ -81,6 +81,10 @@ namespace ProyectoFinalASP.DAL
                 //MessageBox.Show("Error en Insert: " + ex.Message);
                 Console.WriteLine(ex.Message);
             }
+            finally
+            {
+                cnx.MiCnx.Close();
+            }
         }
         public List<Usuario> SelectUsuariosOrderByNombreApellidos()
         {
@@ -96,7 +100,7 @@ namespace ProyectoFinalASP.DAL
                 while (dr.Read())
                 {
                     user = new Usuario();
-                    user.IdUsuario = (int)dr["IdUsuario"];
+                    user.IdUsuario = (int)dr["IDUsuario"];
                     user.Password = (string)(dr["Password"]);
                     user.Nombre = (string)GestionarNulos(dr["Nombre"]);
                     user.Apellidos = (string)GestionarNulos(dr["Apellidos"]);
@@ -108,7 +112,7 @@ namespace ProyectoFinalASP.DAL
                     user.Dependencias = (string)GestionarNulos(dr["Dependencias"]);
                     user.EsMinusvalido = (bool)GestionarNulos(dr["EsMinusvalido"]);
                     user.EsVoluntario = (bool)GestionarNulos(dr["EsVoluntario"]);
-                    user.EsAdmin = (bool)GestionarNulos(dr["EsAdmin"]);
+                    user.EsAdmin = (bool)GestionarNulos(dr["EsAdministrador"]);
 
                     users.Add(user);
                 }
@@ -119,6 +123,10 @@ namespace ProyectoFinalASP.DAL
             {
                 //MessageBox.Show("Error en Insert: " + ex.Message);
                 Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                cnx.MiCnx.Close();
             }
 
             return users;
@@ -142,7 +150,7 @@ namespace ProyectoFinalASP.DAL
                 while (dr.Read())
                 {
                     user = new Usuario();
-                    user.IdUsuario = (int)dr["IdUsuario"];
+                    user.IdUsuario = (int)dr["IDUsuario"];
                     user.Password = (string)(dr["Password"]);
                     user.Nombre = (string)GestionarNulos(dr["Nombre"]);
                     user.Apellidos = (string)GestionarNulos(dr["Apellidos"]);
@@ -154,7 +162,7 @@ namespace ProyectoFinalASP.DAL
                     user.Dependencias = (string)GestionarNulos(dr["Dependencias"]);
                     user.EsMinusvalido = (bool)GestionarNulos(dr["EsMinusvalido"]);
                     user.EsVoluntario = (bool)GestionarNulos(dr["EsVoluntario"]);
-                    user.EsAdmin = (bool)GestionarNulos(dr["EsAdmin"]);
+                    user.EsAdmin = (bool)GestionarNulos(dr["EsAdministrador"]);
                 }
                 dr.Close();
             }
@@ -162,6 +170,10 @@ namespace ProyectoFinalASP.DAL
             {
                 //MessageBox.Show("Error en Insert: " + ex.Message);
                 Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                cnx.MiCnx.Close();
             }
 
             return user;

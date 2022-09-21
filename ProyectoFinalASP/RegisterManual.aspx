@@ -68,50 +68,50 @@
                             <div class="col">
 
                                 <label class="form-label">Nombre</label>
-                                <input type="text" class="form-control" id="userName">
+                                <asp:TextBox type="text" ID="usernameBox" class="form-control" required="true" runat="server"></asp:TextBox>
                                 <br>
                                 <br>
 
                                 <label class="form-label">Fecha de nacimiento</label>
-                                <input type="date" class="form-control" id="fechaNacimiento">
+                                <asp:TextBox type="date" ID="birthdateBox" class="form-control" required="true" runat="server"></asp:TextBox>
                                 <br>
                                 <br>
 
                                 <label class="form-label">Móvil</label>
-                                <input type="text" class="form-control" id="telf">
+                                <asp:TextBox type="text" ID="phoneBox" class="form-control" required="true" runat="server"></asp:TextBox>
                                 <span class="form-text" id="errorTelf"></span>
                                 <br>
                                 <br>
 
                                 <label class="form-label">Tipo Minusvalía</label>
-                                <input type="text" class="form-control" id="tipoMinusvalia">
+                                <asp:TextBox type="text" ID="tipoMinusvaliaBox" class="form-control" required="true" runat="server"></asp:TextBox>
                                 <br>
                                 <br>
-                                <asp:CheckBox ID="CheckBox2" runat="server" Text="&nbsp;Minusválido" />
+                                <asp:CheckBox ID="esMinusvalidoCheckBox" runat="server" Text="&nbsp;Minusválido" />
                             </div>
 
                             <div class="col">
 
                                 <label class="form-label">Apellidos</label>
-                                <input type="text" class="form-control" id="surname">
+                                <asp:TextBox type="text" ID="surnameBox" class="form-control" required="true" runat="server"></asp:TextBox>
                                 <br>
                                 <br>
 
                                 <label class="form-label">Localidad</label>
-                                <input type="text" class="form-control" id="localidad">
+                                <asp:TextBox type="text" ID="localidadBox" class="form-control" required="true" runat="server"></asp:TextBox>
                                 <br>
                                 <br>
 
                                 <label class="form-label">Dependencia</label>
-                                <input type="text" class="form-control" id="Dependencia">
+                                <asp:TextBox type="text" ID="dependenciaBox" class="form-control" required="true" runat="server"></asp:TextBox>
                                 <br>
                                 <br>
 
                                 <label class="form-label">Porcentaje Minusvalía</label>
-                                <input type="number" class="form-control" id="porcentajeMinusvalia">
+                                <asp:TextBox type="number" ID="porcentajeMinusBox" class="form-control" required="true" runat="server"></asp:TextBox>
                                 <br>
                                 <br>
-                                <asp:CheckBox ID="CheckBox1" runat="server" Text="&nbsp;Inscribirse como voluntario" />
+                                <asp:CheckBox ID="esVoluntarioCheckBox" runat="server" Text="&nbsp;Inscribirse como voluntario" />
                             </div>
                         </div>
                     </form>
@@ -119,6 +119,7 @@
 
                     <asp:Button class="btn btn-primary d-block m-auto" runat="server" Text="Enviar datos" ID="btnRegistrar" OnClick="btnRegistrar_Click" />
                     <br />
+                    <asp:Label ID="label" runat="server"></asp:Label>
                 </div>
             </div>
         </div>

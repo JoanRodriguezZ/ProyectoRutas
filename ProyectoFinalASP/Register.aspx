@@ -67,13 +67,13 @@
                             <div class="col">
 
                                 <label for="email" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="email">
+                                <asp:TextBox type="email" class="form-control" ID="emailBox" required="true" runat="server"></asp:TextBox>
                                 <span class="form-text" id="errorEmail"></span>
                                 <br>
                                 <br>
 
-                                <label for="passwordV2" class="form-label">Repetir Contraseña</label>
-                                <input type="password" class="form-control" id="passwordV2">
+                                <label for="passwordV2" class="form-label">Contraseña</label>
+                                <asp:TextBox type="password" class="form-control" ID="passwordBox" required="true" runat="server"></asp:TextBox>
                                 <span class="form-text" id="errorPasswordV2"></span>
                                 <br>
                                 <br>
