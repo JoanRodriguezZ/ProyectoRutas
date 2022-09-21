@@ -74,7 +74,7 @@
 
                                 <label for="passwordV2" class="form-label">Contraseña</label>
                                 <asp:TextBox type="password" class="form-control" ID="passwordBox" required="true" runat="server"></asp:TextBox>
-                                <span class="form-text" id="errorPasswordV2"></span>
+                                <span class="form-text" id="errorPassword"></span>
                                 <br>
                                 <br>
                             </div>
@@ -83,20 +83,20 @@
 
                                 <label for="email" class="form-label">Repetir Email</label>
                                 <input type="email" class="form-control" id="email">
-                                <span class="form-text" id="errorEmail"></span>
+                                <span class="form-text" id="errorEmailV2"></span>
                                 <br>
                                 <br>
 
                                 <label for="password" class="form-label">Repetir Contraseña</label>
                                 <input type="password" class="form-control" id="password">
-                                <span class="form-text" id="errorPassword"></span>
+                                <span class="form-text" id="errorPasswordV2"></span>
                                 <br>
                             </div>
                         </div>
 
                     </form>
 
-                    <asp:Button class="btn btn-primary d-block m-auto" runat="server" Text="Continuar" ID="btnContinuarRegistro" OnClick="btnContinuarRegistro_Click" />
+                    <asp:Button class="btn btn-primary d-block m-auto" runat="server" Text="Continuar" ID="btnContinuarRegistro" OnClick="btnContinuarRegistro_Click"/>
                 </div>
             </div>
         </div>
@@ -126,6 +126,7 @@
             integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
             crossorigin="anonymous"></script>
 
+        <script src="./Scripts/registerRules.js"></script>
     </form>
 </body>
 </html>

@@ -36,7 +36,7 @@ namespace ProyectoFinalASP.DAL
                         @pEsAdmin)";
                 SqlCommand cmd = new SqlCommand(sql, cnx.MiCnx);
 
-                SqlParameter pPassword = new SqlParameter("@pPassword", System.Data.SqlDbType.NVarChar, 40);
+                SqlParameter pPassword = new SqlParameter("@pPassword", System.Data.SqlDbType.NVarChar, 100);
                 pPassword.Value = user.Password;
                 SqlParameter pNombre = new SqlParameter("@pNombre", System.Data.SqlDbType.NVarChar, 50);
                 pNombre.Value = user.Nombre;

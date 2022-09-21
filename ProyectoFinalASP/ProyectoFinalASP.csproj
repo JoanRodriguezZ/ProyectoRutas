@@ -124,9 +124,9 @@
     <Content Include="RegisterManual.aspx" />
     <Content Include="RutaSeleccionada.aspx" />
     <Content Include="Scripts\rutaseleccionada.js" />
-    <Content Include="Scripts\login.js" />
+    <Content Include="Scripts\loginCookieSesion.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Scripts\register.js" />
+    <Content Include="Scripts\registerRules.js" />
     <Content Include="Scripts\WebForms\DetailsView.js" />
     <Content Include="Scripts\WebForms\Focus.js" />
     <Content Include="Scripts\WebForms\GridView.js" />
@@ -187,6 +187,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Hash\SecurePasswordHasher.cs" />
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

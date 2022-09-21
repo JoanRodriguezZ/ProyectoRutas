@@ -19,9 +19,10 @@ namespace ProyectoFinalASP
 
         protected void btnRegistrar_Click(object sender, EventArgs e)
         {
-            label.Text = (string)Session["password"] + usernameBox.Text + surnameBox.Text + (string)Session["email"] + phoneBox.Text + localidadBox.Text + int.Parse(porcentajeMinusBox.Text) + tipoMinusvaliaBox.Text + dependenciaBox.Text + esMinusvalidoCheckBox.Checked.ToString() + esVoluntarioCheckBox.Checked.ToString();
+            // Hash
+            string hashedPassword = Hash.SecurePasswordHasher.Hash((string)Session["password"]);
 
-            Usuario user = new Usuario((string)Session["password"], usernameBox.Text, surnameBox.Text, (string)Session["email"], phoneBox.Text, localidadBox.Text, int.Parse(porcentajeMinusBox.Text), tipoMinusvaliaBox.Text, dependenciaBox.Text, esMinusvalidoCheckBox.Checked, esVoluntarioCheckBox.Checked, false);
+            Usuario user = new Usuario(hashedPassword, usernameBox.Text, surnameBox.Text, (string)Session["email"], phoneBox.Text, localidadBox.Text, int.Parse(porcentajeMinusBox.Text), tipoMinusvaliaBox.Text, dependenciaBox.Text, esMinusvalidoCheckBox.Checked, esVoluntarioCheckBox.Checked, false);
             dalUsuario.InsertUsuario(user);
         }
     }
