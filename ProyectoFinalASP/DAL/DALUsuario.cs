@@ -82,7 +82,7 @@ namespace ProyectoFinalASP.DAL
                 Console.WriteLine(ex.Message);
             }
         }
-        public List<Usuario> SelectUsuarios()
+        public List<Usuario> SelectUsuariosOrderByNombreApellidos()
         {
             List<Usuario> users = new List<Usuario>();
             Usuario user;

@@ -57,7 +57,7 @@ namespace ProyectoFinalASP.DAL
                 Console.WriteLine(ex.Message);
             }
         }
-        public List<Ruta> SelectRutas()
+        public List<Ruta> SelectRutasOrderByLocalizacion()
         {
             List<Ruta> rutas = new List<Ruta>();
             Ruta ruta;
@@ -92,8 +92,9 @@ namespace ProyectoFinalASP.DAL
 
             return rutas;
         }
-        public Ruta SelectRutaByLocalizacion(string localizacion)
+        public List<Ruta> SelectRutasByLocalizacion(string localizacion)
         {
+            List<Ruta> rutas = new List<Ruta>();
             Ruta ruta = null;
 
             try
@@ -115,6 +116,8 @@ namespace ProyectoFinalASP.DAL
                     ruta.Localizacion = (string)(dr["Localizacion"]);
                     ruta.ValoracionMedia = (float)GestionarNulos(dr["ValoracionMedia"]);
                     ruta.FkIDUsuario = (int)GestionarNulos(dr["FKIDUsuario"]);
+
+                    rutas.Add(ruta);
                 }
                 dr.Close();
             }
@@ -124,7 +127,7 @@ namespace ProyectoFinalASP.DAL
                 Console.WriteLine(ex.Message);
             }
 
-            return ruta;
+            return rutas;
         }
         public object GestionarNulos(object valOriginal)
         {

@@ -8,7 +8,7 @@ namespace ProyectoFinalASP.DAL
 {
     public class DALEvento
     {
-        /*
+        
         DbConnect cnx;
         public DALEvento()
         {
@@ -18,36 +18,32 @@ namespace ProyectoFinalASP.DAL
         {
             try
             {
-                string sql = @"INSERT INTO Ruta 
-                    (Nombre, LongitudKm, NivelAccesibilidad, 
-                    Localizacion, ValoracionMedia, FKIDUsuario)
-                    VALUES (@pNombre,
-                        @pLongitudKm,
-                        @pNivelAccesibilidad,
-                        @pLocalizacion,
-                        @pValoracionMedia,
-                        @pFKIDUsuario)";
+                string sql = @"INSERT INTO Evento 
+                    (FKRutaID, esPublico, FechaDeRealizacion, 
+                    VoluntariosNecesarios, FKIDEstado)
+                    VALUES (@pFKRutaID,
+                        @pesPublico,
+                        @pFechaDeRealizacion,
+                        @pVoluntariosNecesarios,
+                        @pFKIDEstado)";
                 SqlCommand cmd = new SqlCommand(sql, cnx.MiCnx);
 
-                SqlParameter pNombre = new SqlParameter("@pNombre", System.Data.SqlDbType.NVarChar, 50);
-                pNombre.Value = evento.Nombre;
-                SqlParameter pLongitudKm = new SqlParameter("@pLongitudKm", System.Data.SqlDbType.Float);
-                pLongitudKm.Value = evento.LongitudKm;
-                SqlParameter pNivelAccesibilidad = new SqlParameter("@pNivelAccesibilidad", System.Data.SqlDbType.Int);
-                pNivelAccesibilidad.Value = evento.NivelAccesibilidad;
-                SqlParameter pLocalizacion = new SqlParameter("@pLocalizacion", System.Data.SqlDbType.NVarChar, 200);
-                pLocalizacion.Value = evento.Localizacion;
-                SqlParameter pValoracionMedia = new SqlParameter("@pValoracionMedia", System.Data.SqlDbType.Float);
-                pValoracionMedia.Value = evento.ValoracionMedia;
-                SqlParameter pFKIDUsuario = new SqlParameter("@pFKIDUsuario", System.Data.SqlDbType.Int);
-                pFKIDUsuario.Value = evento.FkIDUsuario;
+                SqlParameter pFKRutaID = new SqlParameter("@pFKRutaID", System.Data.SqlDbType.Int);
+                pFKRutaID.Value = evento.FkIDRuta;
+                SqlParameter pesPublico = new SqlParameter("@pesPublico", System.Data.SqlDbType.Bit);
+                pesPublico.Value = evento.EsPublico;
+                SqlParameter pFechaDeRealizacion = new SqlParameter("@pFechaDeRealizacion", System.Data.SqlDbType.DateTime);
+                pFechaDeRealizacion.Value = evento.FechaDeRealizacion;
+                SqlParameter pVoluntariosNecesarios = new SqlParameter("@pVoluntariosNecesarios", System.Data.SqlDbType.Int);
+                pVoluntariosNecesarios.Value = evento.VoluntariosNecesarios;
+                SqlParameter pFKIDEstado = new SqlParameter("@pFKIDEstado", System.Data.SqlDbType.Int);
+                pFKIDEstado.Value = evento.FkIDEstado;
 
-                cmd.Parameters.Add(pNombre);
-                cmd.Parameters.Add(pLongitudKm);
-                cmd.Parameters.Add(pNivelAccesibilidad);
-                cmd.Parameters.Add(pLocalizacion);
-                cmd.Parameters.Add(pValoracionMedia);
-                cmd.Parameters.Add(pFKIDUsuario);
+                cmd.Parameters.Add(pFKRutaID);
+                cmd.Parameters.Add(pesPublico);
+                cmd.Parameters.Add(pFechaDeRealizacion);
+                cmd.Parameters.Add(pVoluntariosNecesarios);
+                cmd.Parameters.Add(pFKIDEstado);
 
                 cmd.ExecuteNonQuery();
             }
@@ -57,27 +53,26 @@ namespace ProyectoFinalASP.DAL
                 Console.WriteLine(ex.Message);
             }
         }
-        public List<Evento> SelectEventos()
+        public List<Evento> SelectEventosOrderByFecha()
         {
             List<Evento> eventos = new List<Evento>();
             Evento evento;
 
             try
             {
-                string sql = "SELECT * FROM Ruta ORDER BY Localizacion";
+                string sql = "SELECT * FROM Evento ORDER BY FechaDeRealizacion";
                 SqlCommand cmd = new SqlCommand(sql, cnx.MiCnx);
                 SqlDataReader dr = cmd.ExecuteReader();
 
                 while (dr.Read())
                 {
                     evento = new Ruta();
-                    evento.IdRuta = (int)dr["RutaID"];
-                    evento.Nombre = (string)(dr["Nombre"]);
-                    evento.LongitudKm = (float)GestionarNulos(dr["LongitudKm"]);
-                    evento.NivelAccesibilidad = (int)GestionarNulos(dr["NivelAccesibilidad"]);
-                    evento.Localizacion = (string)(dr["Localizacion"]);
-                    evento.ValoracionMedia = (float)GestionarNulos(dr["ValoracionMedia"]);
-                    evento.FkIDUsuario = (int)GestionarNulos(dr["FKIDUsuario"]);
+                    evento.IdEvento = (int)dr["IDEvento"];
+                    evento.FkIDRuta = (int)(dr["FKRutaID"]);
+                    evento.EsPublico = (bool)(dr["esPublico"]);
+                    evento.FechaDeRealizacion = (DateTime)GestionarNulos(dr["FechaDeRealizacion"]);
+                    evento.VoluntariosNecesarios = (int)GestionarNulos(dr["VoluntariosNecesarios"]);
+                    evento.FkIDEstado = (int)(dr["FKIDEstado"]);
 
                     eventos.Add(evento);
                 }
@@ -92,7 +87,7 @@ namespace ProyectoFinalASP.DAL
 
             return eventos;
         }
-        public Evento SelectRutaByLocalizacion(string localizacion)
+        public Evento SelectEventosByLocalizacion(string localizacion)
         {
             Evento evento = null;
 
@@ -132,7 +127,6 @@ namespace ProyectoFinalASP.DAL
                 return null;
             else
                 return valOriginal;
-        }
-        */
+        }        
     }
 }
