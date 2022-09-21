@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace ProyectoFinalASP
 {
-    public partial class Ruta : Page
+    public partial class RutaSeleccionada : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

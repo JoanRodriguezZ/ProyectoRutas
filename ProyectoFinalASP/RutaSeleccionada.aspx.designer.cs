@@ -11,7 +11,7 @@ namespace ProyectoFinalASP
 {
 
 
-    public partial class Ruta
+    public partial class RutaSeleccionada
     {
     }
 }
