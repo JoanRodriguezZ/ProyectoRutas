@@ -56,6 +56,10 @@ namespace ProyectoFinalASP.DAL
                 //MessageBox.Show("Error en Insert: " + ex.Message);
                 Console.WriteLine(ex.Message);
             }
+            finally
+            {
+                cnx.MiCnx.Close();
+            }
         }
         public List<Ruta> SelectRutasOrderByLocalizacion()
         {
@@ -88,6 +92,10 @@ namespace ProyectoFinalASP.DAL
             {
                 //MessageBox.Show("Error en Insert: " + ex.Message);
                 Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                cnx.MiCnx.Close();
             }
 
             return rutas;
@@ -125,6 +133,10 @@ namespace ProyectoFinalASP.DAL
             {
                 //MessageBox.Show("Error en Insert: " + ex.Message);
                 Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                cnx.MiCnx.Close();
             }
 
             return rutas;

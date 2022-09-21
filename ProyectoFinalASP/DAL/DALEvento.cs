@@ -53,6 +53,10 @@ namespace ProyectoFinalASP.DAL
                 //MessageBox.Show("Error en Insert: " + ex.Message);
                 Console.WriteLine(ex.Message);
             }
+            finally
+            {
+                cnx.MiCnx.Close();
+            }
         }
         public List<Evento> SelectEventosOrderByFecha()
         {
@@ -67,7 +71,7 @@ namespace ProyectoFinalASP.DAL
 
                 while (dr.Read())
                 {
-                    evento = new Ruta();
+                    evento = new Evento();
                     evento.IdEvento = (int)dr["IDEvento"];
                     evento.FkIDRuta = (int)(dr["FKRutaID"]);
                     evento.EsPublico = (bool)(dr["esPublico"]);
@@ -85,32 +89,76 @@ namespace ProyectoFinalASP.DAL
                 //MessageBox.Show("Error en Insert: " + ex.Message);
                 Console.WriteLine(ex.Message);
             }
+            finally
+            {
+                cnx.MiCnx.Close();
+            }
 
             return eventos;
         }
-        public Evento SelectEventosByLocalizacion(string localizacion)
+        public List<Evento> SelectEventosOrderByEstado()
         {
+            List<Evento> eventos = new List<Evento>();
+            Evento evento;
+
+            try
+            {
+                string sql = "SELECT * FROM Evento ORDER BY FKIDEstado";
+                SqlCommand cmd = new SqlCommand(sql, cnx.MiCnx);
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    evento = new Evento();
+                    evento.IdEvento = (int)dr["IDEvento"];
+                    evento.FkIDRuta = (int)(dr["FKRutaID"]);
+                    evento.EsPublico = (bool)(dr["esPublico"]);
+                    evento.FechaDeRealizacion = (DateTime)GestionarNulos(dr["FechaDeRealizacion"]);
+                    evento.VoluntariosNecesarios = (int)GestionarNulos(dr["VoluntariosNecesarios"]);
+                    evento.FkIDEstado = (int)(dr["FKIDEstado"]);
+
+                    eventos.Add(evento);
+                }
+
+                dr.Close();
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("Error en Insert: " + ex.Message);
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                cnx.MiCnx.Close();
+            }
+
+            return eventos;
+        }
+        public List<Evento> SelectEventosByRuta(int fkIDRuta)
+        {
+            List<Evento> eventos = new List<Evento>();
             Evento evento = null;
 
             try
             {
-                string sql = "SELECT * FROM Ruta WHERE Localizacion=@pLocalizacion";
+                string sql = "SELECT * FROM Evento WHERE FKRutaID=@pfkIDRuta";
                 SqlCommand cmd = new SqlCommand(sql, cnx.MiCnx);
-                SqlParameter pLocalizacion = new SqlParameter("@pLocalizacion", localizacion);
-                cmd.Parameters.Add(pLocalizacion);
+                SqlParameter pfkIDRuta = new SqlParameter("@pfkIDRuta", fkIDRuta);
+                cmd.Parameters.Add(pfkIDRuta);
 
                 SqlDataReader dr = cmd.ExecuteReader();
 
                 while (dr.Read())
                 {
-                    evento = new Ruta();
-                    evento.IdRuta = (int)dr["RutaID"];
-                    evento.Nombre = (string)(dr["Nombre"]);
-                    evento.LongitudKm = (float)GestionarNulos(dr["LongitudKm"]);
-                    evento.NivelAccesibilidad = (int)GestionarNulos(dr["NivelAccesibilidad"]);
-                    evento.Localizacion = (string)(dr["Localizacion"]);
-                    evento.ValoracionMedia = (float)GestionarNulos(dr["ValoracionMedia"]);
-                    evento.FkIDUsuario = (int)GestionarNulos(dr["FKIDUsuario"]);
+                    evento = new Evento();
+                    evento.IdEvento = (int)dr["IDEvento"];
+                    evento.FkIDRuta = (int)(dr["FKRutaID"]);
+                    evento.EsPublico = (bool)(dr["esPublico"]);
+                    evento.FechaDeRealizacion = (DateTime)GestionarNulos(dr["FechaDeRealizacion"]);
+                    evento.VoluntariosNecesarios = (int)GestionarNulos(dr["VoluntariosNecesarios"]);
+                    evento.FkIDEstado = (int)(dr["FKIDEstado"]);
+
+                    eventos.Add(evento);
                 }
                 dr.Close();
             }
@@ -119,9 +167,16 @@ namespace ProyectoFinalASP.DAL
                 //MessageBox.Show("Error en Insert: " + ex.Message);
                 Console.WriteLine(ex.Message);
             }
+            finally
+            {
+                cnx.MiCnx.Close();
+            }
 
-            return evento;
+            return eventos;
         }
+
+        //Select event by user, quizas se haga desde participante mas bien
+
         public object GestionarNulos(object valOriginal)
         {
             if (valOriginal == System.DBNull.Value)
