@@ -49,7 +49,7 @@ namespace ProyectoFinalASP.DAL
             }
         }
         
-        public List<PuntoDeControl> SelectPuntoDeControlByIdRuta(int idRuta)
+        public List<PuntoDeControl> SelectPuntosDeControlByIdRuta(int idRuta)
         {
             List<PuntoDeControl> puntosDeControl = new List<PuntoDeControl>();
             PuntoDeControl puntoDeControl = null;
@@ -67,9 +67,9 @@ namespace ProyectoFinalASP.DAL
                 {
                     puntoDeControl = new PuntoDeControl();
                     puntoDeControl.IdPuntoDeControl = (int)dr["IDPuntoDeControl"];
-                    puntoDeControl.FkIDRuta = (string)(dr["FKRutaID"]);
-                    puntoDeControl.Point = (float)(dr["Coordenada"]);
-                    puntoDeControl.Descripcion = (int)GestionarNulos(dr["Descripcion"]);
+                    puntoDeControl.FkIDRuta = (int)(dr["FKRutaID"]);
+                    puntoDeControl.Point = (Point)(dr["Coordenada"]);
+                    puntoDeControl.Descripcion = (string)GestionarNulos(dr["Descripcion"]);
 
                     puntosDeControl.Add(puntoDeControl);
                 }

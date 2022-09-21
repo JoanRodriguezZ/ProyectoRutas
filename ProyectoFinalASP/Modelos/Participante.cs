@@ -16,7 +16,7 @@ namespace ProyectoFinalASP.Modelos
         {
 
         }
-        public Participante(int fkIDEvento, int fkIDUsuario, int valoracionRuta, string comentarioRuta)
+        public Participante(int fkIDEvento, int fkIDUsuario, int? valoracionRuta, string comentarioRuta)
         {
             this.fkIDEvento = fkIDEvento;
             this.fkIDUsuario = fkIDUsuario;
@@ -26,7 +26,7 @@ namespace ProyectoFinalASP.Modelos
 
         public int FkIDEvento { get => fkIDEvento; set => fkIDEvento = value; }
         public int FkIDUsuario { get => fkIDUsuario; set => fkIDUsuario = value; }
-        public int ValoracionRuta { get => valoracionRuta; set => valoracionRuta = value; }
+        public int? ValoracionRuta { get => valoracionRuta; set => valoracionRuta = value; }
         public string ComentarioRuta { get => comentarioRuta; set => comentarioRuta = value; }
     }
 }
