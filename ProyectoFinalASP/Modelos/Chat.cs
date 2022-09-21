@@ -12,6 +12,10 @@ namespace ProyectoFinalASP.Modelos
         int fkIDUsuario;
         string mensaje;
 
+        public Chat()
+        {
+
+        }
         public Chat(int idMensaje, int fkIDEvento, int fkIDUsuario, string mensaje)
         {
             this.idMensaje = idMensaje;

@@ -13,6 +13,10 @@ namespace ProyectoFinalASP.Modelos
         Point point;
         string descripcion;
 
+        public PuntoDeControl()
+        {
+
+        }
         public PuntoDeControl(int idPuntoDeControl, int fkIDRuta, Point point, string descripcion)
         {
             this.idPuntoDeControl = idPuntoDeControl;

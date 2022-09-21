@@ -14,6 +14,10 @@ namespace ProyectoFinalASP.Modelos
         int voluntariosNecesarios;
         int fkIDEstado;
 
+        public Evento()
+        {
+
+        }
         public Evento(int idEvento, int fkIDRuta, bool esPublico, DateTime? fechaDeRealizacion, int? voluntariosNecesarios, int fkIDEstado)
         {
             this.idEvento = idEvento;

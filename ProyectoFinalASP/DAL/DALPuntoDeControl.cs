@@ -1,5 +1,7 @@
-﻿using System;
+﻿using ProyectoFinalASP.Modelos;
+using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 
@@ -7,5 +9,90 @@ namespace ProyectoFinalASP.DAL
 {
     public class DALPuntoDeControl
     {
+        DbConnect cnx;
+        public DALPuntoDeControl()
+        {
+            cnx = new DbConnect();
+        }
+        public void InsertPuntoDeControl(PuntoDeControl puntoDeControl)
+        {
+            try
+            {
+                string sql = @"INSERT INTO PuntoDeControl 
+                    (FKRutaID, Coordenada, Descripcion)
+                    VALUES (@pFKRutaID,
+                        @pCoordenada,
+                        @pDescripcion)";
+                SqlCommand cmd = new SqlCommand(sql, cnx.MiCnx);
+
+                SqlParameter pFKRutaID = new SqlParameter("@pFKRutaID", System.Data.SqlDbType.Int);
+                pFKRutaID.Value = puntoDeControl.FkIDRuta;
+                SqlParameter pCoordenada = new SqlParameter("@pCoordenada", System.Data.SqlDbType.Point);
+                pCoordenada.Value = puntoDeControl.Point;
+                SqlParameter pDescripcion = new SqlParameter("@pDescripcion", System.Data.SqlDbType.NVarchar, 200);
+                pDescripcion.Value = puntoDeControl.Descripcion;
+
+                cmd.Parameters.Add(pFKRutaID);
+                cmd.Parameters.Add(pCoordenada);
+                cmd.Parameters.Add(pDescripcion);
+
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("Error en Insert: " + ex.Message);
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                cnx.MiCnx.Close();
+            }
+        }
+        
+        public List<PuntoDeControl> SelectPuntoDeControlByIdRuta(int idRuta)
+        {
+            List<PuntoDeControl> puntosDeControl = new List<PuntoDeControl>();
+            PuntoDeControl puntoDeControl = null;
+
+            try
+            {
+                string sql = "SELECT * FROM PuntoDeControl WHERE FKRutaID=@pfkIDRuta ORDER BY IDPuntoDeControl";
+                SqlCommand cmd = new SqlCommand(sql, cnx.MiCnx);
+                SqlParameter pfkIDRuta = new SqlParameter("@pfkIDRuta", idRuta);
+                cmd.Parameters.Add(pfkIDRuta);
+
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    puntoDeControl = new PuntoDeControl();
+                    puntoDeControl.IdPuntoDeControl = (int)dr["IDPuntoDeControl"];
+                    puntoDeControl.FkIDRuta = (string)(dr["FKRutaID"]);
+                    puntoDeControl.Point = (float)(dr["Coordenada"]);
+                    puntoDeControl.Descripcion = (int)GestionarNulos(dr["Descripcion"]);
+
+                    puntosDeControl.Add(puntoDeControl);
+                }
+                dr.Close();
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("Error en Insert: " + ex.Message);
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                cnx.MiCnx.Close();
+            }
+
+            return puntosDeControl;
+        }
+        public object GestionarNulos(object valOriginal)
+        {
+            if (valOriginal == System.DBNull.Value)
+                return null;
+            else
+                return valOriginal;
+        }
     }
 }

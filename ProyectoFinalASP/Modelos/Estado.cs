@@ -16,8 +16,8 @@ namespace ProyectoFinalASP.Modelos
 
         public Estado()
         {
-        }
 
+        }
         public Estado(int idEvento, int fkIDRuta, bool esPublico, DateTime fechaDeRealizacion, int voluntariosNecesarios, int fkIDEstado)
         {
             this.idEvento = idEvento;
