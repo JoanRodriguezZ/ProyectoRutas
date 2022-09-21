@@ -122,6 +122,8 @@
     <Content Include="PaginaPrincipal.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="RegisterManual.aspx" />
+    <Content Include="RutaSeleccionada.aspx" />
+    <Content Include="Scripts\rutaseleccionada.js" />
     <Content Include="Scripts\login.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\register.js" />
@@ -220,6 +222,13 @@
     </Compile>
     <Compile Include="RegisterManual.aspx.designer.cs">
       <DependentUpon>RegisterManual.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RutaSeleccionada.aspx.cs">
+      <DependentUpon>RutaSeleccionada.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RutaSeleccionada.aspx.designer.cs">
+      <DependentUpon>RutaSeleccionada.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
