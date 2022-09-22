@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -27,31 +28,38 @@ namespace ProyectoFinalASP
             errorPassword.InnerText = " ";
             errorPasswordV2.InnerText = " ";
 
-            if (emailBox.Text != rEmailBox.Text || passwordBox.Text != rPasswordBox.Text)
+            if (Regex.IsMatch(email, @"^[\w!#$%&'*+\-/=?\^_`{|}~]+(\.[\w!#$%&'*+\-/=?\^_`{|}~]+)*" + "@" + @"((([\-\w]+\.)+[a-zA-Z]{2,4})|(([0-9]{1,3}\.){3}[0-9]{1,3}))$"))
             {
-                if (emailBox.Text != rEmailBox.Text)
+                if (emailBox.Text != rEmailBox.Text || passwordBox.Text != rPasswordBox.Text)
                 {
-                    errorEmailV2.InnerText = "El correo no coincide";
+                    if (emailBox.Text != rEmailBox.Text)
+                    {
+                        errorEmailV2.InnerText = "El correo no coincide";
+                    }
+                    if (passwordBox.Text != rPasswordBox.Text)
+                    {
+                        errorPasswordV2.InnerText = "La contraseña no coincide";
+                    }
                 }
-                if (passwordBox.Text != rPasswordBox.Text)
+                else
                 {
-                    errorPasswordV2.InnerText = "La contraseña no coincide";
+                    bool emailCheck = dalUsuario.SelectUsuarioByEmail(email);
+                    if (!emailCheck)
+                    {
+                        Session["email"] = emailBox.Text;
+                        Session["password"] = passwordBox.Text;
+                        Response.Redirect("RegisterManual");
+                    }
+                    else
+                    {
+                        errorEmail.InnerText = "El usuario ya existe";
+                    }
                 }
             }
             else
             {
-                bool emailCheck = dalUsuario.SelectUsuarioByEmail(email);
-                if (!emailCheck)
-                {
-                    Session["email"] = emailBox.Text;
-                    Session["password"] = passwordBox.Text;
-                    Response.Redirect("RegisterManual");
-                }
-                else
-                {
-                    errorEmail.InnerText = "El usuario ya existe";
-                }
-            }
+                errorEmail.InnerText = "El correo electrónico no es válido";
+            }                        
         }          
     }
 }

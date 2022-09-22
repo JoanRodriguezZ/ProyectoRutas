@@ -237,8 +237,7 @@ namespace ProyectoFinalASP.DAL
                 dr.Close();
             }
             catch (Exception ex)
-            {
-                //MessageBox.Show("Error en Insert: " + ex.Message);
+            {                
                 Console.WriteLine(ex.Message);
                 return true;
             }

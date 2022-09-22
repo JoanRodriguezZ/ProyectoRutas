@@ -79,7 +79,7 @@
 
                                 <label class="form-label">Móvil</label>
                                 <asp:TextBox type="text" ID="phoneBox" class="form-control" required="true" runat="server"></asp:TextBox>
-                                <span class="form-text" id="errorTelf"></span>
+                                <span class="form-text" id="errorTelf" runat="server"></span>
                                 <br>
                                 <br>
 
