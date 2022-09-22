@@ -29,7 +29,7 @@ namespace ProyectoFinalASP.DAL
                 pFKIDEvento.Value = chat.FkIDEvento;
                 SqlParameter pFKIDUsuario = new SqlParameter("@pFKIDUsuario", System.Data.SqlDbType.Int);
                 pFKIDUsuario.Value = chat.FkIDUsuario;
-                SqlParameter pMensaje = new SqlParameter("@pMensaje", System.Data.SqlDbType.NVarchar, 400);
+                SqlParameter pMensaje = new SqlParameter("@pMensaje", System.Data.SqlDbType.NVarChar, 400);
                 pMensaje.Value = chat.Mensaje;
 
                 cmd.Parameters.Add(pFKIDEvento);

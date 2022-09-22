@@ -27,13 +27,13 @@ namespace ProyectoFinalASP.DAL
 
                 SqlParameter pFKRutaID = new SqlParameter("@pFKRutaID", System.Data.SqlDbType.Int);
                 pFKRutaID.Value = puntoDeControl.FkIDRuta;
-                SqlParameter pCoordenada = new SqlParameter("@pCoordenada", System.Data.SqlDbType.Point);
-                pCoordenada.Value = puntoDeControl.Point;
-                SqlParameter pDescripcion = new SqlParameter("@pDescripcion", System.Data.SqlDbType.NVarchar, 200);
+                //SqlParameter pCoordenada = new SqlParameter("@pCoordenada", System.Data.SqlDbType.Udt);
+                //pCoordenada.Value = puntoDeControl.Point;
+                SqlParameter pDescripcion = new SqlParameter("@pDescripcion", System.Data.SqlDbType.NVarChar, 200);
                 pDescripcion.Value = puntoDeControl.Descripcion;
 
                 cmd.Parameters.Add(pFKRutaID);
-                cmd.Parameters.Add(pCoordenada);
+                //cmd.Parameters.Add(pCoordenada);
                 cmd.Parameters.Add(pDescripcion);
 
                 cmd.ExecuteNonQuery();
@@ -68,7 +68,7 @@ namespace ProyectoFinalASP.DAL
                     puntoDeControl = new PuntoDeControl();
                     puntoDeControl.IdPuntoDeControl = (int)dr["IDPuntoDeControl"];
                     puntoDeControl.FkIDRuta = (int)(dr["FKRutaID"]);
-                    puntoDeControl.Point = (Point)(dr["Coordenada"]);
+                    //puntoDeControl.Point = (string)(dr["Coordenada"]);
                     puntoDeControl.Descripcion = (string)GestionarNulos(dr["Descripcion"]);
 
                     puntosDeControl.Add(puntoDeControl);
