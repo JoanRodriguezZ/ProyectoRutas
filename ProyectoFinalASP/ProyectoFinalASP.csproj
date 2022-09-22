@@ -111,6 +111,8 @@
     <Content Include="Content\Site.css" />
     <Content Include="Content\styles.css" />
     <Content Include="Default.aspx" />
+    <Content Include="EventoSeleccionado.aspx" />
+    <Content Include="EventosDisponibles.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -120,8 +122,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Login.aspx" />
     <Content Include="PaginaPrincipal.aspx" />
+    <Content Include="PaginaUsuario.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="RegisterManual.aspx" />
+    <Content Include="RutasDisponibles.aspx" />
     <Content Include="RutaSeleccionada.aspx" />
     <Content Include="Scripts\rutaseleccionada.js" />
     <Content Include="Scripts\loginCookieSesion.js" />
@@ -184,6 +188,20 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="EventoSeleccionado.aspx.cs">
+      <DependentUpon>EventoSeleccionado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EventoSeleccionado.aspx.designer.cs">
+      <DependentUpon>EventoSeleccionado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EventosDisponibles.aspx.cs">
+      <DependentUpon>EventosDisponibles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EventosDisponibles.aspx.designer.cs">
+      <DependentUpon>EventosDisponibles.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -209,6 +227,13 @@
     <Compile Include="PaginaPrincipal.aspx.designer.cs">
       <DependentUpon>PaginaPrincipal.aspx</DependentUpon>
     </Compile>
+    <Compile Include="PaginaUsuario.aspx.cs">
+      <DependentUpon>PaginaUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PaginaUsuario.aspx.designer.cs">
+      <DependentUpon>PaginaUsuario.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>
@@ -223,6 +248,13 @@
     </Compile>
     <Compile Include="RegisterManual.aspx.designer.cs">
       <DependentUpon>RegisterManual.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RutasDisponibles.aspx.cs">
+      <DependentUpon>RutasDisponibles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RutasDisponibles.aspx.designer.cs">
+      <DependentUpon>RutasDisponibles.aspx</DependentUpon>
     </Compile>
     <Compile Include="RutaSeleccionada.aspx.cs">
       <DependentUpon>RutaSeleccionada.aspx</DependentUpon>
