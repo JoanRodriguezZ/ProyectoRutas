@@ -66,15 +66,15 @@
                         <div class="row">
                             <div class="col">
 
-                                <label for="email" class="form-label">Email</label>
+                                <label  for="email" class="form-label">Email</label>
                                 <asp:TextBox type="email" class="form-control" ID="emailBox" required="true" runat="server"></asp:TextBox>
-                                <span class="form-text" id="errorEmail"></span>
+                                <span class="form-text" id="errorEmail" runat="server"></span>
                                 <br>
                                 <br>
 
                                 <label for="passwordV2" class="form-label">Contraseña</label>
                                 <asp:TextBox type="password" class="form-control" ID="passwordBox" required="true" runat="server"></asp:TextBox>
-                                <span class="form-text" id="errorPassword"></span>
+                                <span class="form-text" id="errorPassword" runat="server"></span>
                                 <br>
                                 <br>
                             </div>
@@ -82,14 +82,14 @@
                             <div class="col">
 
                                 <label for="email" class="form-label">Repetir Email</label>
-                                <input type="email" class="form-control" id="email">
-                                <span class="form-text" id="errorEmailV2"></span>
+                                <asp:TextBox type="email" class="form-control" id="rEmailBox" required="true" runat="server"></asp:TextBox>
+                                <span class="form-text" id="errorEmailV2" runat="server"></span>
                                 <br>
                                 <br>
 
                                 <label for="password" class="form-label">Repetir Contraseña</label>
-                                <input type="password" class="form-control" id="password">
-                                <span class="form-text" id="errorPasswordV2"></span>
+                                <asp:Textbox type="password" class="form-control" id="rPasswordBox" required="true" runat="server"></asp:TextBox>
+                                <span class="form-text" id="errorPasswordV2" runat="server"></span>
                                 <br>
                             </div>
                         </div>

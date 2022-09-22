@@ -210,6 +210,44 @@ namespace ProyectoFinalASP.DAL
 
             return hash;
         }
+        public bool SelectUsuarioByEmail(string email)
+        {    
+
+            try
+            {
+                string sql = "SELECT * FROM Usuario WHERE Email=@pEmail";
+                SqlCommand cmd = new SqlCommand(sql, cnx.MiCnx);
+                SqlParameter pEmail = new SqlParameter("@pEmail", email);
+                cmd.Parameters.Add(pEmail);
+
+                SqlDataReader dr = cmd.ExecuteReader();
+                int contador = 0;
+                while (dr.Read())
+                {
+                    contador++;
+                }
+                if (contador >= 1)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+                dr.Close();
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("Error en Insert: " + ex.Message);
+                Console.WriteLine(ex.Message);
+                return true;
+            }
+            finally
+            {                
+                cnx.MiCnx.Close();
+                
+            }            
+        }
 
         public object GestionarNulos(object valOriginal)
         {
