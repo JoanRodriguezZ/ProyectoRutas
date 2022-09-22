@@ -13,5 +13,23 @@ namespace ProyectoFinalASP
 
     public partial class EventosDisponibles
     {
+
+        /// <summary>
+        /// Control lblCreador.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblCreador;
+
+        /// <summary>
+        /// Control ltTry.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal ltTry;
     }
 }
