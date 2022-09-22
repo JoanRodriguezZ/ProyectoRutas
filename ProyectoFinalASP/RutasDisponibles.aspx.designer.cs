@@ -11,7 +11,7 @@ namespace ProyectoFinalASP
 {
 
 
-    public partial class About
+    public partial class RutasDisponibles
     {
     }
 }
