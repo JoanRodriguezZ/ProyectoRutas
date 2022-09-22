@@ -15,12 +15,39 @@ namespace ProyectoFinalASP
     {
 
         /// <summary>
-        /// Control mapInfo.
+        /// Control pAlngHTML.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl mapInfo;
+        protected global::System.Web.UI.WebControls.HiddenField pAlngHTML;
+
+        /// <summary>
+        /// Control pAlatHTML.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField pAlatHTML;
+
+        /// <summary>
+        /// Control pBlngHTML.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField pBlngHTML;
+
+        /// <summary>
+        /// Control pBlatHTML.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField pBlatHTML;
     }
 }

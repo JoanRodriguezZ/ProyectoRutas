@@ -14,39 +14,55 @@ map.on('click', onMapClick);
 
 var trazado = L.geoJSON().addTo(map);
 
-var lineaA = null;
-var lineaB = null;
+var puntoA = null;
+var puntoB = null;
 var lineaTotal = null;
 
-var lAlat = null;
-var lAlng = null;
-var lBlat = null;
-var lBlng = null;
+var pAlat = null;
+var pAlng = null;
+var pBlat = null;
+var pBlng = null;
+
+var coordenadaA = null;
+var coordenadaB = null;
+
+var coordAHTML = document.getElementById('coordenadaA');
+var coordBHTML = document.getElementById('coordenadaB');
 
 var puntoSalida = null;
 
+var marker = null;
+
 function onMapClick(e) {
 
-    lineaB = lineaA;
-    lineaA = e.latlng;
+    puntoB = puntoA;
+    puntoA = e.latlng;
 
-    if (lineaA == null || lineaB == null) {
-        lAlat = lineaA.lat;
-        lAlng = lineaA.lng;
-        L.marker([lAlat, lAlng]).addTo(map)
+    if (puntoA == null || puntoB == null) {
+        pAlat = puntoA.lat;
+        pAlng = puntoA.lng;
+        marker = L.marker([pAlat, pAlng]).addTo(map)
             .bindPopup('Punto de salida')
             .openPopup();
 
+        trazado.addData(marker);
+
+
     } else {
-        lAlat = lineaA.lat;
-        lAlng = lineaA.lng;
-        lBlat = lineaB.lat;
-        lBlng = lineaB.lng;
+        pAlat = puntoA.lat;
+        pAlng = puntoA.lng;
+        pBlat = puntoB.lat;
+        pBlng = puntoB.lng;
 
         lineaTotal = [{
             "type": "LineString",
-            "coordinates": [[lAlng, lAlat], [lBlng, lBlat]]
+            "coordinates": [[pAlng, pAlat], [pBlng, pBlat]]
         }];
+
+        //document.getElementById(pAlngHTML).value = pAlng;
+        //document.getElementById(pAlatHTML).value = pAlat;
+        //document.getElementById(pBlngHTML).value = pBlng;
+        //document.getElementById(pBlatHTML).value = pBlat;
 
         trazado.addData(lineaTotal);
         
@@ -57,5 +73,20 @@ function onMapClick(e) {
     //L.geoJSON(myLines).addTo(map);
 }
 
-var patientString = JSON.stringify(trazado);
-$('#mapInfo').val(patientString);
+
+//var patientString = JSON.stringify(trazado);
+//var mapInfoHTML = document.getElementById('mapInfo');
+//mapInfoHTML.value = patientString;
+
+
+//$.ajax({
+//    url: '/Home/GetBranch',
+//    success: function (data) {
+//        console.log(data)
+//        $(data).each(function (index, item) {
+//            var lat = item.branchGeoLocationLat;
+//            var long = item.branchGeoLocationLong;
+//            L.marker([lat, long], { icon: greenIcon }).bindPopup("I am the " + item.branchName + " leaf.").addTo(map);
+//        });
+//    },
+//});
