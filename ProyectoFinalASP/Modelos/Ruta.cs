@@ -12,7 +12,7 @@ namespace ProyectoFinalASP.Modelos
         float longitudKm;
         int nivelAccesibilidad;
         string localizacion;
-        float valoracionMedia;
+        float? valoracionMedia;
         int fkIDUsuario;
 
         public Ruta()

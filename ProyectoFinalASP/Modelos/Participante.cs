@@ -9,7 +9,7 @@ namespace ProyectoFinalASP.Modelos
     {
         int fkIDEvento;
         int fkIDUsuario;
-        int valoracionRuta;
+        int? valoracionRuta;
         string comentarioRuta;
 
         public Participante()

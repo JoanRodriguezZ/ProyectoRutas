@@ -10,8 +10,8 @@ namespace ProyectoFinalASP.Modelos
         int idEvento;
         int fkIDRuta;
         bool esPublico;
-        DateTime fechaDeRealizacion;
-        int voluntariosNecesarios;
+        DateTime? fechaDeRealizacion;
+        int? voluntariosNecesarios;
         int fkIDEstado;
 
         public Evento()
