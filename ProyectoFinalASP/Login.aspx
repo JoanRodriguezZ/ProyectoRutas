@@ -66,12 +66,12 @@
 
                     <div class="pt-1 pb-3">
                         <label for="email" class="form-label">Email</label>
-                        <asp:TextBox type="email" class="form-control" ID="emailBox" required runat="server"></asp:TextBox>
+                        <asp:TextBox type="email" class="form-control" ID="emailBox" required="true" runat="server"></asp:TextBox>
                     </div>
 
                     <div class="pt-1 pb-3">
                         <label for="password" class="form-label">Password</label>
-                        <asp:TextBox type="password" class="form-control" ID="passwordBox" required runat="server"></asp:TextBox>
+                        <asp:TextBox type="password" class="form-control" ID="passwordBox" required="true" runat="server"></asp:TextBox>
                     </div>
 
                     <asp:Button ID="ButtonSubmit" runat="server" Text="Iniciar Sesión" class="btn btn-primary d-block m-auto" OnClick="ButtonSubmit_Click"/>
@@ -80,15 +80,6 @@
                 </div>
             </div>
         </div>
-
-        <!-- Botones para testear
-    <div class="p-4 m-4">
-        <button onclick="crearSesion()">Crear</button>
-        <button onclick="mostrar()">Mostrar</button>
-        <button onclick="modificar()">Modificar</button>
-        <button onclick="cerrarSesion()">Elminar</button>
-    </div>
-    -->
 
         <!-- Floor content -->
         <div class=" fixed-bottom" id="footer">

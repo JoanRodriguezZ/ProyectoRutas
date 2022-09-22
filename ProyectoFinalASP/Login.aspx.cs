@@ -23,23 +23,20 @@ namespace ProyectoFinalASP
             string loginEmail = emailBox.Text;
             string loginPassword = passwordBox.Text;
 
-            // Hash
-            string hashedPassword = Hash.SecurePasswordHasher.Hash(loginPassword);
+            string hash = dalUsuario.SelectUserHashByEmail(loginEmail);
 
             //Verify
-            bool result = Hash.SecurePasswordHasher.Verify(loginPassword, hashedPassword);
+            bool result = Hash.SecurePasswordHasher.Verify(loginPassword, hash); // Comprueba si la contraseña es válida para el hash específico.
 
             if (result)
             {
-                /*Usuario usuario = dalUsuario.SelectUsuarioByEmailPassword(loginEmail);
+                Usuario usuario = dalUsuario.SelectUsuarioByEmailPassword(loginEmail, hash);
 
-                
                 if (usuario != null)
                 {
-                    labelEmailPassword.Text ="Credenciales correctas";
+                    labelEmailPassword.Text = "Credenciales correctas";
                 }
                 else labelEmailPassword.Text = "Credenciales incorrectas"; 
-                */
             }
 
         }

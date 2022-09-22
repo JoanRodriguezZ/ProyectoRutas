@@ -178,6 +178,39 @@ namespace ProyectoFinalASP.DAL
 
             return user;
         }
+
+        public string SelectUserHashByEmail(string email)
+        {
+            string hash = null;
+
+            try
+            {
+                string sql = "SELECT Password FROM Usuario WHERE Email=@pEmail";
+                SqlCommand cmd = new SqlCommand(sql, cnx.MiCnx);
+                SqlParameter pEmail = new SqlParameter("@pEmail", email);
+                cmd.Parameters.Add(pEmail);
+
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    hash = (string)(dr["Password"]);
+                }
+                dr.Close();
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("Error en Insert: " + ex.Message);
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                cnx.MiCnx.Close();
+            }
+
+            return hash;
+        }
+
         public object GestionarNulos(object valOriginal)
         {
             if (valOriginal == System.DBNull.Value)
