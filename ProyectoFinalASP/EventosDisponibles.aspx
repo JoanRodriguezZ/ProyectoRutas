@@ -5,8 +5,8 @@
     <div id="allDivsEvents">
         <div id="base" class="row border">
             <div class="col-3">
-                <label class="form-label" id="lblRuta">Ruta</label><br />
-                <button class="btn btn-outline-dark" id="verRuta">Ver</button><br />
+                <label runat="server" class="form-label" id="lblRuta">Ruta</label><br />
+                <button runat="server" class="btn btn-outline-dark" id="btnVerRuta">Ver</button><br />
                 <label runat="server" class="form-label" id="lblCreador">Usuario Creador</label>
             </div>
             <div class="col-3">

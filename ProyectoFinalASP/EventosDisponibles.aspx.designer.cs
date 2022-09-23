@@ -15,6 +15,24 @@ namespace ProyectoFinalASP
     {
 
         /// <summary>
+        /// Control lblRuta.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblRuta;
+
+        /// <summary>
+        /// Control btnVerRuta.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnVerRuta;
+
+        /// <summary>
         /// Control lblCreador.
         /// </summary>
         /// <remarks>

@@ -64,7 +64,7 @@ function onMapClick(e) {
         //document.getElementById(pBlngHTML).value = pBlng;
         //document.getElementById(pBlatHTML).value = pBlat;
 
-        trazado.addData(lineaTotal);
+        //trazado.addData(lineaTotal);
         
         //L.geoJSON(lineaTotal).addTo(map);
 

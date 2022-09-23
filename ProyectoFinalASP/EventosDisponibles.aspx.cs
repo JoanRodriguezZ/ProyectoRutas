@@ -23,9 +23,10 @@ namespace ProyectoFinalASP
             usuarios = usuarioDal.SelectUsuariosOrderByNombreApellidos();
             foreach (var usuario in usuarios)
             {
-                sb.Append("<div class='row'>"+ usuario.Telefono + "</div>");
+                sb.Append("<div class='row'>"+ usuario.IdUsuario + "</div>");
                 
                 lblCreador.InnerText = usuario.Nombre;
+                lblRuta.InnerText = usuario.IdUsuario.ToString();
             }
             ltTry.Text = sb.ToString();
         }
