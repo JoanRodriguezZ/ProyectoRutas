@@ -36,6 +36,14 @@ namespace ProyectoFinalASP
                 if (usuario != null)
                 {
                     labelEmailPassword.Text = "Credenciales correctas";
+
+                    HttpCookie userInfo = new HttpCookie("userInfo");
+                    userInfo["username"] = usuario.Nombre;
+                    userInfo["surname"] = usuario.Apellidos;
+
+                    Response.Cookies.Add(userInfo);
+
+                    Response.Redirect("PaginaPrincipal");
                 }
                 
             }

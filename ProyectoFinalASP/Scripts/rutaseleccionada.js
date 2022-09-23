@@ -63,20 +63,18 @@ function onMapClick(e) {
             "coordinates": [[pAlng, pAlat], [pBlng, pBlat]]
         }];
 
-
-        coordAlng.Value = pAlng;
-        coordAlat.Value = pAlat;
-        coordBlng.Value = pBlng;
-        coordBlat.Value = pBlat;
-
-
-        alert("CoordBlng: " + coordBlng.Value + ". pBlng: " + pBlng);
-
         trazado.addData(lineaTotal);
         
         //L.geoJSON(lineaTotal).addTo(map);
 
     }
+
+    coordAlng.Value = pAlng;
+    coordAlat.Value = pAlat;
+    coordBlng.Value = pBlng;
+    coordBlat.Value = pBlat;
+
+    alert("CoordBlng: " + coordBlng.Value + ". pBlng: " + pBlng);
 
     //L.geoJSON(myLines).addTo(map);
 }
