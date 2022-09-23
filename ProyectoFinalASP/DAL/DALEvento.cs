@@ -75,8 +75,8 @@ namespace ProyectoFinalASP.DAL
                     evento.IdEvento = (int)dr["IDEvento"];
                     evento.FkIDRuta = (int)(dr["FKRutaID"]);
                     evento.EsPublico = (bool)(dr["esPublico"]);
-                    evento.FechaDeRealizacion = (DateTime)GestionarNulos(dr["FechaDeRealizacion"]);
-                    evento.VoluntariosNecesarios = (int)GestionarNulos(dr["VoluntariosNecesarios"]);
+                    evento.FechaDeRealizacion = (DateTime?)GestionarNulos(dr["FechaDeRealizacion"]);
+                    evento.VoluntariosNecesarios = (int?)GestionarNulos(dr["VoluntariosNecesarios"]);
                     evento.FkIDEstado = (int)(dr["FKIDEstado"]);
 
                     eventos.Add(evento);
@@ -113,8 +113,8 @@ namespace ProyectoFinalASP.DAL
                     evento.IdEvento = (int)dr["IDEvento"];
                     evento.FkIDRuta = (int)(dr["FKRutaID"]);
                     evento.EsPublico = (bool)(dr["esPublico"]);
-                    evento.FechaDeRealizacion = (DateTime)GestionarNulos(dr["FechaDeRealizacion"]);
-                    evento.VoluntariosNecesarios = (int)GestionarNulos(dr["VoluntariosNecesarios"]);
+                    evento.FechaDeRealizacion = (DateTime?)GestionarNulos(dr["FechaDeRealizacion"]);
+                    evento.VoluntariosNecesarios = (int?)GestionarNulos(dr["VoluntariosNecesarios"]);
                     evento.FkIDEstado = (int)(dr["FKIDEstado"]);
 
                     eventos.Add(evento);
@@ -154,8 +154,8 @@ namespace ProyectoFinalASP.DAL
                     evento.IdEvento = (int)dr["IDEvento"];
                     evento.FkIDRuta = (int)(dr["FKRutaID"]);
                     evento.EsPublico = (bool)(dr["esPublico"]);
-                    evento.FechaDeRealizacion = (DateTime)GestionarNulos(dr["FechaDeRealizacion"]);
-                    evento.VoluntariosNecesarios = (int)GestionarNulos(dr["VoluntariosNecesarios"]);
+                    evento.FechaDeRealizacion = (DateTime?)GestionarNulos(dr["FechaDeRealizacion"]);
+                    evento.VoluntariosNecesarios = (int?)GestionarNulos(dr["VoluntariosNecesarios"]);
                     evento.FkIDEstado = (int)(dr["FKIDEstado"]);
 
                     eventos.Add(evento);

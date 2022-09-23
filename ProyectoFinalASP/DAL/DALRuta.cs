@@ -80,7 +80,7 @@ namespace ProyectoFinalASP.DAL
                     ruta.LongitudKm = (float)GestionarNulos(dr["LongitudKm"]);
                     ruta.NivelAccesibilidad = (int)GestionarNulos(dr["NivelAccesibilidad"]);
                     ruta.Localizacion = (string)(dr["Localizacion"]);
-                    ruta.ValoracionMedia = (float)GestionarNulos(dr["ValoracionMedia"]);
+                    ruta.ValoracionMedia = (float?)GestionarNulos(dr["ValoracionMedia"]);
                     ruta.FkIDUsuario = (int)GestionarNulos(dr["FKIDUsuario"]);
 
                     rutas.Add(ruta);
@@ -122,7 +122,7 @@ namespace ProyectoFinalASP.DAL
                     ruta.LongitudKm = (float)GestionarNulos(dr["LongitudKm"]);
                     ruta.NivelAccesibilidad = (int)GestionarNulos(dr["NivelAccesibilidad"]);
                     ruta.Localizacion = (string)(dr["Localizacion"]);
-                    ruta.ValoracionMedia = (float)GestionarNulos(dr["ValoracionMedia"]);
+                    ruta.ValoracionMedia = (float?)GestionarNulos(dr["ValoracionMedia"]);
                     ruta.FkIDUsuario = (int)GestionarNulos(dr["FKIDUsuario"]);
 
                     rutas.Add(ruta);
