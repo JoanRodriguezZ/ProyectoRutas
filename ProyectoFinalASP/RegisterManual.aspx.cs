@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using ProyectoFinalASP.DAL;
 using ProyectoFinalASP.Modelos;
+using System.Text.RegularExpressions;
 
 namespace ProyectoFinalASP
 {
@@ -19,11 +20,19 @@ namespace ProyectoFinalASP
 
         protected void btnRegistrar_Click(object sender, EventArgs e)
         {
-            // Hash
-            string hashedPassword = Hash.SecurePasswordHasher.Hash((string)Session["password"]);
-
-            Usuario user = new Usuario(hashedPassword, usernameBox.Text, surnameBox.Text, (string)Session["email"], phoneBox.Text, localidadBox.Text, int.Parse(porcentajeMinusBox.Text), tipoMinusvaliaBox.Text, dependenciaBox.Text, esMinusvalidoCheckBox.Checked, esVoluntarioCheckBox.Checked, false);
-            dalUsuario.InsertUsuario(user);
+            string telf = phoneBox.Text;
+            if (Regex.IsMatch(telf, @"[0-9]"))
+            {
+                // Hash
+                string hashedPassword = Hash.SecurePasswordHasher.Hash((string)Session["password"]);                
+                Usuario user = new Usuario(hashedPassword, usernameBox.Text, surnameBox.Text, (string)Session["email"], phoneBox.Text, localidadBox.Text, int.Parse(porcentajeMinusBox.Text), tipoMinusvaliaBox.Text, dependenciaBox.Text, esMinusvalidoCheckBox.Checked, esVoluntarioCheckBox.Checked, false);
+                dalUsuario.InsertUsuario(user);
+                Response.Redirect("Login");
+            }
+            else
+            {
+                errorTelf.InnerText = "Telefono incorrecto";
+            }
         }
     }
 }
