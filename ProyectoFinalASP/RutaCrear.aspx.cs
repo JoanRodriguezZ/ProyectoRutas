@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 
 namespace ProyectoFinalASP
 {
-    public partial class RutaSeleccionada : Page
+    public partial class RutaCrear : Page
     {
         List<float[,]> coordsList = new List<float[,]>();
 
