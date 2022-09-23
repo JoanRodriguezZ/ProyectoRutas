@@ -23,13 +23,14 @@ namespace ProyectoFinalASP.DAL
             {
                 string sql = @"INSERT INTO Ruta 
                     (Nombre, LongitudKm, NivelAccesibilidad, 
-                    Localizacion, ValoracionMedia, FKIDUsuario)
+                    Localizacion, ValoracionMedia, FKIDUsuario, Descripcion)
                     VALUES (@pNombre,
                         @pLongitudKm,
                         @pNivelAccesibilidad,
                         @pLocalizacion,
                         @pValoracionMedia,
-                        @pFKIDUsuario)";
+                        @pFKIDUsuario,
+                        @pDescripcion)";
                 SqlCommand cmd = new SqlCommand(sql, cnx.MiCnx);
 
                 SqlParameter pNombre = new SqlParameter("@pNombre", System.Data.SqlDbType.NVarChar, 50);
@@ -44,6 +45,8 @@ namespace ProyectoFinalASP.DAL
                 pValoracionMedia.Value = ruta.ValoracionMedia;
                 SqlParameter pFKIDUsuario = new SqlParameter("@pFKIDUsuario", System.Data.SqlDbType.Int);
                 pFKIDUsuario.Value = ruta.FkIDUsuario;
+                SqlParameter pDescripcion = new SqlParameter("@pDescripcion", System.Data.SqlDbType.NVarChar, 400);
+                pDescripcion.Value = ruta.Descripcion;
 
                 cmd.Parameters.Add(pNombre);
                 cmd.Parameters.Add(pLongitudKm);
@@ -51,6 +54,7 @@ namespace ProyectoFinalASP.DAL
                 cmd.Parameters.Add(pLocalizacion);
                 cmd.Parameters.Add(pValoracionMedia);
                 cmd.Parameters.Add(pFKIDUsuario);
+                cmd.Parameters.Add(pDescripcion);
 
                 cmd.ExecuteNonQuery();
             }
@@ -83,11 +87,12 @@ namespace ProyectoFinalASP.DAL
                     ruta = new Ruta();
                     ruta.IdRuta = (int)dr["RutaID"];
                     ruta.Nombre = (string)(dr["Nombre"]);
-                    ruta.LongitudKm = (decimal)GestionarNulos(dr["LongitudKm"]);
-                    ruta.NivelAccesibilidad = (int)GestionarNulos(dr["NivelAccesibilidad"]);
+                    ruta.LongitudKm = (decimal)(dr["LongitudKm"]);
+                    ruta.NivelAccesibilidad = (int)(dr["NivelAccesibilidad"]);
                     ruta.Localizacion = (string)(dr["Localizacion"]);
                     ruta.ValoracionMedia = (decimal?)GestionarNulos(dr["ValoracionMedia"]);
-                    ruta.FkIDUsuario = (int)GestionarNulos(dr["FKIDUsuario"]);
+                    ruta.FkIDUsuario = (int)(dr["FKIDUsuario"]);
+                    ruta.Descripcion = (string)(dr["FKIDUsuario"]);
 
                     rutas.Add(ruta);
                 }
@@ -128,11 +133,12 @@ namespace ProyectoFinalASP.DAL
                     ruta = new Ruta();
                     ruta.IdRuta = (int)dr["RutaID"];
                     ruta.Nombre = (string)(dr["Nombre"]);
-                    ruta.LongitudKm = (decimal)GestionarNulos(dr["LongitudKm"]);
-                    ruta.NivelAccesibilidad = (int)GestionarNulos(dr["NivelAccesibilidad"]);
+                    ruta.LongitudKm = (decimal)(dr["LongitudKm"]);
+                    ruta.NivelAccesibilidad = (int)(dr["NivelAccesibilidad"]);
                     ruta.Localizacion = (string)(dr["Localizacion"]);
                     ruta.ValoracionMedia = (decimal?)GestionarNulos(dr["ValoracionMedia"]);
-                    ruta.FkIDUsuario = (int)GestionarNulos(dr["FKIDUsuario"]);
+                    ruta.FkIDUsuario = (int)(dr["FKIDUsuario"]);
+                    ruta.Descripcion = (string)(dr["FKIDUsuario"]);
 
                     rutas.Add(ruta);
                 }
@@ -176,6 +182,7 @@ namespace ProyectoFinalASP.DAL
                     ruta.Localizacion = (string)(dr["Localizacion"]);
                     ruta.ValoracionMedia = (decimal?)GestionarNulos(dr["ValoracionMedia"]);
                     ruta.FkIDUsuario = (int)(dr["FKIDUsuario"]);
+                    ruta.Descripcion = (string)(dr["FKIDUsuario"]);
 
                 }
                 dr.Close();
