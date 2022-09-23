@@ -30,8 +30,9 @@ var coordenadaB = null;
 var coordAlng = document.getElementById("pAlngHTML");
 var coordAlat = document.getElementById("pAlatHTML");
 
-var coordBlng = document.getElementById("pBlngHTML");
 var coordBlat = document.getElementById("pBlatHTML");
+
+alert(coordBlng);
 
 var puntoSalida = null;
 
@@ -63,18 +64,23 @@ function onMapClick(e) {
             "coordinates": [[pAlng, pAlat], [pBlng, pBlat]]
         }];
 
+
         trazado.addData(lineaTotal);
         
         //L.geoJSON(lineaTotal).addTo(map);
 
     }
 
-    coordAlng.Value = pAlng;
-    coordAlat.Value = pAlat;
-    coordBlng.Value = pBlng;
-    coordBlat.Value = pBlat;
+    var coordBlng = document.getElementById('<%=pBlngHTML.ClientID%>');
+    alert("CoordBlng: " + coordBlng.value + ". pBlng: " + pBlng);
 
-    alert("CoordBlng: " + coordBlng.Value + ". pBlng: " + pBlng);
+    coordAlng.value = pAlng;
+    coordAlat.value = pAlat;
+    coordBlng.value = pBlng;
+    coordBlat.value = pBlat;
+
+    alert("CoordBlng: " + coordBlng.value + ". pBlng: " + pBlng);
+
 
     //L.geoJSON(myLines).addTo(map);
 }

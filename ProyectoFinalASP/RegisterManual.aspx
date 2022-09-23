@@ -69,24 +69,24 @@
 
                                 <label class="form-label">Nombre</label>
                                 <asp:TextBox type="text" ID="usernameBox" class="form-control" required="true" runat="server"></asp:TextBox>
-                                <br>
-                                <br>
+                                <br />
+                                <br />
 
                                 <label class="form-label">Fecha de nacimiento</label>
                                 <asp:TextBox type="date" ID="birthdateBox" class="form-control" required="true" runat="server"></asp:TextBox>
-                                <br>
-                                <br>
+                                <br />
+                                <br />
 
                                 <label class="form-label">Móvil</label>
                                 <asp:TextBox type="text" ID="phoneBox" class="form-control" required="true" runat="server"></asp:TextBox>
                                 <span class="form-text" id="errorTelf" runat="server"></span>
-                                <br>
-                                <br>
+                                <br />
+                                <br />
 
                                 <label class="form-label">Tipo Minusvalía</label>
                                 <asp:TextBox type="text" ID="tipoMinusvaliaBox" class="form-control" required="true" runat="server">Ninguna</asp:TextBox>
-                                <br>
-                                <br>
+                                <br />
+                                <br />
                                 <asp:CheckBox ID="esMinusvalidoCheckBox" runat="server" Text="&nbsp;Minusválido" />
                             </div>
 

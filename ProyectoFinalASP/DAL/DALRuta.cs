@@ -16,6 +16,9 @@ namespace ProyectoFinalASP.DAL
         }
         public void InsertRuta(Ruta ruta)
         {
+            if (cnx.MiCnx.State == System.Data.ConnectionState.Closed)
+                cnx.MiCnx.Open();
+
             try
             {
                 string sql = @"INSERT INTO Ruta 
@@ -31,13 +34,13 @@ namespace ProyectoFinalASP.DAL
 
                 SqlParameter pNombre = new SqlParameter("@pNombre", System.Data.SqlDbType.NVarChar, 50);
                 pNombre.Value = ruta.Nombre;
-                SqlParameter pLongitudKm = new SqlParameter("@pLongitudKm", System.Data.SqlDbType.Float);
+                SqlParameter pLongitudKm = new SqlParameter("@pLongitudKm", System.Data.SqlDbType.Decimal);
                 pLongitudKm.Value = ruta.LongitudKm;
                 SqlParameter pNivelAccesibilidad = new SqlParameter("@pNivelAccesibilidad", System.Data.SqlDbType.Int);
                 pNivelAccesibilidad.Value = ruta.NivelAccesibilidad;
                 SqlParameter pLocalizacion = new SqlParameter("@pLocalizacion", System.Data.SqlDbType.NVarChar, 200);
                 pLocalizacion.Value = ruta.Localizacion;
-                SqlParameter pValoracionMedia = new SqlParameter("@pValoracionMedia", System.Data.SqlDbType.Float);
+                SqlParameter pValoracionMedia = new SqlParameter("@pValoracionMedia", System.Data.SqlDbType.Decimal);
                 pValoracionMedia.Value = ruta.ValoracionMedia;
                 SqlParameter pFKIDUsuario = new SqlParameter("@pFKIDUsuario", System.Data.SqlDbType.Int);
                 pFKIDUsuario.Value = ruta.FkIDUsuario;
@@ -63,6 +66,9 @@ namespace ProyectoFinalASP.DAL
         }
         public List<Ruta> SelectRutasOrderByLocalizacion()
         {
+            if (cnx.MiCnx.State == System.Data.ConnectionState.Closed)
+                cnx.MiCnx.Open();
+
             List<Ruta> rutas = new List<Ruta>();
             Ruta ruta;
 
@@ -77,10 +83,10 @@ namespace ProyectoFinalASP.DAL
                     ruta = new Ruta();
                     ruta.IdRuta = (int)dr["RutaID"];
                     ruta.Nombre = (string)(dr["Nombre"]);
-                    ruta.LongitudKm = (float)GestionarNulos(dr["LongitudKm"]);
+                    ruta.LongitudKm = (decimal)GestionarNulos(dr["LongitudKm"]);
                     ruta.NivelAccesibilidad = (int)GestionarNulos(dr["NivelAccesibilidad"]);
                     ruta.Localizacion = (string)(dr["Localizacion"]);
-                    ruta.ValoracionMedia = (float?)GestionarNulos(dr["ValoracionMedia"]);
+                    ruta.ValoracionMedia = (decimal?)GestionarNulos(dr["ValoracionMedia"]);
                     ruta.FkIDUsuario = (int)GestionarNulos(dr["FKIDUsuario"]);
 
                     rutas.Add(ruta);
@@ -102,6 +108,9 @@ namespace ProyectoFinalASP.DAL
         }
         public List<Ruta> SelectRutasByLocalizacion(string localizacion)
         {
+            if (cnx.MiCnx.State == System.Data.ConnectionState.Closed)
+                cnx.MiCnx.Open();
+
             List<Ruta> rutas = new List<Ruta>();
             Ruta ruta = null;
 
@@ -119,10 +128,10 @@ namespace ProyectoFinalASP.DAL
                     ruta = new Ruta();
                     ruta.IdRuta = (int)dr["RutaID"];
                     ruta.Nombre = (string)(dr["Nombre"]);
-                    ruta.LongitudKm = (float)GestionarNulos(dr["LongitudKm"]);
+                    ruta.LongitudKm = (decimal)GestionarNulos(dr["LongitudKm"]);
                     ruta.NivelAccesibilidad = (int)GestionarNulos(dr["NivelAccesibilidad"]);
                     ruta.Localizacion = (string)(dr["Localizacion"]);
-                    ruta.ValoracionMedia = (float?)GestionarNulos(dr["ValoracionMedia"]);
+                    ruta.ValoracionMedia = (decimal?)GestionarNulos(dr["ValoracionMedia"]);
                     ruta.FkIDUsuario = (int)GestionarNulos(dr["FKIDUsuario"]);
 
                     rutas.Add(ruta);
@@ -140,6 +149,48 @@ namespace ProyectoFinalASP.DAL
             }
 
             return rutas;
+        }
+        public Ruta SelectRutaByIdRuta(int idRuta)
+        {
+            if (cnx.MiCnx.State == System.Data.ConnectionState.Closed)
+                cnx.MiCnx.Open();
+
+            Ruta ruta = null;
+
+            try
+            {
+                string sql = "SELECT * FROM Ruta WHERE RutaID=@pIdRuta";
+                SqlCommand cmd = new SqlCommand(sql, cnx.MiCnx);
+                SqlParameter pIdRuta = new SqlParameter("@pIdRuta", idRuta);
+                cmd.Parameters.Add(pIdRuta);
+
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    ruta = new Ruta();
+                    ruta.IdRuta = (int)dr["RutaID"];
+                    ruta.Nombre = (string)(dr["Nombre"]);
+                    ruta.LongitudKm = (decimal)(dr["LongitudKm"]);
+                    ruta.NivelAccesibilidad = (int)(dr["NivelAccesibilidad"]);
+                    ruta.Localizacion = (string)(dr["Localizacion"]);
+                    ruta.ValoracionMedia = (decimal?)GestionarNulos(dr["ValoracionMedia"]);
+                    ruta.FkIDUsuario = (int)(dr["FKIDUsuario"]);
+
+                }
+                dr.Close();
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("Error en Insert: " + ex.Message);
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                cnx.MiCnx.Close();
+            }
+
+            return ruta;
         }
         public object GestionarNulos(object valOriginal)
         {
