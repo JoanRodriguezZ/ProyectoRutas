@@ -37,10 +37,10 @@ namespace ProyectoFinalASP
                 {
                     labelEmailPassword.Text = "Credenciales correctas";
                 }
-                else labelEmailPassword.Text = "Credenciales incorrectas"; 
+                
             }
-
-            labelEmailPassword.Text = hash;
+            else
+                labelEmailPassword.Text = "Credenciales incorrectas";
         }
     }
 }
