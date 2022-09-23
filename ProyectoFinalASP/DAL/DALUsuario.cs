@@ -10,15 +10,14 @@ namespace ProyectoFinalASP.DAL
 {
     public class DALUsuario
     {
-        DbConnect cnx;
-        public DALUsuario()
-        {
-            cnx = new DbConnect();
-        }
+        DbConnect cnx = new DbConnect();
+
         public void InsertUsuario(Usuario user)
         {
             try
             {
+                cnx.MiCnx.Open();
+
                 string sql = @"INSERT INTO Usuario 
                     (Password, Nombre, Apellidos, Email, 
                     Telefono, Localidad, PorcentajeMinusvalia, TipoMinusvalia, 
@@ -94,6 +93,8 @@ namespace ProyectoFinalASP.DAL
 
             try
             {
+                cnx.MiCnx.Open();
+
                 string sql = "SELECT * FROM Usuario ORDER BY Nombre, Apellidos";
                 SqlCommand cmd = new SqlCommand(sql, cnx.MiCnx);
                 SqlDataReader dr = cmd.ExecuteReader();
@@ -138,14 +139,17 @@ namespace ProyectoFinalASP.DAL
 
             try
             {
-                Debug.WriteLine("1");
+                cnx.MiCnx.Open();
+
                 string sql = "SELECT * FROM Usuario WHERE Email=@pEmail AND Password=@pPassword";
-                Debug.WriteLine("2");
                 SqlCommand cmd = new SqlCommand(sql, cnx.MiCnx);
-                Debug.WriteLine("1");
-                SqlParameter pEmail = new SqlParameter("@pEmail", email);
-                SqlParameter pPassword = new SqlParameter("@pPassword", password);
+
+                SqlParameter pEmail = new SqlParameter("@pEmail", System.Data.SqlDbType.VarChar, 150);
+                pEmail.Value = email;
                 cmd.Parameters.Add(pEmail);
+
+                SqlParameter pPassword = new SqlParameter("@pPassword", System.Data.SqlDbType.VarChar, 100);
+                pPassword.Value = password;
                 cmd.Parameters.Add(pPassword);
 
                 SqlDataReader dr = cmd.ExecuteReader();
@@ -163,9 +167,9 @@ namespace ProyectoFinalASP.DAL
                     user.PorcentajeMinusvalia = (int?)GestionarNulos(dr["PorcentajeMinusvalia"]);
                     user.TipoMinusvalia = (string)GestionarNulos(dr["TipoMinusvalia"]);
                     user.Dependencias = (string)GestionarNulos(dr["Dependencias"]);
-                    user.EsMinusvalido = (bool)GestionarNulos(dr["EsMinusvalido"]);
-                    user.EsVoluntario = (bool)GestionarNulos(dr["EsVoluntario"]);
-                    user.EsAdmin = (bool)GestionarNulos(dr["EsAdministrador"]);
+                    user.EsMinusvalido = (bool)(dr["EsMinusvalido"]);
+                    user.EsVoluntario = (bool)(dr["EsVoluntario"]);
+                    user.EsAdmin = (bool)(dr["EsAdministrador"]);
                 }
                 dr.Close();
             }
@@ -189,6 +193,8 @@ namespace ProyectoFinalASP.DAL
 
             try
             {
+                cnx.MiCnx.Open();
+
                 string sql = "SELECT Password FROM Usuario WHERE Email=@pEmail";
                 SqlCommand cmd = new SqlCommand(sql, cnx.MiCnx);
                 SqlParameter pEmail = new SqlParameter("@pEmail", email);
@@ -219,6 +225,8 @@ namespace ProyectoFinalASP.DAL
 
             try
             {
+                cnx.MiCnx.Open();
+
                 string sql = "SELECT * FROM Usuario WHERE Email=@pEmail";
                 SqlCommand cmd = new SqlCommand(sql, cnx.MiCnx);
                 SqlParameter pEmail = new SqlParameter("@pEmail", email);

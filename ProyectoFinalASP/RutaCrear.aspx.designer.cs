@@ -11,8 +11,17 @@ namespace ProyectoFinalASP
 {
 
 
-    public partial class RutaSeleccionada
+    public partial class RutaCrear
     {
+
+        /// <summary>
+        /// Control kmTotales.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label kmTotales;
 
         /// <summary>
         /// Control pAlngHTML.
