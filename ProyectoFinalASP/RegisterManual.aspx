@@ -84,7 +84,7 @@
                                 <br>
 
                                 <label class="form-label">Tipo Minusvalía</label>
-                                <asp:TextBox type="text" ID="tipoMinusvaliaBox" class="form-control" runat="server"></asp:TextBox>
+                                <asp:TextBox type="text" ID="tipoMinusvaliaBox" class="form-control" required="true" runat="server">Ninguna</asp:TextBox>
                                 <br>
                                 <br>
                                 <asp:CheckBox ID="esMinusvalidoCheckBox" runat="server" Text="&nbsp;Minusválido" />
@@ -103,12 +103,12 @@
                                 <br>
 
                                 <label class="form-label">Dependencia</label>
-                                <asp:TextBox type="text" ID="dependenciaBox" class="form-control" runat="server"></asp:TextBox>
+                                <asp:TextBox type="text" ID="dependenciaBox" class="form-control" required="true" runat="server">0</asp:TextBox>
                                 <br>
                                 <br>
 
                                 <label class="form-label">Porcentaje Minusvalía</label>
-                                <asp:TextBox type="number" ID="porcentajeMinusBox" class="form-control" runat="server"></asp:TextBox>
+                                <asp:TextBox type="number" ID="porcentajeMinusBox" class="form-control" required="true" runat="server">0</asp:TextBox>
                                 <br>
                                 <br>
                                 <asp:CheckBox ID="esVoluntarioCheckBox" runat="server" Text="&nbsp;Inscribirse como voluntario" />
