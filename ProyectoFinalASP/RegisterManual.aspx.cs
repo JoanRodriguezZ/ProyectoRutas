@@ -21,7 +21,7 @@ namespace ProyectoFinalASP
         protected void btnRegistrar_Click(object sender, EventArgs e)
         {
             string telf = phoneBox.Text;
-            if (Regex.IsMatch(telf, @"[0-9]"))
+            if (Regex.IsMatch(telf, @"[0-9]{7,10}"))
             {
                 // Hash
                 string hashedPassword = Hash.SecurePasswordHasher.Hash((string)Session["password"]);                

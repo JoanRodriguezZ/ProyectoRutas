@@ -36,6 +36,7 @@ namespace ProyectoFinalASP
                 if (usuario != null)
                 {
                     labelEmailPassword.Text = "Credenciales correctas";
+                    Response.Redirect("PaginaPrincipal");
                 }
                 else labelEmailPassword.Text = "Credenciales incorrectas"; 
             }
