@@ -3,11 +3,11 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <label id="lblLoad" onclick="fill();">Load</label>
     <div id="allDivsEvents">
-        <div id="base" class="row border">
+        <!--<div id="base" class="row border">
             <div class="col-3">
-                <label runat="server" class="form-label" id="lblRuta">Ruta</label><br />
-                <button runat="server" class="btn btn-outline-dark" id="btnVerRuta">Ver</button><br />
-                <label runat="server" class="form-label" id="lblCreador">Usuario Creador</label>
+                <label class="form-label" id="lblRuta">Ruta</label><br />
+                <button class="btn btn-outline-dark" id="btnVerRuta">Ver</button><br />
+                <label class="form-label" id="lblCreador">Usuario Creador</label>
             </div>
             <div class="col-3">
                 <label class="form-label" id="lblKm">Km: </label><br />
@@ -24,7 +24,7 @@
                 <label class="form-label" id="lblHora">Hora</label><br />
                 <button class="btn btn-outline-dark" id="btnJoin">JOIN</button>
             </div>
-        </div>
+        </div>-->
     </div>
     <asp:Literal ID = "ltTry" runat = "server" />
     <script>
