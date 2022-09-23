@@ -26,8 +26,12 @@ var pBlng = null;
 var coordenadaA = null;
 var coordenadaB = null;
 
-var coordAHTML = document.getElementById('coordenadaA');
-var coordBHTML = document.getElementById('coordenadaB');
+
+var coordAlng = document.getElementById("pAlngHTML");
+var coordAlat = document.getElementById("pAlatHTML");
+
+var coordBlng = document.getElementById("pBlngHTML");
+var coordBlat = document.getElementById("pBlatHTML");
 
 var puntoSalida = null;
 
@@ -59,10 +63,14 @@ function onMapClick(e) {
             "coordinates": [[pAlng, pAlat], [pBlng, pBlat]]
         }];
 
-        //document.getElementById(pAlngHTML).value = pAlng;
-        //document.getElementById(pAlatHTML).value = pAlat;
-        //document.getElementById(pBlngHTML).value = pBlng;
-        //document.getElementById(pBlatHTML).value = pBlat;
+
+        coordAlng.Value = pAlng;
+        coordAlat.Value = pAlat;
+        coordBlng.Value = pBlng;
+        coordBlat.Value = pBlat;
+
+
+        alert("CoordBlng: " + coordBlng.Value + ". pBlng: " + pBlng);
 
         trazado.addData(lineaTotal);
         

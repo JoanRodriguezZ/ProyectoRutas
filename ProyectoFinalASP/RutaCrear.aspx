@@ -26,7 +26,7 @@
 
     <asp:HiddenField ID="pAlngHTML" runat="server" />
     <asp:HiddenField ID="pAlatHTML" runat="server" />
-    <asp:HiddenField ID="pBlngHTML" runat="server" />
+    <asp:HiddenField ID="pBlngHTML" runat="server" OnValueChanged="pBlngHTML_ValueChanged" />
     <asp:HiddenField ID="pBlatHTML" runat="server" />
 
     <script src="Scripts/rutaseleccionada.js"></script>

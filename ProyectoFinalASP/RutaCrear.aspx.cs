@@ -22,6 +22,11 @@ namespace ProyectoFinalASP
         protected void Page_Load(object sender, EventArgs e)
         {
 
+        }
+
+        protected void pBlngHTML_ValueChanged(object sender, EventArgs e)
+        {
+
             string pAlngCS = pAlngHTML.Value;
             string pAlatCS = pAlatHTML.Value;
 
@@ -33,7 +38,7 @@ namespace ProyectoFinalASP
 
                 coord1X = float.Parse(pAlngCS);
                 coord1Y = float.Parse(pAlatCS);
-                coord2X = float.Parse(pBlatCS);
+                coord2X = float.Parse(pBlngCS);
                 coord2Y = float.Parse(pBlatCS);
 
 
@@ -41,11 +46,9 @@ namespace ProyectoFinalASP
 
                 coordsList.Add(coordLinea);
             }
-            
+
 
         }
-
-
     }
 }
 
