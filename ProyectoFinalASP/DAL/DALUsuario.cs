@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 
@@ -137,15 +138,17 @@ namespace ProyectoFinalASP.DAL
 
             try
             {
+                Debug.WriteLine("1");
                 string sql = "SELECT * FROM Usuario WHERE Email=@pEmail AND Password=@pPassword";
+                Debug.WriteLine("2");
                 SqlCommand cmd = new SqlCommand(sql, cnx.MiCnx);
+                Debug.WriteLine("1");
                 SqlParameter pEmail = new SqlParameter("@pEmail", email);
                 SqlParameter pPassword = new SqlParameter("@pPassword", password);
                 cmd.Parameters.Add(pEmail);
                 cmd.Parameters.Add(pPassword);
 
                 SqlDataReader dr = cmd.ExecuteReader();
-
 
                 while (dr.Read())
                 {
@@ -170,6 +173,7 @@ namespace ProyectoFinalASP.DAL
             {
                 //MessageBox.Show("Error en Insert: " + ex.Message);
                 Console.WriteLine(ex.Message);
+                Debug.WriteLine(ex.Message);
             }
             finally
             {

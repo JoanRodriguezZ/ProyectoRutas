@@ -25,12 +25,13 @@ namespace ProyectoFinalASP
 
             string hash = dalUsuario.SelectUserHashByEmail(loginEmail);
 
-            //Verify
+            // Verify
             bool result = Hash.SecurePasswordHasher.Verify(loginPassword, hash); // Comprueba si la contraseña es válida para el hash específico.
 
-            if (result)
+            Usuario usuario = new Usuario();
+            if (result == true)
             {
-                Usuario usuario = dalUsuario.SelectUsuarioByEmailPassword(loginEmail, hash);
+                usuario = dalUsuario.SelectUsuarioByEmailPassword(loginEmail, hash);
 
                 if (usuario != null)
                 {
@@ -39,6 +40,7 @@ namespace ProyectoFinalASP
                 else labelEmailPassword.Text = "Credenciales incorrectas"; 
             }
 
+            labelEmailPassword.Text = hash;
         }
     }
 }
