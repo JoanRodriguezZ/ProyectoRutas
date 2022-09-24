@@ -8,19 +8,19 @@ namespace ProyectoFinalASP.Modelos
     public class Estado
     {
         int idEstado;
-        string estado;
+        string estadoDescripcion;
 
         public Estado()
         {
 
         }
-        public Estado(int idEstado, string estado)
+        public Estado(int idEstado, string estadoDescripcion)
         {
             this.idEstado = idEstado;
-            this.estado = estado;
+            this.estadoDescripcion = estadoDescripcion;
         }
 
         public int IdEstado { get => idEstado; set => idEstado = value; }
-        public string Estado { get => estado; set => estado = value; }
+        public string EstadoDescripcion { get => estadoDescripcion; set => estadoDescripcion = value; }
     }
 }
