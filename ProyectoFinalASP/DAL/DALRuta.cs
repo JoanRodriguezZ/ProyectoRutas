@@ -92,7 +92,7 @@ namespace ProyectoFinalASP.DAL
                     ruta.Localizacion = (string)(dr["Localizacion"]);
                     ruta.ValoracionMedia = (decimal?)GestionarNulos(dr["ValoracionMedia"]);
                     ruta.FkIDUsuario = (int)(dr["FKIDUsuario"]);
-                    ruta.Descripcion = (string)(dr["FKIDUsuario"]);
+                    ruta.Descripcion = (string)(dr["Descripcion"]);
 
                     rutas.Add(ruta);
                 }
@@ -138,7 +138,7 @@ namespace ProyectoFinalASP.DAL
                     ruta.Localizacion = (string)(dr["Localizacion"]);
                     ruta.ValoracionMedia = (decimal?)GestionarNulos(dr["ValoracionMedia"]);
                     ruta.FkIDUsuario = (int)(dr["FKIDUsuario"]);
-                    ruta.Descripcion = (string)(dr["FKIDUsuario"]);
+                    ruta.Descripcion = (string)(dr["Descripcion"]);
 
                     rutas.Add(ruta);
                 }
@@ -182,7 +182,7 @@ namespace ProyectoFinalASP.DAL
                     ruta.Localizacion = (string)(dr["Localizacion"]);
                     ruta.ValoracionMedia = (decimal?)GestionarNulos(dr["ValoracionMedia"]);
                     ruta.FkIDUsuario = (int)(dr["FKIDUsuario"]);
-                    ruta.Descripcion = (string)(dr["FKIDUsuario"]);
+                    ruta.Descripcion = (string)(dr["Descripcion"]);
 
                 }
                 dr.Close();

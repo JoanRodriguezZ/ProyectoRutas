@@ -7,7 +7,6 @@ using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Windows;
 
 namespace ProyectoFinalASP
 {
@@ -50,7 +49,7 @@ namespace ProyectoFinalASP
                 sb.Append(" </div>");
                 
                 countElement++;
-                ltTry.Text = sb.ToString();
+                ltEventosDisponibles.Text = sb.ToString();
             }
             
         }
