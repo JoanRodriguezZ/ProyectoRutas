@@ -64,7 +64,7 @@ namespace ProyectoFinalASP.DAL
                     participante = new Participante();
                     participante.FkIDEvento = (int)dr["FKEventoID"];
                     participante.FkIDUsuario = (int)(dr["FKUsuarioID"]);
-                    participante.ValoracionRuta = (int)GestionarNulos(dr["ValoracionRuta"]);
+                    participante.ValoracionRuta = (int?)GestionarNulos(dr["ValoracionRuta"]);
                     participante.ComentarioRuta = (string)GestionarNulos(dr["ComentarioRuta"]);
 
                     participantes.Add(participante);

@@ -104,17 +104,17 @@ namespace ProyectoFinalASP.DAL
                     user = new Usuario();
                     user.IdUsuario = (int)dr["IDUsuario"];
                     user.Password = (string)(dr["Password"]);
-                    user.Nombre = (string)GestionarNulos(dr["Nombre"]);
-                    user.Apellidos = (string)GestionarNulos(dr["Apellidos"]);
+                    user.Nombre = (string)(dr["Nombre"]);
+                    user.Apellidos = (string)(dr["Apellidos"]);
                     user.Email = (string)(dr["Email"]);
-                    user.Telefono = (string)GestionarNulos(dr["Telefono"]);
-                    user.Localidad = (string)GestionarNulos(dr["Localidad"]);
+                    user.Telefono = (string)(dr["Telefono"]);
+                    user.Localidad = (string)(dr["Localidad"]);
                     user.PorcentajeMinusvalia = (int?)GestionarNulos(dr["PorcentajeMinusvalia"]);
                     user.TipoMinusvalia = (string)GestionarNulos(dr["TipoMinusvalia"]);
                     user.Dependencias = (string)GestionarNulos(dr["Dependencias"]);
-                    user.EsMinusvalido = (bool)GestionarNulos(dr["EsMinusvalido"]);
-                    user.EsVoluntario = (bool)GestionarNulos(dr["EsVoluntario"]);
-                    user.EsAdmin = (bool)GestionarNulos(dr["EsAdministrador"]);
+                    user.EsMinusvalido = (bool)(dr["EsMinusvalido"]);
+                    user.EsVoluntario = (bool)(dr["EsVoluntario"]);
+                    user.EsAdmin = (bool)(dr["EsAdministrador"]);
 
                     users.Add(user);
                 }
@@ -159,11 +159,11 @@ namespace ProyectoFinalASP.DAL
                     user = new Usuario();
                     user.IdUsuario = (int)dr["IDUsuario"];
                     user.Password = (string)(dr["Password"]);
-                    user.Nombre = (string)GestionarNulos(dr["Nombre"]);
-                    user.Apellidos = (string)GestionarNulos(dr["Apellidos"]);
+                    user.Nombre = (string)(dr["Nombre"]);
+                    user.Apellidos = (string)(dr["Apellidos"]);
                     user.Email = (string)(dr["Email"]);
-                    user.Telefono = (string)GestionarNulos(dr["Telefono"]);
-                    user.Localidad = (string)GestionarNulos(dr["Localidad"]);
+                    user.Telefono = (string)(dr["Telefono"]);
+                    user.Localidad = (string)(dr["Localidad"]);
                     user.PorcentajeMinusvalia = (int?)GestionarNulos(dr["PorcentajeMinusvalia"]);
                     user.TipoMinusvalia = (string)GestionarNulos(dr["TipoMinusvalia"]);
                     user.Dependencias = (string)GestionarNulos(dr["Dependencias"]);

@@ -7,32 +7,20 @@ namespace ProyectoFinalASP.Modelos
 {
     public class Estado
     {
-        int idEvento;
-        int fkIDRuta;
-        bool esPublico;
-        DateTime fechaDeRealizacion;
-        int voluntariosNecesarios;
-        int fkIDEstado;
+        int idEstado;
+        string estado;
 
         public Estado()
         {
 
         }
-        public Estado(int idEvento, int fkIDRuta, bool esPublico, DateTime fechaDeRealizacion, int voluntariosNecesarios, int fkIDEstado)
+        public Estado(int idEstado, string estado)
         {
-            this.idEvento = idEvento;
-            this.fkIDRuta = fkIDRuta;
-            this.esPublico = esPublico;
-            this.fechaDeRealizacion = fechaDeRealizacion;
-            this.voluntariosNecesarios = voluntariosNecesarios;
-            this.fkIDEstado = fkIDEstado;
+            this.idEstado = idEstado;
+            this.estado = estado;
         }
 
-        public int IdEvento { get => idEvento; set => idEvento = value; }
-        public int FkIDRuta { get => fkIDRuta; set => fkIDRuta = value; }
-        public bool EsPublico { get => esPublico; set => esPublico = value; }
-        public DateTime FechaDeRealizacion { get => fechaDeRealizacion; set => fechaDeRealizacion = value; }
-        public int VoluntariosNecesarios { get => voluntariosNecesarios; set => voluntariosNecesarios = value; }
-        public int FkIDEstado { get => fkIDEstado; set => fkIDEstado = value; }
+        public int IdEstado { get => idEstado; set => idEstado = value; }
+        public string Estado { get => estado; set => estado = value; }
     }
 }
