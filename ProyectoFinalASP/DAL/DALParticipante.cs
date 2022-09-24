@@ -44,7 +44,7 @@ namespace ProyectoFinalASP.DAL
                 cnx.MiCnx.Close();
             }
         }
-
+        //Alguna mas?
         public List<Participante> SelectParticipantesByIdEvento(int idEvento)
         {
             List<Participante> participantes = new List<Participante>();
