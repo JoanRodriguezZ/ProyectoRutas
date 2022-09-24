@@ -16,6 +16,9 @@ namespace ProyectoFinalASP.DAL
         }
         public void InsertPuntoDeControl(PuntoDeControl puntoDeControl)
         {
+            if (cnx.MiCnx.State == System.Data.ConnectionState.Closed)
+                cnx.MiCnx.Open();
+
             try
             {
                 string sql = @"INSERT INTO PuntoDeControl 
@@ -51,6 +54,9 @@ namespace ProyectoFinalASP.DAL
         
         public List<PuntoDeControl> SelectPuntosDeControlByIdRuta(int idRuta)
         {
+            if (cnx.MiCnx.State == System.Data.ConnectionState.Closed)
+                cnx.MiCnx.Open();
+
             List<PuntoDeControl> puntosDeControl = new List<PuntoDeControl>();
             PuntoDeControl puntoDeControl = null;
 

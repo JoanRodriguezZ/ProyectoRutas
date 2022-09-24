@@ -17,6 +17,9 @@ namespace ProyectoFinalASP.DAL
         }
         public void InsertEvento(Evento evento)
         {
+            if (cnx.MiCnx.State == System.Data.ConnectionState.Closed)
+                cnx.MiCnx.Open();
+
             try
             {
                 string sql = @"INSERT INTO Evento 
@@ -60,6 +63,9 @@ namespace ProyectoFinalASP.DAL
         }
         public List<Evento> SelectEventosOrderByFecha()
         {
+            if (cnx.MiCnx.State == System.Data.ConnectionState.Closed)
+                cnx.MiCnx.Open();
+
             List<Evento> eventos = new List<Evento>();
             Evento evento;
 
@@ -98,6 +104,9 @@ namespace ProyectoFinalASP.DAL
         }
         public List<Evento> SelectEventosOrderByEstado()
         {
+            if (cnx.MiCnx.State == System.Data.ConnectionState.Closed)
+                cnx.MiCnx.Open();
+
             List<Evento> eventos = new List<Evento>();
             Evento evento;
 
@@ -136,6 +145,9 @@ namespace ProyectoFinalASP.DAL
         }
         public List<Evento> SelectEventosByRuta(int fkIDRuta)
         {
+            if (cnx.MiCnx.State == System.Data.ConnectionState.Closed)
+                cnx.MiCnx.Open();
+
             List<Evento> eventos = new List<Evento>();
             Evento evento = null;
 

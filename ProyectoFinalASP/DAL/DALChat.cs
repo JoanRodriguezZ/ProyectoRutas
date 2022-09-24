@@ -16,6 +16,9 @@ namespace ProyectoFinalASP.DAL
         }
         public void InsertChat(Chat chat)
         {
+            if (cnx.MiCnx.State == System.Data.ConnectionState.Closed)
+                cnx.MiCnx.Open();
+
             try
             {
                 string sql = @"INSERT INTO Chat 
@@ -51,6 +54,9 @@ namespace ProyectoFinalASP.DAL
 
         public List<Chat> SelectChatsByIdEvento(int idEvento)
         {
+            if (cnx.MiCnx.State == System.Data.ConnectionState.Closed)
+                cnx.MiCnx.Open();
+
             List<Chat> chats = new List<Chat>();
             Chat chat = null;
 

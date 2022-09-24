@@ -7,6 +7,7 @@ using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Windows;
 
 namespace ProyectoFinalASP
 {
@@ -46,7 +47,7 @@ namespace ProyectoFinalASP
                 sb.Append("         <button class='btn btn-outline-dark' id='btnJoin'>JOIN</button>");
                 sb.Append("     </div>");
                 sb.Append(" </div>");
-
+                
                 countElement++;
                 ltTry.Text = sb.ToString();
             }

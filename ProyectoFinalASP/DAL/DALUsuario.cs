@@ -14,6 +14,9 @@ namespace ProyectoFinalASP.DAL
 
         public void InsertUsuario(Usuario user)
         {
+            if (cnx.MiCnx.State == System.Data.ConnectionState.Closed)
+                cnx.MiCnx.Open();
+
             try
             {
                 cnx.MiCnx.Open();
@@ -88,6 +91,9 @@ namespace ProyectoFinalASP.DAL
         }
         public List<Usuario> SelectUsuariosOrderByNombreApellidos()
         {
+            if (cnx.MiCnx.State == System.Data.ConnectionState.Closed)
+                cnx.MiCnx.Open();
+
             List<Usuario> users = new List<Usuario>();
             Usuario user;
 
@@ -135,6 +141,9 @@ namespace ProyectoFinalASP.DAL
         }
         public Usuario SelectUsuarioByEmailPassword(string email, string password)
         {
+            if (cnx.MiCnx.State == System.Data.ConnectionState.Closed)
+                cnx.MiCnx.Open();
+
             Usuario user = null;
 
             try
@@ -189,6 +198,9 @@ namespace ProyectoFinalASP.DAL
 
         public string SelectUserHashByEmail(string email)
         {
+            if (cnx.MiCnx.State == System.Data.ConnectionState.Closed)
+                cnx.MiCnx.Open();
+
             string hash = null;
 
             try
@@ -221,7 +233,9 @@ namespace ProyectoFinalASP.DAL
             return hash;
         }
         public bool SelectUsuarioByEmail(string email)
-        {    
+        {
+            if (cnx.MiCnx.State == System.Data.ConnectionState.Closed)
+                cnx.MiCnx.Open();
 
             try
             {
