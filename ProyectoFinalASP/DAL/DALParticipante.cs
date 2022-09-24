@@ -16,19 +16,30 @@ namespace ProyectoFinalASP.DAL
         }
         public void InsertParticipante(Participante participante)
         {
+            if (cnx.MiCnx.State == System.Data.ConnectionState.Closed)
+                cnx.MiCnx.Open();
+
             try
             {
                 string sql = @"INSERT INTO Participante 
-                    (ValoracionRuta, ComentarioRuta)
-                    VALUES (@pValoracionRuta,
+                    (FKEventoID, FKUsuarioID, ValoracionRuta, ComentarioRuta)
+                    VALUES (@pFKEventoID,
+                        @pFKUsuarioID,
+                        @pValoracionRuta,
                         @pComentarioRuta)";
                 SqlCommand cmd = new SqlCommand(sql, cnx.MiCnx);
 
+                SqlParameter pFKEventoID = new SqlParameter("@pFKEventoID", System.Data.SqlDbType.Int);
+                pFKEventoID.Value = participante.FkIDEvento;
+                SqlParameter pFKUsuarioID = new SqlParameter("@pFKUsuarioID", System.Data.SqlDbType.Int);
+                pFKUsuarioID.Value = participante.FkIDUsuario;
                 SqlParameter pValoracionRuta = new SqlParameter("@pValoracionRuta", System.Data.SqlDbType.Int);
-                pValoracionRuta.Value = participante.FkIDRuta;
-                SqlParameter pComentarioRuta = new SqlParameter("@pComentarioRuta", System.Data.SqlDbType.NVarchar, 400);
-                pComentarioRuta.Value = participante.Point;
+                pValoracionRuta.Value = participante.ValoracionRuta;
+                SqlParameter pComentarioRuta = new SqlParameter("@pComentarioRuta", System.Data.SqlDbType.NVarChar, 400);
+                pComentarioRuta.Value = participante.ComentarioRuta;
 
+                cmd.Parameters.Add(pFKEventoID);
+                cmd.Parameters.Add(pFKUsuarioID);
                 cmd.Parameters.Add(pValoracionRuta);
                 cmd.Parameters.Add(pComentarioRuta);
 
@@ -47,6 +58,9 @@ namespace ProyectoFinalASP.DAL
         //Alguna mas?
         public List<Participante> SelectParticipantesByIdEvento(int idEvento)
         {
+            if (cnx.MiCnx.State == System.Data.ConnectionState.Closed)
+                cnx.MiCnx.Open();
+
             List<Participante> participantes = new List<Participante>();
             Participante participante = null;
 
@@ -85,6 +99,9 @@ namespace ProyectoFinalASP.DAL
         }
         public int SelectCountParticipantesByIdEvento(int idEvento)
         {
+            if (cnx.MiCnx.State == System.Data.ConnectionState.Closed)
+                cnx.MiCnx.Open();
+
             int participantes = 0;
 
             try
@@ -94,19 +111,7 @@ namespace ProyectoFinalASP.DAL
                 SqlParameter pfkIDEvento = new SqlParameter("@pfkIDEvento", idEvento);
                 cmd.Parameters.Add(pfkIDEvento);
 
-                SqlDataReader dr = cmd.ExecuteReader();
-
-                /* No se si hay que hacer un read e ir sumando cuantos hay,:
-                 * while (dr.Read())
-                 *{
-                 *    participantes += 1;
-                 *}
-                 *
-                 * o el dr devuelve directamente el valor de el count y habria que hacer algo tipo este parse:
-                 * participantes = ParseToInt32(dr)                
-                 */
-                dr.Close();
-
+                participantes = Convert.ToInt32(cmd.ExecuteScalar());
             }
             catch (Exception ex)
             {

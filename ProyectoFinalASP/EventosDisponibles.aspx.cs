@@ -20,6 +20,7 @@ namespace ProyectoFinalASP
             List<Evento> eventos = new List<Evento>();
             DALRuta rutaDal = new DALRuta();
             Ruta ruta = new Ruta();
+            DALParticipante participanteDal = new DALParticipante();
             int countElement = 0;
 
             eventos = eventoDal.SelectEventosOrderByFecha();
@@ -38,7 +39,7 @@ namespace ProyectoFinalASP
                 sb.Append("         <label class='form-label' id='lblValoracion'>Valoracion: "+ ruta.ValoracionMedia +"</label>");
                 sb.Append("     </div>");
                 sb.Append("     <div class='col-3'>");
-                sb.Append("         <label class='form-label' id='numUsuarios'>Numero Usuarios</label><br />");
+                sb.Append("         <label class='form-label' id='numUsuarios'>"+ participanteDal.SelectCountParticipantesByIdEvento(evento.IdEvento).ToString() +"</label><br />");
                 sb.Append("         <label class='form-label' id='numVoluntarios'>Numero Voluntarios</label><br />");
                 sb.Append("     </div>");
                 sb.Append("     <div class='col-3'>");
