@@ -125,6 +125,77 @@ namespace ProyectoFinalASP.DAL
 
             return participantes;
         }
+        public List<Participante> SelectParticipantesVoluntariosByIdEvento(int idEvento)
+        {
+            if (cnx.MiCnx.State == System.Data.ConnectionState.Closed)
+                cnx.MiCnx.Open();
+
+            List<Participante> participantes = new List<Participante>();
+            Participante participante = null;
+
+            try
+            {
+                string sql = "SELECT * FROM Participante INNER JOIN Usuario ON Participante.FKUsuarioID=Usuario.IDUsuario " +
+                    "WHERE Participante.FKEventoID=@pfkIDEvento AND Usuario.EsVoluntario='True' ORDER BY FKUsuarioID";
+                SqlCommand cmd = new SqlCommand(sql, cnx.MiCnx);
+                SqlParameter pfkIDEvento = new SqlParameter("@pfkIDEvento", idEvento);
+                cmd.Parameters.Add(pfkIDEvento);
+
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    participante = new Participante();
+                    participante.FkIDEvento = (int)dr["FKEventoID"];
+                    participante.FkIDUsuario = (int)(dr["FKUsuarioID"]);
+                    participante.ValoracionRuta = (int?)GestionarNulos(dr["ValoracionRuta"]);
+                    participante.ComentarioRuta = (string)GestionarNulos(dr["ComentarioRuta"]);
+
+                    participantes.Add(participante);
+                }
+                dr.Close();
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("Error en Insert: " + ex.Message);
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                cnx.MiCnx.Close();
+            }
+
+            return participantes;
+        }
+        public int SelectCountParticipantesVoluntariosByIdEvento(int idEvento)
+        {
+            if (cnx.MiCnx.State == System.Data.ConnectionState.Closed)
+                cnx.MiCnx.Open();
+
+            int participantes = 0;
+
+            try
+            {
+                string sql = "SELECT COUNT(*) FROM Participante INNER JOIN Usuario ON Participante.FKUsuarioID=Usuario.IDUsuario " +
+                    "WHERE Participante.FKEventoID=@pfkIDEvento AND Usuario.EsVoluntario='True'";
+                SqlCommand cmd = new SqlCommand(sql, cnx.MiCnx);
+                SqlParameter pfkIDEvento = new SqlParameter("@pfkIDEvento", idEvento);
+                cmd.Parameters.Add(pfkIDEvento);
+
+                participantes = Convert.ToInt32(cmd.ExecuteScalar());
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("Error en Insert: " + ex.Message);
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                cnx.MiCnx.Close();
+            }
+
+            return participantes;
+        }
         public object GestionarNulos(object valOriginal)
         {
             if (valOriginal == System.DBNull.Value)

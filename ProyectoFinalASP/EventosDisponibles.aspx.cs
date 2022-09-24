@@ -34,13 +34,13 @@ namespace ProyectoFinalASP
                 sb.Append("         <label class='form-label' id='lblCreador'>"+ ruta.FkIDUsuario + "</label>");
                 sb.Append("     </div>");
                 sb.Append("     <div class='col-3'>");
-                sb.Append("         <label class='form-label' id='lblKm'>Km: "+ ruta.LongitudKm +"</label><br />");
+                sb.Append("         <label class='form-label' id='lblKm'>Km: "+ ((int)ruta.LongitudKm) +"</label><br />");
                 sb.Append("         <label class='form-label' id='lblAccesibilidad'>Accesibilidad: "+ ruta.NivelAccesibilidad +"</label><br />");
                 sb.Append("         <label class='form-label' id='lblValoracion'>Valoracion: "+ ruta.ValoracionMedia +"</label>");
                 sb.Append("     </div>");
                 sb.Append("     <div class='col-3'>");
-                sb.Append("         <label class='form-label' id='numUsuarios'>"+ participanteDal.SelectCountParticipantesByIdEvento(evento.IdEvento).ToString() +"</label><br />");
-                sb.Append("         <label class='form-label' id='numVoluntarios'>Numero Voluntarios</label><br />");
+                sb.Append("         <label class='form-label' id='numUsuarios'>Participantes: "+ participanteDal.SelectCountParticipantesByIdEvento(evento.IdEvento).ToString() +"</label><br />");
+                sb.Append("         <label class='form-label' id='numVoluntarios'>Voluntarios: "+ participanteDal.SelectCountParticipantesVoluntariosByIdEvento(evento.IdEvento).ToString() +"</label><br />");
                 sb.Append("     </div>");
                 sb.Append("     <div class='col-3'>");
                 sb.Append("         <label class='form-label' id='lblFecha'>"+ evento.FechaDeRealizacion.Value.ToString("dd/MM/yyyy") + "</label><br />");
