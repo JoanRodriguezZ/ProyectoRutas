@@ -180,6 +180,7 @@
     </Compile>
     <Compile Include="DAL\DALChat.cs" />
     <Compile Include="DAL\DALEvento.cs" />
+    <Compile Include="DAL\DALParticipante.cs" />
     <Compile Include="DAL\DALPuntoDeControl.cs" />
     <Compile Include="DAL\DALRuta.cs" />
     <Compile Include="DAL\DALUsuario.cs" />
