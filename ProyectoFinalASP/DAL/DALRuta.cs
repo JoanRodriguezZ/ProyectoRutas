@@ -199,6 +199,7 @@ namespace ProyectoFinalASP.DAL
 
             return ruta;
         }
+        
         public object GestionarNulos(object valOriginal)
         {
             if (valOriginal == System.DBNull.Value)

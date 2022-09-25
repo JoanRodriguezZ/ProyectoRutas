@@ -195,7 +195,53 @@ namespace ProyectoFinalASP.DAL
 
             return user;
         }
+        public Usuario SelectUsuarioByIDUsuario(int idUsuario)
+        {
+            if (cnx.MiCnx.State == System.Data.ConnectionState.Closed)
+                cnx.MiCnx.Open();
 
+            Usuario user = null;
+
+            try
+            {
+                string sql = "SELECT * FROM Usuario WHERE IDUsuario=@pIDUsuario";
+                SqlCommand cmd = new SqlCommand(sql, cnx.MiCnx);
+                SqlParameter pIDUsuario = new SqlParameter("@pIDUsuario", idUsuario);
+                cmd.Parameters.Add(pIDUsuario);
+
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    user = new Usuario();
+                    user.IdUsuario = (int)dr["IDUsuario"];
+                    user.Password = (string)(dr["Password"]);
+                    user.Nombre = (string)(dr["Nombre"]);
+                    user.Apellidos = (string)(dr["Apellidos"]);
+                    user.Email = (string)(dr["Email"]);
+                    user.Telefono = (string)(dr["Telefono"]);
+                    user.Localidad = (string)(dr["Localidad"]);
+                    user.PorcentajeMinusvalia = (int?)GestionarNulos(dr["PorcentajeMinusvalia"]);
+                    user.TipoMinusvalia = (string)GestionarNulos(dr["TipoMinusvalia"]);
+                    user.Dependencias = (string)GestionarNulos(dr["Dependencias"]);
+                    user.EsMinusvalido = (bool)(dr["EsMinusvalido"]);
+                    user.EsVoluntario = (bool)(dr["EsVoluntario"]);
+                    user.EsAdmin = (bool)(dr["EsAdministrador"]);
+                }
+                dr.Close();
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("Error en Insert: " + ex.Message);
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                cnx.MiCnx.Close();
+            }
+
+            return user;
+        }
         public string SelectUserHashByEmail(string email)
         {
             if (cnx.MiCnx.State == System.Data.ConnectionState.Closed)

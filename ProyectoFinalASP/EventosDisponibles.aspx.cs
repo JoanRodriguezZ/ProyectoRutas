@@ -15,22 +15,26 @@ namespace ProyectoFinalASP
         protected void Page_Load(object sender, EventArgs e)
         {
             StringBuilder sb = new StringBuilder();
+
             DALEvento eventoDal = new DALEvento();
-            List<Evento> eventos = new List<Evento>();
             DALRuta rutaDal = new DALRuta();
-            Ruta ruta = new Ruta();
+            DALUsuario usuarioDal = new DALUsuario();
             DALParticipante participanteDal = new DALParticipante();
+            List<Evento> eventos = new List<Evento>();
+            Ruta ruta = new Ruta();
+            Usuario user = new Usuario();
             int countElement = 0;
 
             eventos = eventoDal.SelectEventosOrderByFecha();
             foreach (var evento in eventos)
             {
                 ruta = rutaDal.SelectRutaByIdRuta(evento.FkIDRuta);
+                user = usuarioDal.SelectUsuarioByIDUsuario(ruta.FkIDUsuario);
                 sb.Append(" <div id='base' class='row border'>");
                 sb.Append("     <div class='col-3'>");
                 sb.Append("         <label class='form-label' id='lblRuta'>"+ ruta.Nombre +"</label><br />");
                 sb.Append("         <button class='btn btn-outline-dark' id='btnVerRuta'>Ver</button><br />");
-                sb.Append("         <label class='form-label' id='lblCreador'>"+ ruta.FkIDUsuario + "</label>");
+                sb.Append("         <label class='form-label' id='lblCreador'>"+ user.Nombre + " " + user.Apellidos + "</label>");
                 sb.Append("     </div>");
                 sb.Append("     <div class='col-3'>");
                 sb.Append("         <label class='form-label' id='lblKm'>Km: "+ ((int)ruta.LongitudKm) +"</label><br />");
