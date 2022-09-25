@@ -40,8 +40,8 @@ namespace ProyectoFinalASP
                 sb.Append("         <label class='form-label' id='lblDescripcion'>" + ruta.Descripcion + "</label>");
                 sb.Append("     </div>");
                 sb.Append("     <div class='col-3'>");
-                sb.Append("         <label class='form-label' id='lblRuta'>" + ruta.Nombre + "</label><br />");
                 sb.Append("         <label class='form-label' id='lblCreador'>" + ruta.Localizacion + "</label>");
+                sb.Append("         <button class='btn btn-outline-dark' id='btnCrearEvento'>Crear Evento</button><br />");
                 sb.Append("     </div>");
                 sb.Append("     <div class='col-3'>");
                 /*
