@@ -3,12 +3,12 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <asp:Literal ID = "ltRutasDisponibles" runat = "server" />
-    <!--
+    
         <a id="bannerLink" href="http://www.abc.com" onclick="void window.open(this.href); return false;">
             <img id="bannerImage" src="https://www.collinsdictionary.com/images/full/mountain_221506423.jpg" width="100" height="100" alt="some text">
         </a>
         <label id="lblComment">Ruta Increible</label>
-    -->
+    
     <!-- Carousel -->
     <div id="demo" class="carousel slide" style="width:300px;height:300px" data-bs-ride="carousel">
     <!-- Indicators/dots -->

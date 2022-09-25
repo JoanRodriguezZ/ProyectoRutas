@@ -44,6 +44,7 @@ namespace ProyectoFinalASP
                 sb.Append("         <label class='form-label' id='lblCreador'>" + ruta.Localizacion + "</label>");
                 sb.Append("     </div>");
                 sb.Append("     <div class='col-3'>");
+                /*
                 sb.Append(" <div id = 'demo' class='carousel slide' data-bs-ride='carousel'>");
                 //Indicators/dots;
                 sb.Append(" <div class='carousel -indicators'>");
@@ -83,6 +84,7 @@ namespace ProyectoFinalASP
                 sb.Append("     <span class='carousel -control-next-icon'></span>");
                 sb.Append(" </button>");
                 sb.Append(" </div>");
+                */
                 sb.Append("     </div>");
                 sb.Append(" </div>");
 
