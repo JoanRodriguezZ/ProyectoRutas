@@ -61,6 +61,46 @@ namespace ProyectoFinalASP.DAL
                 cnx.MiCnx.Close();
             }
         }
+        public Evento SelectEventoByIdEvento(int idEvento)
+        {
+            if (cnx.MiCnx.State == System.Data.ConnectionState.Closed)
+                cnx.MiCnx.Open();
+
+            Evento evento = null;
+
+            try
+            {
+                string sql = "SELECT * FROM Evento WHERE IDEvento=@pIdEvento";
+                SqlCommand cmd = new SqlCommand(sql, cnx.MiCnx);
+                SqlParameter pIdEvento = new SqlParameter("@pIdEvento", idEvento);
+                cmd.Parameters.Add(pIdEvento);
+
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    evento = new Evento();
+                    evento.IdEvento = (int)dr["IDEvento"];
+                    evento.FkIDRuta = (int)(dr["FKRutaID"]);
+                    evento.EsPublico = (bool)(dr["esPublico"]);
+                    evento.FechaDeRealizacion = (DateTime?)GestionarNulos(dr["FechaDeRealizacion"]);
+                    evento.VoluntariosNecesarios = (int?)GestionarNulos(dr["VoluntariosNecesarios"]);
+                    evento.FkIDEstado = (int)(dr["FKIDEstado"]);
+                }
+                dr.Close();
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("Error en Insert: " + ex.Message);
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                cnx.MiCnx.Close();
+            }
+
+            return evento;
+        }
         public List<Evento> SelectEventosOrderByFecha()
         {
             if (cnx.MiCnx.State == System.Data.ConnectionState.Closed)

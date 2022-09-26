@@ -49,5 +49,10 @@
         public bool EsMinusvalido { get => esMinusvalido; set => esMinusvalido = value; }
         public bool EsVoluntario { get => esVoluntario; set => esVoluntario = value; }
         public bool EsAdmin { get => esAdmin; set => esAdmin = value; }
+
+        public override string ToString()
+        {
+            return nombre + " " + apellidos;
+        }
     }
 }

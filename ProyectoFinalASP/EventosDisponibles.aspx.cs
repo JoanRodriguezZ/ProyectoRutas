@@ -34,7 +34,7 @@ namespace ProyectoFinalASP
                 sb.Append("     <div class='col-3'>");
                 sb.Append("         <label class='form-label' id='lblRuta'>"+ ruta.Nombre +"</label><br />");
                 sb.Append("         <button class='btn btn-outline-dark' id='btnVerRuta'>Ver</button><br />");
-                sb.Append("         <label class='form-label' id='lblCreador'>"+ user.Nombre + " " + user.Apellidos + "</label>");
+                sb.Append("         <label class='form-label' id='lblCreador'>"+ user.ToString() + "</label>");
                 sb.Append("     </div>");
                 sb.Append("     <div class='col-3'>");
                 sb.Append("         <label class='form-label' id='lblKm'>Km: "+ ((int)ruta.LongitudKm) +"</label><br />");
