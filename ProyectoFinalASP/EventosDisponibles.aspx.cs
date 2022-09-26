@@ -33,7 +33,7 @@ namespace ProyectoFinalASP
                 sb.Append(" <div id='base' class='row border'>");
                 sb.Append("     <div class='col-3'>");
                 sb.Append("         <label class='form-label' id='lblRuta'>"+ ruta.Nombre +"</label><br />");
-                sb.Append("         <button class='btn btn-outline-dark' id='btnVerRuta'>Ver</button><br />");
+                sb.Append("         <button class='btn btn-outline-dark' id='btnVerRuta'>Ver Ruta</button><br />");
                 sb.Append("         <label class='form-label' id='lblCreador'>"+ user.ToString() + "</label>");
                 sb.Append("     </div>");
                 sb.Append("     <div class='col-3'>");
@@ -48,7 +48,7 @@ namespace ProyectoFinalASP
                 sb.Append("     <div class='col-3'>");
                 sb.Append("         <label class='form-label' id='lblFecha'>"+ evento.FechaDeRealizacion.Value.ToString("dd/MM/yyyy") + "</label><br />");
                 sb.Append("         <label class='form-label' id='lblHora'>"+ evento.FechaDeRealizacion.Value.TimeOfDay +"</label><br />");
-                sb.Append("         <button class='btn btn-outline-dark' id='btnJoin'>JOIN</button>");
+                sb.Append("         <button class='btn btn-outline-dark' id='btnJoin'>Unete</button>");
                 sb.Append("     </div>");
                 sb.Append(" </div>");
                 

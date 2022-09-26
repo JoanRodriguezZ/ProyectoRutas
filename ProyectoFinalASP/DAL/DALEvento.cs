@@ -226,7 +226,50 @@ namespace ProyectoFinalASP.DAL
 
             return eventos;
         }
+        public List<Evento> SelectEventosByIdUsuarioOrderEstado(int idUsuario)
+        {
+            if (cnx.MiCnx.State == System.Data.ConnectionState.Closed)
+                cnx.MiCnx.Open();
 
+            List<Evento> eventos = new List<Evento>();
+            Evento evento = null;
+
+            try
+            {
+                string sql = "SELECT * FROM Evento INNER JOIN Participante ON Evento.IDEvento=Participante.FKEventoID " +
+                    "WHERE Participante.FKUsuarioID=@pFKUsuarioID ORDER BY Evento.FKIDEstado";
+                SqlCommand cmd = new SqlCommand(sql, cnx.MiCnx);
+                SqlParameter pFKUsuarioID = new SqlParameter("@pFKUsuarioID", idUsuario);
+                cmd.Parameters.Add(pFKUsuarioID);
+
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    evento = new Evento();
+                    evento.IdEvento = (int)dr["IDEvento"];
+                    evento.FkIDRuta = (int)(dr["FKRutaID"]);
+                    evento.EsPublico = (bool)(dr["esPublico"]);
+                    evento.FechaDeRealizacion = (DateTime?)GestionarNulos(dr["FechaDeRealizacion"]);
+                    evento.VoluntariosNecesarios = (int?)GestionarNulos(dr["VoluntariosNecesarios"]);
+                    evento.FkIDEstado = (int)(dr["FKIDEstado"]);
+
+                    eventos.Add(evento);
+                }
+                dr.Close();
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("Error en Insert: " + ex.Message);
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                cnx.MiCnx.Close();
+            }
+
+            return eventos;
+        }
         //Select event by user, quizas se haga desde participante mas bien
 
         public object GestionarNulos(object valOriginal)

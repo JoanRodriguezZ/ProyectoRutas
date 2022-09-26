@@ -1,4 +1,6 @@
-﻿namespace ProyectoFinalASP.Modelos
+﻿using System.Collections;
+
+namespace ProyectoFinalASP.Modelos
 {
     public class Usuario
     {
@@ -50,6 +52,25 @@
         public bool EsVoluntario { get => esVoluntario; set => esVoluntario = value; }
         public bool EsAdmin { get => esAdmin; set => esAdmin = value; }
 
+        public string Tipo() 
+        {
+            if (this.EsAdmin)
+            {
+                return "Administrador";
+            }
+            else if (this.esMinusvalido && this.esVoluntario)
+            {
+                return "Minusvalido y Voluntario";
+            }
+            else if (this.esMinusvalido && !this.esVoluntario)
+            {
+                return "Minusvalido";
+            }
+            else
+            {
+                return "Voluntario";
+            }
+        }
         public override string ToString()
         {
             return nombre + " " + apellidos;
