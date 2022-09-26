@@ -16,10 +16,22 @@ namespace ProyectoFinalASP
             {
                 string username = reqCookies["username"];
                 string surname = reqCookies["surname"];
-                textoUserLogin.Text = "Bienvenido, " + username + " " + surname;
-            }
+                textoUserLogin.Text = "Bienvenid@, " + username + " " + surname;
 
-            
+                Register.Visible = false;
+                Login.Visible = false;
+            }
+            else
+            {
+                textoUserLogin.Visible = false;
+                Logout.Visible = false;
+            }
+        }
+
+        protected void Logout_Click(object sender, EventArgs e)
+        {
+            Response.Cookies["userInfo"].Expires = DateTime.Now.AddDays(-1);
+            Response.Redirect("PaginaPrincipal");
         }
     }
 }

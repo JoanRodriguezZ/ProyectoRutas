@@ -54,40 +54,43 @@
         </nav>
 
         <div class="sticky-top">
-            <ul class="nav justify-content-center  menuPrincipal pb-4 " id="listadoPaginas">
+            <ul class="nav justify-content-center menuPrincipal pb-4" id="listadoPaginas">
 
                 <li class="nav-item">
-                    <asp:Label ID="textoUserLogin" runat="server" Text="Label"></asp:Label>
+                    <asp:Label class="nav-link" ID="textoUserLogin" runat="server"></asp:Label>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="./PaginaPrincipal.aspx">Página Principal</a>
+                    <asp:HyperLink class="nav-link" href="./PaginaPrincipal.aspx" ID="PagPrincipal" runat="server">Página Principal</asp:HyperLink>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="./RutasDisponibles.aspx">Rutas Disponibles</a>
+                    <asp:HyperLink class="nav-link" href="./RutasDisponibles.aspx" ID="RutasDisp" runat="server">Rutas Disponibles</asp:HyperLink>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="./RutaCrear.aspx">Crear Ruta</a>
+                    <asp:HyperLink class="nav-link" href="./RutaCrear.aspx" ID="CrearRuta" runat="server">Crear Rutal</asp:HyperLink>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="./EventosDisponibles.aspx">Eventos</a>
+                    <asp:HyperLink class="nav-link" href="./EventosDisponibles.aspx" ID="EventosDisp" runat="server">Eventos Disponibles</asp:HyperLink>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="./PaginaUsuario.aspx">Perfil</a>
+                    <asp:HyperLink class="nav-link" href="./PaginaUsuario.aspx" ID="PagUser" runat="server">Mi Perfil</asp:HyperLink>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="./Register.aspx">Registrarse</a>
+                    <asp:HyperLink class="nav-link" href="./Register.aspx" ID="Register" runat="server">Registro</asp:HyperLink>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="./Login.aspx">Iniciar Sesión</a>
+                    <asp:HyperLink class="nav-link" href="./Login.aspx" ID="Login" runat="server">Iniciar Sesión</asp:HyperLink>
                 </li>
 
+                <li class="nav-item">
+                    <asp:LinkButton class="nav-link" ID="Logout" runat="server" OnClick="Logout_Click">Cerrar Sesión</asp:LinkButton>
+                </li>
             </ul>
         </div>
 

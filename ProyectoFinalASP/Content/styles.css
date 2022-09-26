@@ -95,11 +95,3 @@ input#fechaNacimiento {
     border-color: rgba(205, 204, 204, 0.794);
     transition: 0.6s;
 }
-
-.imgIdioma:hover {
-    filter: contrast(0.5);
-}
-
-button#textoMTitle1 {
-    color: white;
-}
