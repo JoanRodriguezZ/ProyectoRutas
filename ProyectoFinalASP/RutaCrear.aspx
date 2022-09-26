@@ -24,11 +24,10 @@
         </div>
     </div>
 
-    <label Text="" id="pBlngHTML1" runat="server" hidden/>
     <asp:HiddenField ID="pAlngHTML" runat="server"/>
-    <asp:HiddenField ID="pAlatHTML" runat="server" value=""/>
-    <asp:HiddenField ID="pBlngHTML" runat="server" value="" OnValueChanged="pBlngHTML_ValueChanged" />
-    <asp:HiddenField ID="pBlatHTML" runat="server" value=""/>
+    <asp:HiddenField ID="pAlatHTML" runat="server" OnValueChanged="pAlatHTML_ValueChanged1"/>
+    <asp:HiddenField ID="pBlngHTML" runat="server"/>
+    <asp:HiddenField ID="pBlatHTML" runat="server"/>
     <script>
 
         //Inicializa el mapa en las coordenadas indicadas.
@@ -55,18 +54,12 @@
         var pBlat = null;
         var pBlng = null;
 
-        var coordenadaA = null;
-        var coordenadaB = null;
-
-
         var coordAlng = document.getElementById('<%=pAlngHTML.ClientID%>');
         var coordAlat = document.getElementById('<%=pAlatHTML.ClientID%>');
-
 
         var coordBlng = document.getElementById('<%=pBlngHTML.ClientID%>');
         var coordBlat = document.getElementById('<%=pBlatHTML.ClientID%>');
 
-        alert(coordBlng);
 
         var puntoSalida = null;
 
@@ -105,36 +98,16 @@
 
             }
 
-            alert("CoordBlng: " + coordBlng.Value + ". pBlng: " + pBlng);
 
             coordAlng.Value = pAlng;
             coordAlat.Value = pAlat;
             coordBlng.Value = pBlng;
             coordBlat.Value = pBlat;
 
-            alert("CoordBlng: " + coordBlng.Value + ". pBlng: " + pBlng);
-
-
+            
             //L.geoJSON(myLines).addTo(map);
         }
 
-
-//var patientString = JSON.stringify(trazado);
-//var mapInfoHTML = document.getElementById('mapInfo');
-//mapInfoHTML.value = patientString;
-
-
-//$.ajax({
-//    url: '/Home/GetBranch',
-//    success: function (data) {
-//        console.log(data)
-//        $(data).each(function (index, item) {
-//            var lat = item.branchGeoLocationLat;
-//            var long = item.branchGeoLocationLong;
-//            L.marker([lat, long], { icon: greenIcon }).bindPopup("I am the " + item.branchName + " leaf.").addTo(map);
-//        });
-//    },
-//});
     </script>
 
 <%--    <script src="Scripts/rutaseleccionada.js"></script>--%>

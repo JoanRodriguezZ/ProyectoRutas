@@ -13,10 +13,10 @@ namespace ProyectoFinalASP
     {
         List<float[,]> coordsList = new List<float[,]>();
 
-        float coord1X;
-        float coord1Y;
-        float coord2X;
-        float coord2Y;
+        float coordX;
+        float coordY;
+        //float coord2X;
+        //float coord2Y;
 
 
         protected void Page_Load(object sender, EventArgs e)
@@ -27,27 +27,56 @@ namespace ProyectoFinalASP
         protected void pBlngHTML_ValueChanged(object sender, EventArgs e)
         {
 
+
+        }
+
+        protected void pAlatHTML_ValueChanged(object sender, EventArgs e)
+        {
             string pAlngCS = pAlngHTML.Value;
             string pAlatCS = pAlatHTML.Value;
 
-            string pBlngCS = pBlngHTML.Value;
-            string pBlatCS = pBlatHTML.Value;
+            //string pBlngCS = pBlngHTML.Value;
+            //string pBlatCS = pBlatHTML.Value;
 
-            if (coord1X != 0)
+            if (coordX != 0)
             {
 
-                coord1X = float.Parse(pAlngCS);
-                coord1Y = float.Parse(pAlatCS);
-                coord2X = float.Parse(pBlngCS);
-                coord2Y = float.Parse(pBlatCS);
+                coordX = float.Parse(pAlngCS);
+                coordY = float.Parse(pAlatCS);
+
+                //coord2X = float.Parse(pBlngCS);
+                //coord2Y = float.Parse(pBlatCS);
 
 
-                float[,] coordLinea = { { coord1X, coord1Y }, { coord2X, coord2Y } };
+                float[,] coordLinea = { { coordX, coordY } };
 
                 coordsList.Add(coordLinea);
             }
+        }
+
+        protected void pAlatHTML_ValueChanged1(object sender, EventArgs e)
+        {
+            string pAlngCS = pAlngHTML.Value;
+            string pAlatCS = pAlatHTML.Value;
+
+            //string pBlngCS = pBlngHTML.Value;
+            //string pBlatCS = pBlatHTML.Value;
+
+            if (coordX != 0)
+            {
+
+                coordX = float.Parse(pAlngCS);
+                coordY = float.Parse(pAlatCS);
+
+                //coord2X = float.Parse(pBlngCS);
+                //coord2Y = float.Parse(pBlatCS);
 
 
+                float[,] coordLinea = { { coordX, coordY } };
+
+                coordsList.Add(coordLinea);
+
+            }
         }
     }
 }
