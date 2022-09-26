@@ -7,17 +7,20 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - Mi aplicación ASP.NET</title>
+    <title><%: Page.Title %> - MoviRutas</title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
 
+    <%-- CSS --%>
+    <link href="./Content/styles.css" rel="stylesheet" type="text/css" />
+    <%-- Icono Página --%>
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <%-- Bootstrap 5.2.1 --%>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <%-- Leaflet --%>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ==" crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ==" crossorigin=""></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ==" crossorigin="" />
 </head>
 
 <body>
@@ -42,31 +45,41 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" runat="server" href="~/">Nombre de la aplicación</a>
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/">Inicio</a></li>
-                        <li><a runat="server" href="~/About">Acerca de</a></li>
-                        <li><a runat="server" href="~/Contact">Contacto</a></li>
-                    </ul>
-                </div>
-            </div>
+        <!-- NAV/Top content -->
+        <nav class="navbar navbar-light bg-light menuPrincipal">
+            <h1 class="navbar-brand pt-4" id="tituloPagina"><%: Page.Title %></h1>
+        </nav>
+
+        <div class="sticky-top">
+            <ul class="nav justify-content-center  menuPrincipal pb-4 " id="listadoPaginas">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="./PaginaPrincipal.aspx">Página Principal</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="./Register.aspx">Registrarse</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="./Login.aspx">Iniciar Sesión</a>
+                </li>
+
+            </ul>
         </div>
-        <div class="container body-content">
+
+        <!-- Body content -->
+        <div class="body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
-            <hr />
+
+            <!-- Floor content -->
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - Mi aplicación ASP.NET</p>
+                <div class="fixed-bottom" id="footer">
+                    <p id="textoFooter" style="color: rgb(231, 231, 231);" class="text-center p-1">
+                        Todos los derechos reservados &copy; <%: DateTime.Now.Year %>
+                    </p>
+                </div>
             </footer>
         </div>
     </form>
@@ -74,6 +87,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
         crossorigin="anonymous"></script>
+
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+        integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+        crossorigin=""></script>
 </body>
 
 </html>

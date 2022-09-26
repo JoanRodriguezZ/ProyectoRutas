@@ -306,7 +306,6 @@ namespace ProyectoFinalASP.DAL
                 {
                     return false;
                 }
-                dr.Close();
             }
             catch (Exception ex)
             {                
@@ -316,7 +315,6 @@ namespace ProyectoFinalASP.DAL
             finally
             {                
                 cnx.MiCnx.Close();
-                
             }            
         }
 
