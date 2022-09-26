@@ -31,7 +31,7 @@ namespace ProyectoFinalASP
             Usuario usuario = new Usuario();
             if (result == true)
             {
-                usuario = dalUsuario.SelectUsuarioByEmailPassword(loginEmail, hash);
+                usuario = dalUsuario.SelectUsuarioByEmailPassword(loginEmail, hash); // Si es true seleccionamos el usuario por el email + password (hash en BDD)
 
                 if (usuario != null)
                 {
