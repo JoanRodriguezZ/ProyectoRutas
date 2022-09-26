@@ -38,8 +38,12 @@ namespace ProyectoFinalASP
                     labelEmailPassword.Text = "Credenciales correctas";
 
                     HttpCookie userInfo = new HttpCookie("userInfo");
+
+                    userInfo["id"] = usuario.IdUsuario.ToString();
                     userInfo["username"] = usuario.Nombre;
                     userInfo["surname"] = usuario.Apellidos;
+
+                    userInfo.Secure = true;
 
                     Response.Cookies.Add(userInfo);
 

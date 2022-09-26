@@ -57,6 +57,10 @@
             <ul class="nav justify-content-center  menuPrincipal pb-4 " id="listadoPaginas">
 
                 <li class="nav-item">
+                    <asp:Label ID="textoUserLogin" runat="server" Text="Label"></asp:Label>
+                </li>
+
+                <li class="nav-item">
                     <a class="nav-link" href="./PaginaPrincipal.aspx">Página Principal</a>
                 </li>
 

@@ -11,7 +11,15 @@ namespace ProyectoFinalASP
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            HttpCookie reqCookies = Request.Cookies["userInfo"];
+            if (reqCookies != null)
+            {
+                string username = reqCookies["username"];
+                string surname = reqCookies["surname"];
+                textoUserLogin.Text = "Bienvenido, " + username + " " + surname;
+            }
 
+            
         }
     }
 }

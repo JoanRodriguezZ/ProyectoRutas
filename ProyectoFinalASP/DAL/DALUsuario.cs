@@ -14,12 +14,11 @@ namespace ProyectoFinalASP.DAL
 
         public void InsertUsuario(Usuario user)
         {
-            if (cnx.MiCnx.State == System.Data.ConnectionState.Closed)
-                cnx.MiCnx.Open();
 
             try
             {
-                cnx.MiCnx.Open();
+                if (cnx.MiCnx.State == System.Data.ConnectionState.Closed)
+                    cnx.MiCnx.Open();
 
                 string sql = @"INSERT INTO Usuario 
                     (Password, Nombre, Apellidos, Email, 
@@ -91,15 +90,13 @@ namespace ProyectoFinalASP.DAL
         }
         public List<Usuario> SelectUsuariosOrderByNombreApellidos()
         {
-            if (cnx.MiCnx.State == System.Data.ConnectionState.Closed)
-                cnx.MiCnx.Open();
-
             List<Usuario> users = new List<Usuario>();
             Usuario user;
 
             try
             {
-                cnx.MiCnx.Open();
+                if (cnx.MiCnx.State == System.Data.ConnectionState.Closed)
+                    cnx.MiCnx.Open();
 
                 string sql = "SELECT * FROM Usuario ORDER BY Nombre, Apellidos";
                 SqlCommand cmd = new SqlCommand(sql, cnx.MiCnx);
@@ -141,14 +138,12 @@ namespace ProyectoFinalASP.DAL
         }
         public Usuario SelectUsuarioByEmailPassword(string email, string password)
         {
-            if (cnx.MiCnx.State == System.Data.ConnectionState.Closed)
-                cnx.MiCnx.Open();
-
             Usuario user = null;
 
             try
             {
-                cnx.MiCnx.Open();
+                if (cnx.MiCnx.State == System.Data.ConnectionState.Closed)
+                    cnx.MiCnx.Open();
 
                 string sql = "SELECT * FROM Usuario WHERE Email=@pEmail AND Password=@pPassword";
                 SqlCommand cmd = new SqlCommand(sql, cnx.MiCnx);
@@ -197,13 +192,13 @@ namespace ProyectoFinalASP.DAL
         }
         public Usuario SelectUsuarioByIDUsuario(int idUsuario)
         {
-            if (cnx.MiCnx.State == System.Data.ConnectionState.Closed)
-                cnx.MiCnx.Open();
-
             Usuario user = null;
 
             try
             {
+                if (cnx.MiCnx.State == System.Data.ConnectionState.Closed)
+                    cnx.MiCnx.Open();
+
                 string sql = "SELECT * FROM Usuario WHERE IDUsuario=@pIDUsuario";
                 SqlCommand cmd = new SqlCommand(sql, cnx.MiCnx);
                 SqlParameter pIDUsuario = new SqlParameter("@pIDUsuario", idUsuario);
@@ -244,14 +239,12 @@ namespace ProyectoFinalASP.DAL
         }
         public string SelectUserHashByEmail(string email)
         {
-            if (cnx.MiCnx.State == System.Data.ConnectionState.Closed)
-                cnx.MiCnx.Open();
-
             string hash = null;
 
             try
             {
-                cnx.MiCnx.Open();
+                if (cnx.MiCnx.State == System.Data.ConnectionState.Closed)
+                    cnx.MiCnx.Open();
 
                 string sql = "SELECT Password FROM Usuario WHERE Email=@pEmail";
                 SqlCommand cmd = new SqlCommand(sql, cnx.MiCnx);
@@ -280,42 +273,42 @@ namespace ProyectoFinalASP.DAL
         }
         public bool SelectUsuarioByEmail(string email)
         {
-            if (cnx.MiCnx.State == System.Data.ConnectionState.Closed)
-                cnx.MiCnx.Open();
+            string emailRecogido = null;
 
             try
             {
-                cnx.MiCnx.Open();
+                if (cnx.MiCnx.State == System.Data.ConnectionState.Closed)
+                    cnx.MiCnx.Open();
 
-                string sql = "SELECT * FROM Usuario WHERE Email=@pEmail";
+                string sql = "SELECT Email FROM Usuario WHERE Email=@pEmail";
                 SqlCommand cmd = new SqlCommand(sql, cnx.MiCnx);
                 SqlParameter pEmail = new SqlParameter("@pEmail", email);
                 cmd.Parameters.Add(pEmail);
 
                 SqlDataReader dr = cmd.ExecuteReader();
-                int contador = 0;
+
                 while (dr.Read())
                 {
-                    contador++;
+                    emailRecogido = (string)(dr["Email"]);
                 }
-                if (contador >= 1)
-                {
-                    return true;
-                }
-                else
+                dr.Close();
+
+                if (emailRecogido == null)
                 {
                     return false;
                 }
+                else
+                    return true;
             }
             catch (Exception ex)
-            {                
+            {
                 Console.WriteLine(ex.Message);
                 return true;
             }
             finally
-            {                
+            {
                 cnx.MiCnx.Close();
-            }            
+            }
         }
 
         public object GestionarNulos(object valOriginal)

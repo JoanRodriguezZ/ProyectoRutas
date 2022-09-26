@@ -15,14 +15,14 @@ namespace ProyectoFinalASP
         DALUsuario dalUsuario = new DALUsuario();
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         protected void btnContinuarRegistro_Click(object sender, EventArgs e)
         {
 
-                string email = emailBox.Text;
-                
+            string email = emailBox.Text;
+
             errorEmail.InnerText = " ";
             errorEmailV2.InnerText = " ";
             errorPassword.InnerText = " ";
@@ -59,7 +59,7 @@ namespace ProyectoFinalASP
             else
             {
                 errorEmail.InnerText = "El correo electrónico no es válido";
-            }                        
-        }          
+            }
+        }
     }
 }
