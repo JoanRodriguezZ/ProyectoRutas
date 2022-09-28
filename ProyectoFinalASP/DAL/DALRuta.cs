@@ -23,14 +23,17 @@ namespace ProyectoFinalASP.DAL
             {
                 string sql = @"INSERT INTO Ruta 
                     (Nombre, LongitudKm, NivelAccesibilidad, 
-                    Localizacion, ValoracionMedia, FKIDUsuario, Descripcion)
+                    Localizacion, ValoracionMedia, FKIDUsuario, 
+                    Descripcion, ImageZone, ImageMap)
                     VALUES (@pNombre,
                         @pLongitudKm,
                         @pNivelAccesibilidad,
                         @pLocalizacion,
                         @pValoracionMedia,
                         @pFKIDUsuario,
-                        @pDescripcion)";
+                        @pDescripcion,
+                        @pImageZone,
+                        @pImageMap)";
                 SqlCommand cmd = new SqlCommand(sql, cnx.MiCnx);
 
                 SqlParameter pNombre = new SqlParameter("@pNombre", System.Data.SqlDbType.NVarChar, 50);
@@ -47,6 +50,10 @@ namespace ProyectoFinalASP.DAL
                 pFKIDUsuario.Value = ruta.FkIDUsuario;
                 SqlParameter pDescripcion = new SqlParameter("@pDescripcion", System.Data.SqlDbType.NVarChar, 400);
                 pDescripcion.Value = ruta.Descripcion;
+                SqlParameter pImageZone = new SqlParameter("@pImageZone", System.Data.SqlDbType.NVarChar, 50);
+                pImageZone.Value = ruta.Descripcion;
+                SqlParameter pImageMap = new SqlParameter("@pImageMap", System.Data.SqlDbType.NVarChar, 50);
+                pImageMap.Value = ruta.Descripcion;
 
                 cmd.Parameters.Add(pNombre);
                 cmd.Parameters.Add(pLongitudKm);
@@ -55,6 +62,8 @@ namespace ProyectoFinalASP.DAL
                 cmd.Parameters.Add(pValoracionMedia);
                 cmd.Parameters.Add(pFKIDUsuario);
                 cmd.Parameters.Add(pDescripcion);
+                cmd.Parameters.Add(pImageZone);
+                cmd.Parameters.Add(pImageMap);
 
                 cmd.ExecuteNonQuery();
             }
@@ -93,6 +102,8 @@ namespace ProyectoFinalASP.DAL
                     ruta.ValoracionMedia = (decimal?)GestionarNulos(dr["ValoracionMedia"]);
                     ruta.FkIDUsuario = (int)(dr["FKIDUsuario"]);
                     ruta.Descripcion = (string)(dr["Descripcion"]);
+                    ruta.ImageZone = (string)(dr["ImageZone"]);
+                    ruta.ImageMap = (string)(dr["ImageMap"]);
 
                     rutas.Add(ruta);
                 }
@@ -139,6 +150,8 @@ namespace ProyectoFinalASP.DAL
                     ruta.ValoracionMedia = (decimal?)GestionarNulos(dr["ValoracionMedia"]);
                     ruta.FkIDUsuario = (int)(dr["FKIDUsuario"]);
                     ruta.Descripcion = (string)(dr["Descripcion"]);
+                    ruta.ImageZone = (string)(dr["ImageZone"]);
+                    ruta.ImageMap = (string)(dr["ImageMap"]);
 
                     rutas.Add(ruta);
                 }
@@ -183,6 +196,8 @@ namespace ProyectoFinalASP.DAL
                     ruta.ValoracionMedia = (decimal?)GestionarNulos(dr["ValoracionMedia"]);
                     ruta.FkIDUsuario = (int)(dr["FKIDUsuario"]);
                     ruta.Descripcion = (string)(dr["Descripcion"]);
+                    ruta.ImageZone = (string)(dr["ImageZone"]);
+                    ruta.ImageMap = (string)(dr["ImageMap"]);
 
                 }
                 dr.Close();

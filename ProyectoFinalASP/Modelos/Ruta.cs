@@ -15,12 +15,14 @@ namespace ProyectoFinalASP.Modelos
         decimal? valoracionMedia;
         int fkIDUsuario;
         string descripcion;
+        string imageZone;
+        string imageMap;
 
         public Ruta()
         {
 
         }
-        public Ruta(int idRuta, string nombre, decimal longitudKm, int nivelAccesibilidad, string localizacion, decimal? valoracionMedia, int fkIDUsuario, string descripcion)
+        public Ruta(int idRuta, string nombre, decimal longitudKm, int nivelAccesibilidad, string localizacion, decimal? valoracionMedia, int fkIDUsuario, string descripcion, string imageZone, string imageMap)
         {
             this.idRuta = idRuta;
             this.nombre = nombre;
@@ -30,6 +32,8 @@ namespace ProyectoFinalASP.Modelos
             this.valoracionMedia = valoracionMedia;
             this.fkIDUsuario = fkIDUsuario;
             this.descripcion = descripcion;
+            this.imageZone = imageZone;
+            this.imageMap = imageMap;
         }
 
         public int IdRuta { get => idRuta; set => idRuta = value; }
@@ -40,5 +44,7 @@ namespace ProyectoFinalASP.Modelos
         public decimal? ValoracionMedia { get => valoracionMedia; set => valoracionMedia = value; }
         public int FkIDUsuario { get => fkIDUsuario; set => fkIDUsuario = value; }
         public string Descripcion { get => descripcion; set => descripcion = value; }
+        public string ImageZone { get => imageZone; set => imageZone = value; }
+        public string ImageMap { get => imageMap; set => imageMap = value; }
     }
 }

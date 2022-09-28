@@ -122,6 +122,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Login.aspx" />
+    <Content Include="Media\r1zone.jpg" />
     <Content Include="PaginaPrincipal.aspx" />
     <Content Include="PaginaUsuario.aspx" />
     <Content Include="Register.aspx" />

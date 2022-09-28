@@ -20,6 +20,7 @@ namespace ProyectoFinalASP
 {
     public partial class RutasDisponibles : System.Web.UI.Page
     {
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             StringBuilder sb = new StringBuilder();
@@ -40,102 +41,23 @@ namespace ProyectoFinalASP
                 sb.Append("         <label class='form-label' id='lblDescripcion'>" + ruta.Descripcion + "</label>");
                 sb.Append("     </div>");
                 sb.Append("     <div class='col-3'>");
-                sb.Append("         <label class='form-label' id='lblCreador'>" + ruta.Localizacion + "</label>");
-                sb.Append("         <button class='btn btn-outline-dark' id='btnCrearEvento'>Crear Evento</button><br />");
+                sb.Append("         <label class='form-label' id='lblLocalizacion'>" + ruta.Localizacion + "</label>");
+                sb.Append("         <asp:Button class='btn btn-outline-dark' OnClick='btnVerRuta_Click' runat='server' ID='btnVerRuta' Text='Ver Ruta'/><br />");
+                sb.Append("         <asp:HiddenField ID='idRuta"+ ruta.IdRuta  +"' runat='server' Value='"+ ruta.IdRuta +"'>");
                 sb.Append("     </div>");
                 sb.Append("     <div class='col-3'>");
-                /*
-                sb.Append(" <div id = 'demo' class='carousel slide' data-bs-ride='carousel'>");
-                //Indicators/dots;
-                sb.Append(" <div class='carousel -indicators'>");
-                sb.Append("     <button type = 'button' data-bs-target='#demo' data-bs-slide-to='0' class='active'></button>");
-                sb.Append("     <button type = 'button' data-bs-target='#demo' data-bs-slide-to='1'></button>");
-                sb.Append("     <button type = 'button' data-bs-target='#demo' data-bs-slide-to='2'></button>");
-                sb.Append(" </div>");
-                //The slideshow/carousel
-                sb.Append(" <div class='carousel -inner'>");
-                sb.Append("     <div class='carousel -item active'>");
-                sb.Append("         <img src = 'https://www.collinsdictionary.com/images/full/mountain_221506423.jpg' alt='Los Angeles' class='d-block w-100'>");
-                sb.Append("         <div class='carousel -caption''>");
-                sb.Append("             <h3>Los Angeles</h3>");
-                sb.Append("             <p>We had such a great time in LA!</p>");
-                sb.Append("         </div>");
-                sb.Append("     </div>");
-                sb.Append("     <div class='carousel -item'>");
-                sb.Append("         <img src = 'https://upload.wikimedia.org/wikipedia/commons/9/96/Barbados_beach.jpg' alt='Chicago' class='d-block w-100'>");
-                sb.Append("         <div class='carousel -caption'>");
-                sb.Append("             <h3>Los Angeles</h3>");
-                sb.Append("             <p>We had such a great time in LA!</p>");
-                sb.Append("         </div>");
-                sb.Append("     </div>");
-                sb.Append("     <div class='carousel -item'>");
-                sb.Append("         <img src = 'https://piscinascano.com/wp-content/uploads/2022/07/Piscinas-Cano-PIscina-OLIMPIA-5-Modelo-nuevo-2022-scaled.jpg' alt='New York' class='d-block w-100'>");
-                sb.Append("         <div class='carousel -caption'>");
-                sb.Append("             <h3>Los Angeles</h3>");
-                sb.Append("             <p>We had such a great time in LA!</p>");
-                sb.Append("         </div>");
+                sb.Append("         <img src='/Media/"+ ruta.ImageZone + "' class='img-thumbnail' alt='" + ruta.Descripcion +"'>");
                 sb.Append("     </div>");
                 sb.Append(" </div>");
-                //Left and right controls/icons
-                sb.Append(" <button class='carousel -control-prev' type='button' data-bs-target='#demo' data-bs-slide='prev'>");
-                sb.Append("     <span class='carousel -control-prev-icon'></span>");
-                sb.Append(" </button>");
-                sb.Append(" <button class='carousel -control-next' type='button' data-bs-target='#demo' data-bs-slide='next'>");
-                sb.Append("     <span class='carousel -control-next-icon'></span>");
-                sb.Append(" </button>");
-                sb.Append(" </div>");
-                */
-                sb.Append("     </div>");
-                sb.Append(" </div>");
-
-                image1.Src = "https://www.gourmetkebab.es/wp-content/uploads/2021/04/kebab-que-es.jpg";
-
-                /*
-                //Carousel
-                sb.Append(" <div id = 'demo' class='carousel slide' data-bs-ride='carousel'>");
-                //Indicators/dots;
-                sb.Append(" <div class='carousel -indicators'>");
-                sb.Append("     <button type = 'button' data-bs-target='#demo' data-bs-slide-to='0' class='active'></button>");
-                sb.Append("     <button type = 'button' data-bs-target='#demo' data-bs-slide-to='1'></button>");
-                sb.Append("     <button type = 'button' data-bs-target='#demo' data-bs-slide-to='2'></button>");
-                sb.Append(" </div>");
-                //The slideshow/carousel
-                sb.Append(" <div class='carousel -inner'>");
-                sb.Append("     <div class='carousel -item active'>");
-                sb.Append("         <img src = 'https://www.collinsdictionary.com/images/full/mountain_221506423.jpg' alt='Los Angeles' class='d-block w-100'>");
-                sb.Append("         <div class='carousel -caption''>");
-                sb.Append("             <h3>Los Angeles</h3>");
-                sb.Append("             <p>We had such a great time in LA!</p>");
-                sb.Append("         </div>");
-                sb.Append("     </div>");
-                sb.Append("     <div class='carousel -item'>");
-                sb.Append("         <img src = 'https://upload.wikimedia.org/wikipedia/commons/9/96/Barbados_beach.jpg' alt='Chicago' class='d-block w-100'>");
-                sb.Append("         <div class='carousel -caption'>");
-                sb.Append("             <h3>Los Angeles</h3>");
-                sb.Append("             <p>We had such a great time in LA!</p>");
-                sb.Append("         </div>");
-                sb.Append("     </div>");
-                sb.Append("     <div class='carousel -item'>");
-                sb.Append("         <img src = 'https://piscinascano.com/wp-content/uploads/2022/07/Piscinas-Cano-PIscina-OLIMPIA-5-Modelo-nuevo-2022-scaled.jpg' alt='New York' class='d-block w-100'>");
-                sb.Append("         <div class='carousel -caption'>");
-                sb.Append("             <h3>Los Angeles</h3>");
-                sb.Append("             <p>We had such a great time in LA!</p>");
-                sb.Append("         </div>");
-                sb.Append("     </div>");
-                sb.Append(" </div>");
-                //Left and right controls/icons
-                sb.Append(" <button class='carousel -control-prev' type='button' data-bs-target='#demo' data-bs-slide='prev'>");
-                sb.Append("     <span class='carousel -control-prev-icon'></span>");
-                sb.Append(" </button>");
-                sb.Append(" <button class='carousel -control-next' type='button' data-bs-target='#demo' data-bs-slide='next'>");
-                sb.Append("     <span class='carousel -control-next-icon'></span>");
-                sb.Append(" </button>");
-                sb.Append(" </div>");
-                */
 
                 countElement++;
                 ltRutasDisponibles.Text = sb.ToString();
             }
         }
+        protected void btnVerRuta_Click(object sender, EventArgs e)
+        {
+            
+        }
+
     }
 }
