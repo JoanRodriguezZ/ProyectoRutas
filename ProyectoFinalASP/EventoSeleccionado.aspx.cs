@@ -24,9 +24,21 @@ namespace ProyectoFinalASP
         List<Participante> participantes = new List<Participante>();
         List<Participante> voluntarios = new List<Participante>();
         List<Chat> chat = new List<Chat>();
+
+        static int id = -1;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            try
+            {
+                HttpCookie reqCookies = Request.Cookies["userInfo"];
+                id = int.Parse(reqCookies["id"]);
+            }
+            catch (NullReferenceException ex)
+            {
+                Response.Redirect("PaginaPrincipal");
+            }
+
             int countElement = 0;
             
             //Se le pasa un valor al evento hasta que se lo enviemos desde otro lado
@@ -49,7 +61,7 @@ namespace ProyectoFinalASP
             foreach (var mensaje in chat)
             {
 
-                sb.Append("         <div class='' id='lblChat'>" + usuarioDal.SelectUsuarioByIDUsuario(mensaje.FkIDUsuario).Nombre + ": " + mensaje.Mensaje + "</div>");
+                sb.Append("         <div style='font-size:13px; class='' id='lblChat'>" + usuarioDal.SelectUsuarioByIDUsuario(mensaje.FkIDUsuario).Nombre + ": " + mensaje.Mensaje + "</div>");
             }
 
             sb.Append("     </div>");
@@ -111,7 +123,7 @@ namespace ProyectoFinalASP
 
             Chat mensajeEnviado = new Chat();
             mensajeEnviado.FkIDEvento = evento.IdEvento;
-            mensajeEnviado.FkIDUsuario = 3; //Aqui iria el ID del usuario recogido de la cookie del usuario logeado.
+            mensajeEnviado.FkIDUsuario = id; //Aqui iria el ID del usuario recogido de la cookie del usuario logeado.
             mensajeEnviado.Mensaje = mensajeText;
             
 

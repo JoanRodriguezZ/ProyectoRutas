@@ -62,7 +62,8 @@ namespace ProyectoFinalASP.DAL
 
             try
             {
-                string sql = "SELECT * FROM Chat WHERE FKIDEvento=@pFkIDEvento ORDER BY IDMensaje";
+                string sql = "SELECT * FROM (SELECT TOP 20 * FROM Chat WHERE FKIDEvento=@pFkIDEvento ORDER BY IDMensaje DESC) SQ ORDER BY IDMensaje ASC";
+                    //"SELECT BOT(10) * FROM Chat WHERE FKIDEvento=@pFkIDEvento ORDER BY IDMensaje";
                 SqlCommand cmd = new SqlCommand(sql, cnx.MiCnx);
                 SqlParameter pFkIDEvento = new SqlParameter("@pFkIDEvento", idEvento);
                 cmd.Parameters.Add(pFkIDEvento);
