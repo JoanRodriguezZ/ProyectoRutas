@@ -42,22 +42,15 @@ namespace ProyectoFinalASP
                 sb.Append("     </div>");
                 sb.Append("     <div class='col-3'>");
                 sb.Append("         <label class='form-label' id='lblLocalizacion'>" + ruta.Localizacion + "</label>");
-                sb.Append("         <asp:Button class='btn btn-outline-dark' OnClick='btnVerRuta_Click' runat='server' ID='btnVerRuta' Text='Ver Ruta'/><br />");
-                sb.Append("         <asp:HiddenField ID='idRuta"+ ruta.IdRuta  +"' runat='server' Value='"+ ruta.IdRuta +"'>");
+                sb.Append("         <button class='btn btn-outline-dark' onClick='irRuta(" + ruta.IdRuta + ")' id='btnVerRuta'>Ver Ruta</button><br />");
                 sb.Append("     </div>");
                 sb.Append("     <div class='col-3'>");
                 sb.Append("         <img src='/Media/"+ ruta.ImageZone + "' class='img-thumbnail' alt='" + ruta.Descripcion +"'>");
                 sb.Append("     </div>");
                 sb.Append(" </div>");
-
                 countElement++;
                 ltRutasDisponibles.Text = sb.ToString();
             }
         }
-        protected void btnVerRuta_Click(object sender, EventArgs e)
-        {
-            
-        }
-
     }
 }
