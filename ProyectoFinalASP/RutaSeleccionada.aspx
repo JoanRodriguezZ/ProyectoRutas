@@ -28,7 +28,6 @@
     <script>
 
         var HiddenValue = document.getElementById("<%=coordenadas.ClientID%>").value;
-        //alert(HiddenValue);
 
         var myObject = eval('(' + document.getElementById("<%=coordenadas.ClientID%>").value + ')');
 
