@@ -16,11 +16,7 @@ namespace ProyectoFinalASP
         
         List<decimal> coordenadasList = new List<decimal>();
 
-        Uri uri;
-
         int idRutaSeleccionada;
-
-        //int idRutaSeleccionada = (int)Session['idRutaSeleccionada'].ToString();
 
         protected void Page_Load(object sender, EventArgs e)
         {

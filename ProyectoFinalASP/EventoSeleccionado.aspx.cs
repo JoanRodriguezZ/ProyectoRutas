@@ -26,9 +26,13 @@ namespace ProyectoFinalASP
         List<Chat> chat = new List<Chat>();
 
         static int id = -1;
+        int idEventoSeleccionado;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            idEventoSeleccionado = Int32.Parse(Request["id"]);
+           // Comento un momento la cookie para poder probar que se esta viajando al evento seleccionado correctamente
+           /*
             try
             {
                 HttpCookie reqCookies = Request.Cookies["userInfo"];
@@ -38,11 +42,11 @@ namespace ProyectoFinalASP
             {
                 Response.Redirect("PaginaPrincipal");
             }
-
+           */
             int countElement = 0;
             
             //Se le pasa un valor al evento hasta que se lo enviemos desde otro lado
-            evento = eventoDal.SelectEventoByIdEvento(1);
+            evento = eventoDal.SelectEventoByIdEvento(idEventoSeleccionado);
             ruta = rutaDal.SelectRutaByIdRuta(evento.FkIDRuta);
 
             sb.Append(" <h3>"+ ruta.Nombre +"</h3><br/>");
@@ -52,6 +56,9 @@ namespace ProyectoFinalASP
             sb.Append("         <label class='form-label' id='lblValoracion'>Valoracion: "+ ruta.ValoracionMedia +" | </label>");
             sb.Append("         <label class='form-label' id='lblAccesibilidad'>Nivel Accesibilidad: "+ ruta.NivelAccesibilidad +" </label>");
             sb.Append("     </div>");
+            sb.Append("     <div class='col-4'>");
+            sb.Append("         <button type='button' class='btn btn-outline-dark' onClick='unirseEvento("+ evento.IdEvento +")' id='btnUnirseEvento'>! Únete al evento !</button>");
+            sb.Append("     </div>");
             sb.Append(" </div>");
             sb.Append(" <div id='base2' class='row'>");
             sb.Append("     <label style='' id='lblChat'>Chat del evento</label>");
@@ -60,7 +67,6 @@ namespace ProyectoFinalASP
             chat = chatDal.SelectChatsByIdEvento(evento.IdEvento);
             foreach (var mensaje in chat)
             {
-
                 sb.Append("         <div style='font-size:13px; class='' id='lblChat'>" + usuarioDal.SelectUsuarioByIDUsuario(mensaje.FkIDUsuario).Nombre + ": " + mensaje.Mensaje + "</div>");
             }
 

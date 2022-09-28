@@ -9,7 +9,7 @@
             <div class="col-9" id="map" style="height: 500px;"></div>
 
             <div class="col-3">
-                <asp:Button class="btn btn-outline-primary" Text="Crear Ruta" runat="server" OnClick="Unnamed1_Click" />
+                <asp:Button class="btn btn-outline-primary" Text="Crear Ruta" runat="server" />
                 <br />
 
                 <asp:Label class="label" Text="Nombre de la ruta:" runat="server" />

@@ -8,8 +8,6 @@
     <script>
         function irRuta(idRuta)
         {
-            alert("me piro a la otra pagina chau. IDRUTA: " + idRuta);
-
             window.location.href = '/RutaSeleccionada.aspx?id=' + idRuta;
         }
     </script>

@@ -31,23 +31,32 @@ namespace ProyectoFinalASP
             rutas = rutaDal.SelectRutasOrderByLocalizacion();
             foreach (var ruta in rutas)
             {
-                sb.Append(" <div id='base' class='row border'>");
-                sb.Append("     <div class='col-3'>");
-                sb.Append("         <label class='form-label' id='lblRuta'>" + ruta.Nombre + "</label><br />");
-                sb.Append("         <label class='form-label' id='lblLongitud'>" + ((int)ruta.LongitudKm) + " km |</label>");
-                sb.Append("         <label class='form-label' id='lblValoracion'> Valoracion " + ruta.ValoracionMedia + "</label><br />");
+                sb.Append("<div class='border m-2'>");
+                sb.Append(" <div id='base' class='row'>");
+                sb.Append("     <div class='col-2'>");
+                sb.Append("         <label class='form-label' id='lblRuta'>" + ruta.Nombre + " |</label>");
+                sb.Append("         <label class='form-label' id='lblLongitud'> " + ((int)ruta.LongitudKm) + " km |</label>");
+                sb.Append("         <label class='form-label' id='lblValoracion'> Valoracion " + ruta.ValoracionMedia + " </label><br />");
                 sb.Append("     </div>");
-                sb.Append("     <div class='col-3'>");
+                sb.Append("     <div class='col-2'>");
+                sb.Append("         <label class='form-label' id='lblLocalizacion'>" + ruta.Localizacion + "</label>");
+                sb.Append("     </div>");
+                sb.Append("     <div class='col-2'>");
                 sb.Append("         <label class='form-label' id='lblDescripcion'>" + ruta.Descripcion + "</label>");
                 sb.Append("     </div>");
                 sb.Append("     <div class='col-3'>");
-                sb.Append("         <label class='form-label' id='lblLocalizacion'>" + ruta.Localizacion + "</label>");
-                sb.Append("         <button class='btn btn-outline-dark' onClick='irRuta(" + ruta.IdRuta + ")' id='btnVerRuta'>Ver Ruta</button><br />");
-                sb.Append("     </div>");
-                sb.Append("     <div class='col-3'>");
-                //sb.Append("         <img src='/Media/"+ ruta.ImageZone + "' class='img-thumbnail' alt='" + ruta.Descripcion +"'>");
+                sb.Append("         <button type='button' class='btn btn-outline-dark my-4' onClick='irRuta(" + ruta.IdRuta + ")' id='btnVerRuta'>Ver Detalles</button><br />");
                 sb.Append("     </div>");
                 sb.Append(" </div>");
+                sb.Append(" <div id='base2' class='row w-50'>");
+                sb.Append("     <div class='col-4'>");
+                sb.Append("         <img src='/Media/" + ruta.ImageMap + "' class='img-thumbnail' alt='" + ruta.Descripcion + "'>");
+                sb.Append("     </div>");
+                sb.Append("     <div class='col-4'>");
+                sb.Append("         <img src='/Media/" + ruta.ImageZone + "' class='img-thumbnail' alt='" + ruta.Descripcion + "'>");
+                sb.Append("     </div>");
+                sb.Append(" </div>");
+                sb.Append("</div>");
                 countElement++;
                 ltRutasDisponibles.Text = sb.ToString();
             }

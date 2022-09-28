@@ -20,6 +20,12 @@
             <div class='col-4'>
             </div>
         </div>
-
     </div>
+
+    <script>
+            function unirseEvento(idEvento)
+            {
+                alert("Te has unido al evento! " + idEvento)
+            }
+    </script>
 </asp:Content>
