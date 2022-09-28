@@ -24,7 +24,6 @@ namespace ProyectoFinalASP
         List<Participante> participantes = new List<Participante>();
         List<Participante> voluntarios = new List<Participante>();
         List<Chat> chat = new List<Chat>();
-
         protected void Page_Load(object sender, EventArgs e)
         {
             

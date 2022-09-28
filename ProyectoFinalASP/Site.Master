@@ -50,11 +50,11 @@
 
         <!-- NAV/Top content -->
         <nav class="navbar navbar-light bg-light menuPrincipal">
-            <h1 class="navbar-brand pt-4" id="tituloPagina"><%: Page.Title %></h1>
+            <h1 class="navbar-brand pt-3" id="tituloPagina"><%: Page.Title %></h1>
         </nav>
 
         <div class="sticky-top">
-            <ul class="nav justify-content-center menuPrincipal pb-4" id="listadoPaginas">
+            <ul class="nav justify-content-center menuPrincipal pb-3" id="listadoPaginas">
 
                 <li class="nav-item">
                     <asp:Label class="nav-link" ID="textoUserLogin" runat="server"></asp:Label>
@@ -69,7 +69,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <asp:HyperLink class="nav-link" href="./RutaCrear.aspx" ID="CrearRuta" runat="server">Crear Rutal</asp:HyperLink>
+                    <asp:HyperLink class="nav-link" href="./RutaCrear.aspx" ID="CrearRuta" runat="server">Crear Ruta</asp:HyperLink>
                 </li>
 
                 <li class="nav-item">
@@ -98,16 +98,12 @@
         <div class="body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
-
-            <!-- Floor content -->
-            <footer>
-                <div class="fixed-bottom" id="footer">
-                    <p id="textoFooter" style="color: rgb(231, 231, 231);" class="text-center p-1">
-                        Todos los derechos reservados &copy; <%: DateTime.Now.Year %>
-                    </p>
-                </div>
-            </footer>
         </div>
+
+        <!-- Floor content -->
+        <footer class="fixed-bottom text-center pt-2 pb-2" id="footer">
+            Todos los derechos reservados &copy; <%: DateTime.Now.Year %>
+        </footer>
     </form>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
