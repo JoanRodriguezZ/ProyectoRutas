@@ -25,6 +25,7 @@ namespace ProyectoFinalASP
             {
                 textoUserLogin.Visible = false;
                 Logout.Visible = false;
+                PagUser.Visible = false;
             }
         }
 

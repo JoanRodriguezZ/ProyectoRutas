@@ -12,7 +12,7 @@ namespace ProyectoFinalASP
     public partial class Login : System.Web.UI.Page
     {
         DALUsuario dalUsuario = new DALUsuario();
-        
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -25,34 +25,40 @@ namespace ProyectoFinalASP
 
             string hash = dalUsuario.SelectUserHashByEmail(loginEmail);
 
-            // Verify
-            bool result = Hash.SecurePasswordHasher.Verify(loginPassword, hash); // Comprueba si la contraseña es válida para el hash específico.
-
-            Usuario usuario = new Usuario();
-            if (result == true)
+            if (hash != null)
             {
-                usuario = dalUsuario.SelectUsuarioByEmailPassword(loginEmail, hash); // Si es true seleccionamos el usuario por el email + password (hash en BDD)
+                // Verify
+                bool result = Hash.SecurePasswordHasher.Verify(loginPassword, hash); // Comprueba si la contraseña es válida para el hash específico.
 
-                if (usuario != null)
+                Usuario usuario = new Usuario();
+                if (result == true)
                 {
-                    labelEmailPassword.Text = "Credenciales correctas";
+                    usuario = dalUsuario.SelectUsuarioByEmailPassword(loginEmail, hash); // Si es true seleccionamos el usuario por el email + password (hash en BDD)
 
-                    HttpCookie userInfo = new HttpCookie("userInfo");
+                    if (usuario != null)
+                    {
+                        labelEmailPassword.Text = "Credenciales correctas";
 
-                    userInfo["id"] = usuario.IdUsuario.ToString();
-                    userInfo["username"] = usuario.Nombre;
-                    userInfo["surname"] = usuario.Apellidos;
+                        HttpCookie userInfo = new HttpCookie("userInfo");
 
-                    userInfo.Secure = true;
+                        userInfo["id"] = usuario.IdUsuario.ToString();
+                        userInfo["username"] = usuario.Nombre;
+                        userInfo["surname"] = usuario.Apellidos;
 
-                    Response.Cookies.Add(userInfo);
+                        userInfo.Secure = true;
 
-                    Response.Redirect("PaginaPrincipal");
+                        Response.Cookies.Add(userInfo);
+
+                        Response.Redirect("PaginaPrincipal");
+                    }
+
                 }
-                
+                else
+                    labelEmailPassword.Text = "La contraseña es incorrecta.";
             }
             else
-                labelEmailPassword.Text = "Credenciales incorrectas";
+                labelEmailPassword.Text = "El email introducido no existe.";
+
         }
     }
 }
