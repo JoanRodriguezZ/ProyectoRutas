@@ -130,6 +130,7 @@
     <Content Include="RutaCrear.aspx">
       <BrowseToURL>~/RutaCrear.aspx</BrowseToURL>
     </Content>
+    <Content Include="RutaSeleccionada.aspx" />
     <Content Include="Scripts\rutaseleccionada.js" />
     <Content Include="Scripts\loginCookieSesion.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
@@ -267,6 +268,13 @@
     </Compile>
     <Compile Include="RutaCrear.aspx.designer.cs">
       <DependentUpon>RutaCrear.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RutaSeleccionada.aspx.cs">
+      <DependentUpon>RutaSeleccionada.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RutaSeleccionada.aspx.designer.cs">
+      <DependentUpon>RutaSeleccionada.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
