@@ -10,14 +10,14 @@ namespace ProyectoFinalASP.Modelos
     {
         int idPuntoDeControl;
         int fkIDRuta;
-        Point point;
+        decimal point;
         string descripcion;
 
         public PuntoDeControl()
         {
 
         }
-        public PuntoDeControl(int idPuntoDeControl, int fkIDRuta, Point point, string descripcion)
+        public PuntoDeControl(int idPuntoDeControl, int fkIDRuta, decimal point, string descripcion)
         {
             this.idPuntoDeControl = idPuntoDeControl;
             this.fkIDRuta = fkIDRuta;
@@ -27,7 +27,7 @@ namespace ProyectoFinalASP.Modelos
 
         public int IdPuntoDeControl { get => idPuntoDeControl; set => idPuntoDeControl = value; }
         public int FkIDRuta { get => fkIDRuta; set => fkIDRuta = value; }
-        public Point Point { get => point; set => point = value; }
+        public decimal Point { get => point; set => point = value; }
         public string Descripcion { get => descripcion; set => descripcion = value; }
     }
 }

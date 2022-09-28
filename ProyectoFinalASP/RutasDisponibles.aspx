@@ -8,7 +8,9 @@
     <script>
         function irRuta(idRuta)
         {
-            window.location.href = "RutaSeleccionada.aspx?id=" + idRuta;
+            alert("me piro a la otra pagina chau. IDRUTA: " + idRuta);
+
+            window.location.href = '/RutaSeleccionada.aspx?id=' + idRuta;
         }
     </script>
 </asp:Content>

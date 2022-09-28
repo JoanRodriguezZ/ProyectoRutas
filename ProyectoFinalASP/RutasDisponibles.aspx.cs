@@ -45,7 +45,7 @@ namespace ProyectoFinalASP
                 sb.Append("         <button class='btn btn-outline-dark' onClick='irRuta(" + ruta.IdRuta + ")' id='btnVerRuta'>Ver Ruta</button><br />");
                 sb.Append("     </div>");
                 sb.Append("     <div class='col-3'>");
-                sb.Append("         <img src='/Media/"+ ruta.ImageZone + "' class='img-thumbnail' alt='" + ruta.Descripcion +"'>");
+                //sb.Append("         <img src='/Media/"+ ruta.ImageZone + "' class='img-thumbnail' alt='" + ruta.Descripcion +"'>");
                 sb.Append("     </div>");
                 sb.Append(" </div>");
                 countElement++;

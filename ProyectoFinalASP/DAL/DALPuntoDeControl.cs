@@ -74,7 +74,7 @@ namespace ProyectoFinalASP.DAL
                     puntoDeControl = new PuntoDeControl();
                     puntoDeControl.IdPuntoDeControl = (int)dr["IDPuntoDeControl"];
                     puntoDeControl.FkIDRuta = (int)(dr["FKRutaID"]);
-                    //puntoDeControl.Point = (string)(dr["Coordenada"]);
+                    puntoDeControl.Point = (decimal)(dr["Punto"]);
                     puntoDeControl.Descripcion = (string)GestionarNulos(dr["Descripcion"]);
 
                     puntosDeControl.Add(puntoDeControl);

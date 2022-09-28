@@ -9,7 +9,7 @@
             <div class="col-9" id="map" style="height: 500px;"></div>
 
             <div class="col-3">
-                <asp:Button class="btn btn-outline-primary" Text="Crear Ruta" runat="server" />
+                <asp:Button class="btn btn-outline-primary" Text="Crear Ruta" runat="server" OnClick="Unnamed1_Click" />
                 <br />
 
                 <asp:Label class="label" Text="Nombre de la ruta:" runat="server" />
@@ -41,7 +41,9 @@
             var myObject = eval('(' + document.getElementById("<%=coordenadas.ClientID%>").value + ')');
 
             var coordInicial1 = myObject[0];
-            var coordInicial2 = myObject[1]
+            var coordInicial2 = myObject[1];
+            alert(coordInicial1 + " = " + myObject[0]);
+            alert(coordInicial2 + " = " + myObject[1]);
 
             var map = L.map('map').setView([coordInicial2, coordInicial1], 15);
 

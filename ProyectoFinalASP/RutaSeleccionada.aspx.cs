@@ -5,34 +5,36 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using ProyectoFinalASP.Modelos;
 
 namespace ProyectoFinalASP
 {
     public partial class RutaSeleccionada : System.Web.UI.Page
     {
-        List<Double> checkpoints = new List<Double>();
+        DAL.DALPuntoDeControl puntoDeControlDal = new DAL.DALPuntoDeControl();
+        
+        
+        List<decimal> coordenadasList = new List<decimal>();
+
+        Uri uri;
+
+        int idRutaSeleccionada;
+
+        //int idRutaSeleccionada = (int)Session['idRutaSeleccionada'].ToString();
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            checkpoints.Add(2.154876);
-            checkpoints.Add(41.441045);
-            checkpoints.Add(2.15302);
-            checkpoints.Add(41.441709);
-            checkpoints.Add(2.152897);
-            checkpoints.Add(41.442409);
-            checkpoints.Add(2.153605);
-            checkpoints.Add(41.443414);
-            checkpoints.Add(2.153782);
-            checkpoints.Add(41.445115);
-            checkpoints.Add(2.152328);
-            checkpoints.Add(41.446116);
-            checkpoints.Add(2.15214);
-            checkpoints.Add(41.44719);
-            checkpoints.Add(2.153417);
-            checkpoints.Add(41.448513);
+            idRutaSeleccionada = Int32.Parse(Request["id"]);
+            
+
+            List<PuntoDeControl> puntosDeControl = puntoDeControlDal.SelectPuntosDeControlByIdRuta(idRutaSeleccionada);
+            foreach (var checkpoint in puntosDeControl)
+            {
+                coordenadasList.Add(checkpoint.Point);
+            }
 
             JavaScriptSerializer ser = new JavaScriptSerializer();
-            coordenadas.Value = ser.Serialize(checkpoints);
+            coordenadas.Value = ser.Serialize(coordenadasList);
 
         }
 
