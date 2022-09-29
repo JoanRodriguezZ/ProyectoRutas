@@ -6,5 +6,13 @@
 
         <asp:Literal ID="ltPaginaUsuario" runat="server" />
 
+        <script>
+            //Ir Evento concreto
+            function irEvento(idEvento)
+            {
+                window.location.href = '/EventoSeleccionado.aspx?id=' + idEvento;
+            }
+            
+        </script>
     </div>
 </asp:Content>

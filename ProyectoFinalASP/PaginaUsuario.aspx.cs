@@ -16,7 +16,7 @@ namespace ProyectoFinalASP
         protected void Page_Load(object sender, EventArgs e)
         {
             int id = -1;
-
+            
             try
             {
                 HttpCookie reqCookies = Request.Cookies["userInfo"];
@@ -26,7 +26,7 @@ namespace ProyectoFinalASP
             {
                 Response.Redirect("PaginaPrincipal");
             }
-
+            
             StringBuilder sb = new StringBuilder();
             DALEvento eventoDal = new DALEvento();
             DALRuta rutaDal = new DALRuta();
@@ -43,8 +43,7 @@ namespace ProyectoFinalASP
             user = usuarioDal.SelectUsuarioByIDUsuario(id);
             Debug.WriteLine(id);
 
-            sb.Append(" <h3>Pagina Usuario </h3><br/>");
-            sb.Append(" <div id ='base1' class='row border'>");
+            sb.Append(" <div id ='base1' class='row border border-dark border-4 mt-2'>");
             sb.Append("     <div class='col-4'>");
             sb.Append("         <label class='form-label' id='lblNombre'>" + user.ToString() + "</label><br/>");
             sb.Append("         <label class='form-label' id='lblTipo'>" + user.Tipo() + "</label><br/>");
@@ -75,30 +74,29 @@ namespace ProyectoFinalASP
                     switch (estado.IdEstado)
                     {
                         case 1:
-                            sb.Append("         <label class='form-label' id='lblEstado'>" + estado.EstadoDescripcion + "</label><br />");
-                            sb.Append("         <div class='row border border-primary'>");
+                            sb.Append("         <label class='form-label' id='lblEstado'><h3>" + estado.EstadoDescripcion + "</h3></label><br />");
+                            sb.Append("         <div class='row border border-primary border-3 rounded-pill'>");
                             break;
                         case 2:
-                            sb.Append("         <label class='form-label' id='lblEstado'>" + estado.EstadoDescripcion + "</label><br />");
-                            sb.Append("         <div class='row border border-success'>");
+                            sb.Append("         <label class='form-label' id='lblEstado'><h3>" + estado.EstadoDescripcion + "</h3></label><br />");
+                            sb.Append("         <div class='row border border-success border-3 rounded-pill'>");
                             break;
                         case 3:
-                            sb.Append("         <label class='form-label' id='lblEstado'>" + estado.EstadoDescripcion + "</label><br />");
-                            sb.Append("         <div class='row border border-danger'>");
+                            sb.Append("         <label class='form-label' id='lblEstado'><h3>" + estado.EstadoDescripcion + "</h3></label><br />");
+                            sb.Append("         <div class='row border border-danger border-3 rounded-pill'>");
                             break;
                         case 4:
-                            sb.Append("         <label class='form-label' id='lblEstado'>" + estado.EstadoDescripcion + "</label><br />");
-                            sb.Append("         <div class='row border border-dark'>");
+                            sb.Append("         <label class='form-label' id='lblEstado'><h3>" + estado.EstadoDescripcion + "</h3></label><br />");
+                            sb.Append("         <div class='row border border-dark border-3 rounded-pill'>");
                             break;
                         default:
-                            sb.Append("         <div class='row border border-info'>");
+                            sb.Append("         <div class='row border bg-info border-3 rounded-pill'>");
                             break;
                     }
 
                     sb.Append("     <div class='col-3'>");
-                    sb.Append("         <label class='form-label' id='lblRuta'>" + ruta.Nombre + "</label><br />");
-                    sb.Append("         <button class='btn btn-outline-dark' id='btnVerRuta'>Ver Ruta</button><br />");
-                    sb.Append("         <label class='form-label' id='lblCreador'>" + user.ToString() + "</label>");
+                    sb.Append("         <label class='form-label ms-3 mt-3' id='lblRuta'>" + ruta.Nombre + "</label><br />");
+                    sb.Append("         <label class='form-label ms-3 mt-3' id='lblCreador'>" + user.ToString() + "</label>");
                     sb.Append("     </div>");
                     sb.Append("     <div class='col-3'>");
                     sb.Append("         <label class='form-label' id='lblKm'>Km: " + ((int)ruta.LongitudKm) + "</label><br />");
@@ -112,7 +110,7 @@ namespace ProyectoFinalASP
                     sb.Append("     <div class='col-3'>");
                     sb.Append("         <label class='form-label' id='lblFecha'>" + evento.FechaDeRealizacion.Value.ToString("dd/MM/yyyy") + "</label><br />");
                     sb.Append("         <label class='form-label' id='lblHora'>" + evento.FechaDeRealizacion.Value.TimeOfDay + "</label><br />");
-                    sb.Append("         <button class='btn btn-outline-dark' id='btnJoin'>Ver Evento</button>");
+                    sb.Append("         <button type='button' class='btn btn-outline-dark' onClick='irEvento(" + evento.IdEvento + ")' id='btnVerEvento'>Ver Evento</button>");
                     sb.Append("     </div>");
                     sb.Append(" </div>");
                     countElement++;

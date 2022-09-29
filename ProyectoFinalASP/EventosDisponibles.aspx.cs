@@ -33,7 +33,6 @@ namespace ProyectoFinalASP
                 sb.Append(" <div id='base' class='row border'>");
                 sb.Append("     <div class='col-3'>");
                 sb.Append("         <label class='form-label' id='lblRuta'>"+ ruta.Nombre +"</label><br />");
-                sb.Append("         <button type='button' class='btn btn-outline-dark' data-toggle='modal' data-target='#modalMapaRuta' id='btnVerRuta'>Ver Mapa Ruta</button><br />");
                 sb.Append("         <label class='form-label' id='lblCreador'>"+ user.ToString() + "</label>");
                 sb.Append("     </div>");
                 sb.Append("     <div class='col-3'>");
