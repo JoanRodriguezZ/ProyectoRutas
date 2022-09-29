@@ -42,12 +42,21 @@ namespace ProyectoFinalASP
         protected global::System.Web.UI.WebControls.Button enviarMensaje;
 
         /// <summary>
-        /// Control lbSubmit.
+        /// Control btnUnirseAlEvento.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbSubmit;
+        protected global::System.Web.UI.WebControls.Button btnUnirseAlEvento;
+
+        /// <summary>
+        /// Control btnBorrarseDelEvento.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnBorrarseDelEvento;
     }
 }

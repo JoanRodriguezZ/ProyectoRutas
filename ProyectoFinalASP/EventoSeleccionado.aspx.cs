@@ -60,9 +60,9 @@ namespace ProyectoFinalASP
             sb.Append("         <label class='form-label' id='lblValoracion'>Valoracion: "+ ruta.ValoracionMedia +" | </label>");
             sb.Append("         <label class='form-label' id='lblAccesibilidad'>Nivel Accesibilidad: "+ ruta.NivelAccesibilidad +" </label>");
             sb.Append("     </div>");
-            sb.Append("     <div class='col-4'>");
-            sb.Append("         <button class='btn btn-success' onClick='unirseEvento(" + evento.IdEvento +")' id='btnUnirseEvento'>¡Únete al evento!</button>");
-            sb.Append("     </div>");
+            //sb.Append("     <div class='col-4'>");
+            //sb.Append("         <button class='btn btn-success' onClick='unirseEvento(" + evento.IdEvento +")' id='btnUnirseEvento'>¡Únete al evento!</button>");
+            //sb.Append("     </div>");
             sb.Append(" </div>");
             sb.Append(" <div id='base2' class='row'>");
             sb.Append("     <label style='' id='lblChat'>Chat del evento</label>");
@@ -109,6 +109,13 @@ namespace ProyectoFinalASP
             sb.Append(" </div>");
 
             ltEventoSeleccionado.Text = sb.ToString();
+
+            Participante p = participanteDal.SelectParticipanteByIdEvento(id, evento.IdEvento);
+            if(p != null)
+            {
+                btnUnirseAlEvento.Visible = false;
+                btnBorrarseDelEvento.Visible = true;
+            }
         }
 
         protected void enviarMensaje_Click(object sender, EventArgs e)
@@ -134,5 +141,21 @@ namespace ProyectoFinalASP
 
         }
 
+        protected void btnUnirseAlEvento_Click(object sender, EventArgs e)
+        {
+            Participante part = new Participante(evento.IdEvento, id);
+            participanteDal.InsertParticipante(part);
+            Response.Write("<script>alert('Te has unido al evento.')</script>");
+            btnUnirseAlEvento.Visible = false;
+            btnBorrarseDelEvento.Visible = true;
+        }
+
+        protected void btnBorrarseDelEvento_Click(object sender, EventArgs e)
+        {
+            participanteDal.DeleteParticipanteByIdEvento(evento.IdEvento, id);
+            Response.Write("<script>alert('Te has borrado del evento.')</script>");
+            //btnUnirseAlEvento.Visible = true;
+            //btnBorrarseDelEvento.Visible = false;
+        }
     }
 }

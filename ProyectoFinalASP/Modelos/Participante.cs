@@ -16,6 +16,11 @@ namespace ProyectoFinalASP.Modelos
         {
 
         }
+        public Participante(int fkIDEvento, int fkIDUsuario)
+        {
+            this.fkIDEvento = fkIDEvento;
+            this.fkIDUsuario = fkIDUsuario;
+        }
         public Participante(int fkIDEvento, int fkIDUsuario, int? valoracionRuta, string comentarioRuta)
         {
             this.fkIDEvento = fkIDEvento;
