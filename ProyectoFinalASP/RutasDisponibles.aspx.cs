@@ -33,7 +33,7 @@ namespace ProyectoFinalASP
             {
                 sb.Append("<div class='border m-2'>");
                 sb.Append(" <div id='base' class='row'>");
-                sb.Append("     <div class='col-2'>");
+                sb.Append("     <div class='col-3'>");
                 sb.Append("         <label class='form-label' id='lblRuta'>" + ruta.Nombre + " |</label>");
                 sb.Append("         <label class='form-label' id='lblLongitud'> " + ((int)ruta.LongitudKm) + " km |</label>");
                 sb.Append("         <label class='form-label' id='lblValoracion'> Valoracion " + ruta.ValoracionMedia + " </label><br />");

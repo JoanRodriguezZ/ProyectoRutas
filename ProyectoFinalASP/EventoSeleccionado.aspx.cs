@@ -30,7 +30,7 @@ namespace ProyectoFinalASP
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            idEventoSeleccionado = Int32.Parse(Request["id"]);
+            idEventoSeleccionado = Int32.Parse(Request.QueryString["id"]);
            // Comento un momento la cookie para poder probar que se esta viajando al evento seleccionado correctamente
            /*
             try
@@ -74,7 +74,7 @@ namespace ProyectoFinalASP
             sb.Append("     <div class='col-4'>");
             sb.Append("         <div class='row border'>");
             sb.Append("             <label class='form-label col-6' id='lblFecha'>Fecha: "+ evento.FechaDeRealizacion.Value.ToString("dd/MM/yyyy") +"</label>");
-            sb.Append("             <label class='form-label col-4' id='lblHora'>Hora: " + evento.FechaDeRealizacion.Value.TimeOfDay + "</label>");
+            sb.Append("             <label class='form-label col-4' id='lblHora'>Hora: " + evento.FechaDeRealizacion.Value.ToString("HH:mm") + "</label>");
             sb.Append("         </div>");
             sb.Append("         <div class='row border'>");
             sb.Append("             <ul class='list-group list-group-flush'>");

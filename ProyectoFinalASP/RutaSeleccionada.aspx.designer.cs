@@ -15,13 +15,31 @@ namespace ProyectoFinalASP
     {
 
         /// <summary>
-        /// Control kmTotales.
+        /// Control ltDatosRuta.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label kmTotales;
+        protected global::System.Web.UI.WebControls.Literal ltDatosRuta;
+
+        /// <summary>
+        /// Control ltEventosRuta.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal ltEventosRuta;
+
+        /// <summary>
+        /// Control ltDescripcion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal ltDescripcion;
 
         /// <summary>
         /// Control coordenadas.

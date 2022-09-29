@@ -109,7 +109,7 @@ namespace ProyectoFinalASP
                     sb.Append("     </div>");
                     sb.Append("     <div class='col-3'>");
                     sb.Append("         <label class='form-label' id='lblFecha'>" + evento.FechaDeRealizacion.Value.ToString("dd/MM/yyyy") + "</label><br />");
-                    sb.Append("         <label class='form-label' id='lblHora'>" + evento.FechaDeRealizacion.Value.TimeOfDay + "</label><br />");
+                    sb.Append("         <label class='form-label' id='lblHora'>" + evento.FechaDeRealizacion.Value.ToString("HH:mm") + "</label><br />");
                     sb.Append("         <button type='button' class='btn btn-outline-dark' onClick='irEvento(" + evento.IdEvento + ")' id='btnVerEvento'>Ver Evento</button>");
                     sb.Append("     </div>");
                     sb.Append(" </div>");
