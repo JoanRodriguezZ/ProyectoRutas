@@ -20,9 +20,15 @@ namespace ProyectoFinalASP
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            idRutaSeleccionada = Int32.Parse(Request["id"]);
+            try
+            {
+                idRutaSeleccionada = Int32.Parse(Request["id"]);
+            }
+            catch (ArgumentNullException ex)
+            {
+                Response.Redirect("RutasDisponibles");
+            }
             
-
             List<PuntoDeControl> puntosDeControl = puntoDeControlDal.SelectPuntosDeControlByIdRuta(idRutaSeleccionada);
             foreach (var checkpoint in puntosDeControl)
             {

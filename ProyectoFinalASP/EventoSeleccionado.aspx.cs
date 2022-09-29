@@ -32,7 +32,7 @@ namespace ProyectoFinalASP
         {
             idEventoSeleccionado = Int32.Parse(Request["id"]);
            // Comento un momento la cookie para poder probar que se esta viajando al evento seleccionado correctamente
-           /*
+           
             try
             {
                 HttpCookie reqCookies = Request.Cookies["userInfo"];
@@ -42,7 +42,7 @@ namespace ProyectoFinalASP
             {
                 Response.Redirect("PaginaPrincipal");
             }
-           */
+           
             int countElement = 0;
             
             //Se le pasa un valor al evento hasta que se lo enviemos desde otro lado

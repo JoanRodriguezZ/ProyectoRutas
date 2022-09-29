@@ -4,15 +4,25 @@
 
     <div class="container">
 
+        <div class="mt-4 mb-1" style="text-align:center">
+            <h3>Mi perfil</h3>
+        </div>
         <asp:Literal ID="ltPaginaUsuario" runat="server" />
 
+        <div class="mt-4 mb-1" style="text-align:center">
+            <h3>Eventos</h3>
+            <asp:Label ID="Label1" runat="server"></asp:Label>
+        </div>
+        <asp:Literal ID="ltPaginaUsuarioEventos" runat="server" />
+        
         <script>
             //Ir Evento concreto
-            function irEvento(idEvento)
-            {
+            function irEvento(idEvento) {
                 window.location.href = '/EventoSeleccionado.aspx?id=' + idEvento;
             }
-            
+
         </script>
+
+
     </div>
 </asp:Content>
