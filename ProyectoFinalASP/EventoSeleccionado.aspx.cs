@@ -30,6 +30,7 @@ namespace ProyectoFinalASP
 
         protected void Page_Load(object sender, EventArgs e)
         {
+
             try
             {
                 idEventoSeleccionado = Int32.Parse(Request.QueryString["id"]);
@@ -38,7 +39,7 @@ namespace ProyectoFinalASP
             {
                 Response.Redirect("EventosDisponibles");
             }
-           
+
             try
             {
                 HttpCookie reqCookies = Request.Cookies["userInfo"];
@@ -48,17 +49,17 @@ namespace ProyectoFinalASP
             {
                 Response.Redirect("PaginaPrincipal");
             }
-            
+
             //Se le pasa un valor al evento hasta que se lo enviemos desde otro lado
             evento = eventoDal.SelectEventoByIdEvento(idEventoSeleccionado);
             ruta = rutaDal.SelectRutaByIdRuta(evento.FkIDRuta);
 
-            sb.Append(" <h3>"+ ruta.Nombre +"</h3><br/>");
+            sb.Append(" <h3>" + ruta.Nombre + "</h3><br/>");
             sb.Append(" <div id='base1' class='row'>");
             sb.Append("     <div class='col-8'>");
-            sb.Append("         <label class='form-label' id='lblKm'>Longitud: "+ ((int)ruta.LongitudKm) + " km | </label>");
-            sb.Append("         <label class='form-label' id='lblValoracion'>Valoracion: "+ ruta.ValoracionMedia +" | </label>");
-            sb.Append("         <label class='form-label' id='lblAccesibilidad'>Nivel Accesibilidad: "+ ruta.NivelAccesibilidad +" </label>");
+            sb.Append("         <label class='form-label' id='lblKm'>Longitud: " + ((int)ruta.LongitudKm) + " km | </label>");
+            sb.Append("         <label class='form-label' id='lblValoracion'>Valoracion: " + ruta.ValoracionMedia + " | </label>");
+            sb.Append("         <label class='form-label' id='lblAccesibilidad'>Nivel Accesibilidad: " + ruta.NivelAccesibilidad + " </label>");
             sb.Append("     </div>");
             //sb.Append("     <div class='col-4'>");
             //sb.Append("         <button class='btn btn-success' onClick='unirseEvento(" + evento.IdEvento +")' id='btnUnirseEvento'>¡Únete al evento!</button>");
@@ -77,24 +78,24 @@ namespace ProyectoFinalASP
             sb.Append("     </div>");
             sb.Append("     <div class='col-4'>");
             sb.Append("         <div class='row border'>");
-            sb.Append("             <label class='form-label col-6' id='lblFecha'>Fecha: "+ evento.FechaDeRealizacion.Value.ToString("dd/MM/yyyy") +"</label>");
+            sb.Append("             <label class='form-label col-6' id='lblFecha'>Fecha: " + evento.FechaDeRealizacion.Value.ToString("dd/MM/yyyy") + "</label>");
             sb.Append("             <label class='form-label col-4' id='lblHora'>Hora: " + evento.FechaDeRealizacion.Value.TimeOfDay + "</label>");
             sb.Append("         </div>");
             sb.Append("         <div class='row border'>");
             sb.Append("             <ul class='list-group list-group-flush'>");
-            sb.Append("                 <li class='list-group-item'><b>Usuarios: "+ participanteDal.SelectCountParticipantesByIdEvento(evento.IdEvento) +"</b></li>");
-            
+            sb.Append("                 <li class='list-group-item'><b>Usuarios: " + participanteDal.SelectCountParticipantesByIdEvento(evento.IdEvento) + "</b></li>");
+
             participantes = participanteDal.SelectParticipantesByIdEvento(evento.IdEvento);
             foreach (var participante in participantes)
             {
-                sb.Append("                 <li class='list-group-item'>"+ usuarioDal.SelectUsuarioByIDUsuario(participante.FkIDUsuario).ToString() +"</li>");
-            }            
+                sb.Append("                 <li class='list-group-item'>" + usuarioDal.SelectUsuarioByIDUsuario(participante.FkIDUsuario).ToString() + "</li>");
+            }
             sb.Append("             </ul>");
             sb.Append("         </div>");
             sb.Append("         <div class='row border'>");
             sb.Append("             <ul class='list-group list-group-flush'>");
-            sb.Append("                 <li class='list-group-item'><b>Voluntarios: "+ participanteDal.SelectCountParticipantesVoluntariosByIdEvento(evento.IdEvento) +"</b></li>");           
-            
+            sb.Append("                 <li class='list-group-item'><b>Voluntarios: " + participanteDal.SelectCountParticipantesVoluntariosByIdEvento(evento.IdEvento) + "</b></li>");
+
             voluntarios = participanteDal.SelectParticipantesVoluntariosByIdEvento(evento.IdEvento);
             foreach (var voluntario in voluntarios)
             {
@@ -103,7 +104,7 @@ namespace ProyectoFinalASP
             sb.Append("             </ul>");
             sb.Append("         </div>");
             sb.Append("         <div class='row'>");
-            sb.Append("             <label class='form-label' id='lblComentarios'>"+ ruta.Descripcion +"</label>");
+            sb.Append("             <label class='form-label' id='lblComentarios'>" + ruta.Descripcion + "</label>");
             sb.Append("         </div>");
             sb.Append("     </div>");
             sb.Append(" </div>");
@@ -111,11 +112,13 @@ namespace ProyectoFinalASP
             ltEventoSeleccionado.Text = sb.ToString();
 
             Participante p = participanteDal.SelectParticipanteByIdEvento(id, evento.IdEvento);
-            if(p != null)
+            if (p != null)
             {
                 btnUnirseAlEvento.Visible = false;
                 btnBorrarseDelEvento.Visible = true;
+                textoMensaje.Enabled = true;
             }
+
         }
 
         protected void enviarMensaje_Click(object sender, EventArgs e)
@@ -126,7 +129,7 @@ namespace ProyectoFinalASP
             mensajeEnviado.FkIDEvento = evento.IdEvento;
             mensajeEnviado.FkIDUsuario = id; //Aqui iria el ID del usuario recogido de la cookie del usuario logeado.
             mensajeEnviado.Mensaje = mensajeText;
-            
+
             if (textoMensaje.Text != "")
             {
                 chatDal.InsertChat(mensajeEnviado);
@@ -145,17 +148,21 @@ namespace ProyectoFinalASP
         {
             Participante part = new Participante(evento.IdEvento, id);
             participanteDal.InsertParticipante(part);
-            Response.Write("<script>alert('Te has unido al evento.')</script>");
+            //Response.Write("<script>alert('Te has unido al evento.')</script>");
+            textoMensaje.Enabled = true;
             btnUnirseAlEvento.Visible = false;
             btnBorrarseDelEvento.Visible = true;
+            Response.Redirect(Request.RawUrl);
         }
 
         protected void btnBorrarseDelEvento_Click(object sender, EventArgs e)
         {
             participanteDal.DeleteParticipanteByIdEvento(evento.IdEvento, id);
-            Response.Write("<script>alert('Te has borrado del evento.')</script>");
-            //btnUnirseAlEvento.Visible = true;
-            //btnBorrarseDelEvento.Visible = false;
+            //Response.Write("<script>alert('Te has borrado del evento.')</script>");
+            textoMensaje.Enabled = false;
+            btnUnirseAlEvento.Visible = true;
+            btnBorrarseDelEvento.Visible = false;
+            Response.Redirect(Request.RawUrl);
         }
     }
 }

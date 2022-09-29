@@ -132,7 +132,7 @@ namespace ProyectoFinalASP.DAL
             return participante;
         }
 
-        public void DeleteParticipanteByIdEvento(int idUser, int idEvento)
+        public void DeleteParticipanteByIdEvento(int idEvento, int idUser)
         {
             if (cnx.MiCnx.State == System.Data.ConnectionState.Closed)
                 cnx.MiCnx.Open();
