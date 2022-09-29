@@ -39,11 +39,8 @@
 
             var popup = L.popup();
 
-
             var trazado = L.geoJSON().addTo(map);
             var lineaTotal = null;
-
-
 
             var i = 0;
             do {

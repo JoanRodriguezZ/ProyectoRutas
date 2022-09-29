@@ -28,6 +28,7 @@ namespace ProyectoFinalASP
             }
             
             StringBuilder sb = new StringBuilder();
+            StringBuilder sbEv = new StringBuilder();
             DALEvento eventoDal = new DALEvento();
             DALRuta rutaDal = new DALRuta();
             DALParticipante participanteDal = new DALParticipante();
@@ -37,7 +38,6 @@ namespace ProyectoFinalASP
             Usuario user = new Usuario();
             Ruta ruta = new Ruta();
             Estado estado = new Estado();
-            int countElement = 0;
 
             //Se le pasa un valor al evento hasta que se lo enviemos desde otro lado
             user = usuarioDal.SelectUsuarioByIDUsuario(id);
@@ -63,8 +63,11 @@ namespace ProyectoFinalASP
             }
             sb.Append(" </div>");
 
+            ltPaginaUsuario.Text = sb.ToString();
+
+            // Eventos del Usuario
             eventos = eventoDal.SelectEventosByIdUsuarioOrderEstado(user.IdUsuario);
-            if(eventos.Count > 0)
+            if (eventos.Count > 0)
             {
                 foreach (var evento in eventos)
                 {
@@ -74,49 +77,60 @@ namespace ProyectoFinalASP
                     switch (estado.IdEstado)
                     {
                         case 1:
-                            sb.Append("         <label class='form-label' id='lblEstado'><h3>" + estado.EstadoDescripcion + "</h3></label><br />");
-                            sb.Append("         <div class='row border border-primary border-3 rounded-pill'>");
+                            sbEv.Append("         <label class='form-label' id='lblEstado'><h3>" + estado.EstadoDescripcion + "</h3></label><br />");
+                            sbEv.Append("         <div class='row border border-primary border-3 rounded-pill'>");
                             break;
                         case 2:
-                            sb.Append("         <label class='form-label' id='lblEstado'><h3>" + estado.EstadoDescripcion + "</h3></label><br />");
-                            sb.Append("         <div class='row border border-success border-3 rounded-pill'>");
+                            sbEv.Append("         <label class='form-label' id='lblEstado'><h3>" + estado.EstadoDescripcion + "</h3></label><br />");
+                            sbEv.Append("         <div class='row border border-success border-3 rounded-pill'>");
                             break;
                         case 3:
-                            sb.Append("         <label class='form-label' id='lblEstado'><h3>" + estado.EstadoDescripcion + "</h3></label><br />");
-                            sb.Append("         <div class='row border border-danger border-3 rounded-pill'>");
+                            sbEv.Append("         <label class='form-label' id='lblEstado'><h3>" + estado.EstadoDescripcion + "</h3></label><br />");
+                            sbEv.Append("         <div class='row border border-danger border-3 rounded-pill'>");
                             break;
                         case 4:
-                            sb.Append("         <label class='form-label' id='lblEstado'><h3>" + estado.EstadoDescripcion + "</h3></label><br />");
-                            sb.Append("         <div class='row border border-dark border-3 rounded-pill'>");
+                            sbEv.Append("         <label class='form-label' id='lblEstado'><h3>" + estado.EstadoDescripcion + "</h3></label><br />");
+                            sbEv.Append("         <div class='row border border-dark border-3 rounded-pill'>");
                             break;
                         default:
-                            sb.Append("         <div class='row border bg-info border-3 rounded-pill'>");
+                            sbEv.Append("         <div class='row border bg-info border-3 rounded-pill'>");
                             break;
                     }
 
-                    sb.Append("     <div class='col-3'>");
-                    sb.Append("         <label class='form-label ms-3 mt-3' id='lblRuta'>" + ruta.Nombre + "</label><br />");
-                    sb.Append("         <label class='form-label ms-3 mt-3' id='lblCreador'>" + user.ToString() + "</label>");
-                    sb.Append("     </div>");
-                    sb.Append("     <div class='col-3'>");
-                    sb.Append("         <label class='form-label' id='lblKm'>Km: " + ((int)ruta.LongitudKm) + "</label><br />");
-                    sb.Append("         <label class='form-label' id='lblAccesibilidad'>Accesibilidad: " + ruta.NivelAccesibilidad + "</label><br />");
-                    sb.Append("         <label class='form-label' id='lblValoracion'>Valoracion: " + ruta.ValoracionMedia + "</label>");
-                    sb.Append("     </div>");
-                    sb.Append("     <div class='col-3'>");
-                    sb.Append("         <label class='form-label' id='numUsuarios'>Participantes: " + participanteDal.SelectCountParticipantesByIdEvento(evento.IdEvento).ToString() + "</label><br />");
-                    sb.Append("         <label class='form-label' id='numVoluntarios'>Voluntarios: " + participanteDal.SelectCountParticipantesVoluntariosByIdEvento(evento.IdEvento).ToString() + "</label><br />");
-                    sb.Append("     </div>");
-                    sb.Append("     <div class='col-3'>");
-                    sb.Append("         <label class='form-label' id='lblFecha'>" + evento.FechaDeRealizacion.Value.ToString("dd/MM/yyyy") + "</label><br />");
-                    sb.Append("         <label class='form-label' id='lblHora'>" + evento.FechaDeRealizacion.Value.ToString("HH:mm") + "</label><br />");
-                    sb.Append("         <button type='button' class='btn btn-outline-dark' onClick='irEvento(" + evento.IdEvento + ")' id='btnVerEvento'>Ver Evento</button>");
-                    sb.Append("     </div>");
-                    sb.Append(" </div>");
-                    countElement++;
+                    sbEv.Append("     <div class='col-3'>");
+                    sbEv.Append("         <label class='form-label ms-3 mt-3' id='lblRuta'>" + ruta.Nombre + "</label><br />");
+                    sbEv.Append("         <label class='form-label ms-3 mt-3' id='lblCreador'>" + user.ToString() + "</label>");
+                    sbEv.Append("     </div>");
+                    sbEv.Append("     <div class='col-3'>");
+                    sbEv.Append("         <label class='form-label' id='lblKm'>Km: " + ((int)ruta.LongitudKm) + "</label><br />");
+                    sbEv.Append("         <label class='form-label' id='lblAccesibilidad'>Accesibilidad: " + ruta.NivelAccesibilidad + "</label><br />");
+                    sbEv.Append("         <label class='form-label' id='lblValoracion'>Valoracion: " + ruta.ValoracionMedia + "</label>");
+                    sbEv.Append("     </div>");
+                    sbEv.Append("     <div class='col-3'>");
+                    sbEv.Append("         <label class='form-label' id='numUsuarios'>Participantes: " + participanteDal.SelectCountParticipantesByIdEvento(evento.IdEvento).ToString() + "</label><br />");
+                    sbEv.Append("         <label class='form-label' id='numVoluntarios'>Voluntarios: " + participanteDal.SelectCountParticipantesVoluntariosByIdEvento(evento.IdEvento).ToString() + "</label><br />");
+                    sbEv.Append("     </div>");
+                    sbEv.Append("     <div class='col-3'>");
+                    sbEv.Append("         <label class='form-label' id='lblFecha'>" + evento.FechaDeRealizacion.Value.ToString("dd/MM/yyyy") + "</label><br />");
+                    sbEv.Append("         <label class='form-label' id='lblHora'>" + evento.FechaDeRealizacion.Value.TimeOfDay + "</label><br />");
+                    sbEv.Append("         <button type='button' class='btn btn-outline-dark' onClick='irEvento(" + evento.IdEvento + ")' id='btnVerEvento'>Ver Evento</button>");
+                    sbEv.Append("     </div>");
+                    sbEv.Append(" </div>");
+
+                    ltPaginaUsuarioEventos.Text = sbEv.ToString();
                 }
             }
-            ltPaginaUsuario.Text = sb.ToString();
+            else
+            {
+                Label1.Text = "Aún no te has apuntado a ningún evento... :(<br>¡Apúntate para disfrutar de la experiencia completa de MoviRutas!";
+                Button1.Visible = true;
+            }
+
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("EventosDisponibles");
         }
     }
 }
