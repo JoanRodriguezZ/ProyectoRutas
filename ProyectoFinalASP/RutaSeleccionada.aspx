@@ -1,25 +1,94 @@
 ﻿<%@ Page Title="Ruta Seleccionada" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="RutaSeleccionada.aspx.cs" Inherits="ProyectoFinalASP.RutaSeleccionada" %>
 
-<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    
+<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">    
+
     <div class="col-12">
             <asp:Literal ID="ltDatosRuta" runat="server"/> 
         </div>
+    
     <div class="container">        
         <div class="row">
-            <div class="col-2">                
+            <label>Eventos</label>
+            <div class="col-2 list-group">
                 <asp:Literal ID="ltEventosRuta" runat="server"/>                
             </div>
             <div class="col-7" id="map" style="height: 500px;"></div>
 
-            <div class="col-3">
-                <asp:Button class="btn btn-outline-primary" Text="Crear Evento" runat="server" /><br />
+            <div class="col-3">                
                 <asp:Literal ID="ltDescripcion" runat="server"/> 
 
+                 <!-- Botón que triggerea el modal -->
+                <div class="center">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Formulario">
+                        Crear Evento
+                    </button>
+                </div>
+
+                <!-- Modal -->
+                <div class="modal fade" id="Formulario" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content" style="width: 145%;">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Nuevo Evento</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h4>Fecha</h4>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h4>Hora</h4>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <input id="dpFechaEvento" data-provide="datepicker" type="date" class="form-control">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="time" id="txtHoraEvento" name="appt">
+                                    </div>
+                                </div>
+                                <br>
+
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="cbVoluntarios">
+                                            <label class="form-check-label" for="flexCheckDefault">
+                                                Necesita Voluntarios
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary" onclick="crearEvento()">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <asp:HiddenField ID="coordenadas" runat="server" />
+                <asp:HiddenField ID="idRutaNuevoEvento" runat="server" />
             </div>
         </div>
+
         <script>
+            //Ir Evento concreto
+            function irEvento(idEvento) {
+                window.location.href = '/EventoSeleccionado.aspx?id=' + idEvento;
+            }
+
+            function crearEvento() {
+                var fecha = document.getElementById("dpFechaEvento").value;
+                var hora = document.getElementById("txtHoraEvento").value;
+                var needVoluntario = document.getElementById("cbVoluntarios").checked;
+                var idRutaHidden = document.getElementById("<%=idRutaNuevoEvento.ClientID%>").value;
+                window.location.href = '/EventoSeleccionado.aspx?idRuta=' + idRutaHidden + '&fechaEvento=' + fecha + '&horaEvento=' + hora +' &volEvento=' + needVoluntario;
+            }
 
             var HiddenValue = document.getElementById("<%=coordenadas.ClientID%>").value;
 

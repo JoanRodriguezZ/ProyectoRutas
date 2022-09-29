@@ -18,6 +18,14 @@ namespace ProyectoFinalASP.Modelos
         {
 
         }
+        public Evento(int fkIDRuta, bool esPublico, DateTime? fechaDeRealizacion, int? voluntariosNecesarios, int fkIDEstado)
+        {
+            this.fkIDRuta = fkIDRuta;
+            this.esPublico = esPublico;
+            this.fechaDeRealizacion = fechaDeRealizacion;
+            this.voluntariosNecesarios = voluntariosNecesarios;
+            this.fkIDEstado = fkIDEstado;
+        }
         public Evento(int idEvento, int fkIDRuta, bool esPublico, DateTime? fechaDeRealizacion, int? voluntariosNecesarios, int fkIDEstado)
         {
             this.idEvento = idEvento;

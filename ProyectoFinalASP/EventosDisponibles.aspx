@@ -10,7 +10,7 @@
             //Ir Evento concreto
             function irEvento(idEvento)
             {
-                window.location.href = '/EventoSeleccionado.aspx?id=' + idEvento;
+                window.location.href = '/EventoSeleccionado.aspx?idEvento=' + idEvento;
             }
             
         </script>

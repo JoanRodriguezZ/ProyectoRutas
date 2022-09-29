@@ -15,10 +15,12 @@ namespace ProyectoFinalASP.DAL
         {
             cnx = new DbConnect();
         }
-        public void InsertEvento(Evento evento)
+        public int InsertEvento(Evento evento)
         {
             if (cnx.MiCnx.State == System.Data.ConnectionState.Closed)
                 cnx.MiCnx.Open();
+            
+            int eventoNuevoId = 0;
 
             try
             {
@@ -29,7 +31,7 @@ namespace ProyectoFinalASP.DAL
                         @pesPublico,
                         @pFechaDeRealizacion,
                         @pVoluntariosNecesarios,
-                        @pFKIDEstado)";
+                        @pFKIDEstado); SELECT SCOPE_IDENTITY()";
                 SqlCommand cmd = new SqlCommand(sql, cnx.MiCnx);
 
                 SqlParameter pFKRutaID = new SqlParameter("@pFKRutaID", System.Data.SqlDbType.Int);
@@ -49,7 +51,7 @@ namespace ProyectoFinalASP.DAL
                 cmd.Parameters.Add(pVoluntariosNecesarios);
                 cmd.Parameters.Add(pFKIDEstado);
 
-                cmd.ExecuteNonQuery();
+                eventoNuevoId = (int)cmd.ExecuteScalar();
             }
             catch (Exception ex)
             {
@@ -60,6 +62,7 @@ namespace ProyectoFinalASP.DAL
             {
                 cnx.MiCnx.Close();
             }
+            return eventoNuevoId;
         }
         public Evento SelectEventoByIdEvento(int idEvento)
         {

@@ -45,10 +45,9 @@ namespace ProyectoFinalASP
             }
 
             JavaScriptSerializer ser = new JavaScriptSerializer();
-            coordenadas.Value = ser.Serialize(coordenadasList);
+            coordenadas.Value = ser.Serialize(coordenadasList);            
 
             //DATOS RUTA
-
             ruta = rutaDal.SelectRutaByIdRuta(idRutaSeleccionada);
             sbDatosRuta.Append("        <label class='form-label' id='lblRuta'>" + ruta.Nombre + " |</label>");
             sbDatosRuta.Append("        <label class='form-label' id='lblLongitud'> " + ((int)ruta.LongitudKm) + " km |</label>");
@@ -56,15 +55,13 @@ namespace ProyectoFinalASP
             sbDatosRuta.Append("        <label class='form-label' id='lblAccesibilidad'> Accesibilidad: " + ruta.NivelAccesibilidad + "</label>");
             ltDatosRuta.Text = sbDatosRuta.ToString();
 
-            //EVENTOS RUTA
-            sbEventos.Append(" <ul class='list-group list-group-flush'>");
-            sbEventos.Append("     <li class='list-group-item'><b>Eventos</b></li>");
+            //EVENTOS RUTA    
             eventos = eventoDal.SelectEventosByRuta(idRutaSeleccionada);
             foreach (var evento in eventos)
             {
-                sbEventos.Append("     <li class='list-group-item'>" + evento.FechaDeRealizacion.Value.ToString("dd/MM/yyyy HH:mm") + "</li>");
+                
+                sbEventos.Append("     <button type='button' class='list-group-item list-group-item-action' onClick='irEvento(" + evento.IdEvento + ")'>" + evento.FechaDeRealizacion.Value.ToString("dd/MM/yyyy HH:mm") + "</button>");
             }
-            sbEventos.Append(" </ul>");
             ltEventosRuta.Text = sbEventos.ToString();
 
             //DATOS2 RUTA
@@ -72,6 +69,9 @@ namespace ProyectoFinalASP
             sbDescripcion.Append("      <label class='form-label' id='lblDescripcion'>" + ruta.Descripcion + "</label><br />");
             sbDescripcion.Append(" </div>");
             ltDescripcion.Text = sbDescripcion.ToString();
+
+            JavaScriptSerializer ser2 = new JavaScriptSerializer();
+            idRutaNuevoEvento.Value = ser2.Serialize(ruta.IdRuta);
         }
 
     }

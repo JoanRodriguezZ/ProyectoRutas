@@ -27,12 +27,31 @@ namespace ProyectoFinalASP
 
         static int id = -1;
         int idEventoSeleccionado;
+        int idRutaSeleccionada;
+        DateTime fechaEvento;
+        DateTime horaEvento;
+        DateTime timeEvento;
+        bool needVol;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             try
             {
-                idEventoSeleccionado = Int32.Parse(Request.QueryString["id"]);
+                if (Request.QueryString["idEvento"] != null)
+                {
+                    idEventoSeleccionado = Int32.Parse(Request.QueryString["idEvento"]);
+                }
+                else
+                {
+                    idRutaSeleccionada = Int32.Parse(Request.QueryString["idRuta"]);
+                    fechaEvento = DateTime.Parse(Request.QueryString["fechaEvento"]);
+                    horaEvento = DateTime.Parse(Request.QueryString["horaEvento"]);
+                    needVol = Boolean.Parse(Request.QueryString["volEvento"]);
+                    timeEvento = new DateTime(Int32.Parse(fechaEvento.ToString("yyyy")), Int32.Parse(fechaEvento.ToString("MM")), Int32.Parse(fechaEvento.ToString("dd"))
+                        , Int32.Parse(horaEvento.ToString("HH")), Int32.Parse(horaEvento.ToString("mm")), Int32.Parse(horaEvento.ToString("ss")));
+                    evento = new Evento(idRutaSeleccionada, true, timeEvento, 0, 1);
+                    idEventoSeleccionado = eventoDal.InsertEvento(evento);
+                }
             }
             catch (ArgumentNullException ex)
             {
