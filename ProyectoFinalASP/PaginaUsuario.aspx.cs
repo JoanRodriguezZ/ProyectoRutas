@@ -121,8 +121,16 @@ namespace ProyectoFinalASP
                 }
             }
             else
+            {
                 Label1.Text = "Aún no te has apuntado a ningún evento... :(<br>¡Apúntate para disfrutar de la experiencia completa de MoviRutas!";
+                Button1.Visible = true;
+            }
 
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("EventosDisponibles");
         }
     }
 }

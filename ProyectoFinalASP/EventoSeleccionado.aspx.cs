@@ -30,8 +30,14 @@ namespace ProyectoFinalASP
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            idEventoSeleccionado = Int32.Parse(Request["id"]);
-           // Comento un momento la cookie para poder probar que se esta viajando al evento seleccionado correctamente
+            try
+            {
+                idEventoSeleccionado = Int32.Parse(Request["id"]);
+            }
+            catch (ArgumentNullException ex)
+            {
+                Response.Redirect("EventosDisponibles");
+            }
            
             try
             {
@@ -57,7 +63,7 @@ namespace ProyectoFinalASP
             sb.Append("         <label class='form-label' id='lblAccesibilidad'>Nivel Accesibilidad: "+ ruta.NivelAccesibilidad +" </label>");
             sb.Append("     </div>");
             sb.Append("     <div class='col-4'>");
-            sb.Append("         <button type='button' class='btn btn-outline-dark' onClick='unirseEvento("+ evento.IdEvento +")' id='btnUnirseEvento'>! Únete al evento !</button>");
+            sb.Append("         <button class='btn btn-success' onClick='unirseEvento(" + evento.IdEvento +")' id='btnUnirseEvento'>¡Únete al evento!</button>");
             sb.Append("     </div>");
             sb.Append(" </div>");
             sb.Append(" <div id='base2' class='row'>");
