@@ -22,7 +22,7 @@ namespace ProyectoFinalASP
         {
             try
             {
-                idRutaSeleccionada = Int32.Parse(Request["id"]);
+                idRutaSeleccionada = Int32.Parse(Request.QueryString["id"]);
             }
             catch (ArgumentNullException ex)
             {

@@ -21,11 +21,13 @@
             </div>
         </div>
     </div>
+    <asp:LinkButton ID="lbSubmit" runat="server">LinkButton</asp:LinkButton>
 
     <script>
             function unirseEvento(idEvento)
             {
                 alert("Te has unido al evento! " + idEvento)
+                //document.getElementById('<%=lbSubmit%>').click();
             }
     </script>
 </asp:Content>

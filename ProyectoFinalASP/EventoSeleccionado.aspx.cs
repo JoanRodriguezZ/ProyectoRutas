@@ -32,7 +32,7 @@ namespace ProyectoFinalASP
         {
             try
             {
-                idEventoSeleccionado = Int32.Parse(Request["id"]);
+                idEventoSeleccionado = Int32.Parse(Request.QueryString["id"]);
             }
             catch (ArgumentNullException ex)
             {
@@ -48,8 +48,6 @@ namespace ProyectoFinalASP
             {
                 Response.Redirect("PaginaPrincipal");
             }
-           
-            int countElement = 0;
             
             //Se le pasa un valor al evento hasta que se lo enviemos desde otro lado
             evento = eventoDal.SelectEventoByIdEvento(idEventoSeleccionado);
@@ -110,22 +108,6 @@ namespace ProyectoFinalASP
             sb.Append("     </div>");
             sb.Append(" </div>");
 
-            //sb.Append(" <div class='row'>");
-            //sb.Append("     <div class='col-8'>");
-            //sb.Append("         <div class='row'>");
-            //sb.Append("             <div class='col-10'>");
-            //sb.Append("                 <input type='text' id='textMensaje' class='w-100' placeholder='Escribe aqui tu mensaje'>");
-            //sb.Append("             </div>");
-            //sb.Append("             <div class='col-2'>");
-            //sb.Append("                 <input type='button' id='enviarMensaje' class='btn btn-outline-dark w-100' value='Enviar' onclick='enviarMensaje_Click'>");
-            //sb.Append("             </div>");
-            //sb.Append("         </div>");
-            //sb.Append("     </div>");
-            //sb.Append("     <div class='col-4'>");
-            //sb.Append("     </div>");
-            //sb.Append(" </div>");
-
-            countElement++;
             ltEventoSeleccionado.Text = sb.ToString();
         }
 
@@ -138,7 +120,6 @@ namespace ProyectoFinalASP
             mensajeEnviado.FkIDUsuario = id; //Aqui iria el ID del usuario recogido de la cookie del usuario logeado.
             mensajeEnviado.Mensaje = mensajeText;
             
-
             if (textoMensaje.Text != "")
             {
                 chatDal.InsertChat(mensajeEnviado);
