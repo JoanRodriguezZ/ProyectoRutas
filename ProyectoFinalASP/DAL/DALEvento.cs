@@ -51,7 +51,8 @@ namespace ProyectoFinalASP.DAL
                 cmd.Parameters.Add(pVoluntariosNecesarios);
                 cmd.Parameters.Add(pFKIDEstado);
 
-                eventoNuevoId = (int)cmd.ExecuteScalar();
+                object o = cmd.ExecuteScalar();
+                eventoNuevoId = Convert.ToInt32(o);
             }
             catch (Exception ex)
             {

@@ -52,6 +52,7 @@ namespace ProyectoFinalASP
                         , Int32.Parse(horaEvento.ToString("HH")), Int32.Parse(horaEvento.ToString("mm")), Int32.Parse(horaEvento.ToString("ss")));
                     evento = new Evento(idRutaSeleccionada, true, timeEvento, 0, 1);
                     idEventoSeleccionado = eventoDal.InsertEvento(evento);
+                    evento.IdEvento = idEventoSeleccionado;
                 }
             }
             catch (ArgumentNullException ex)
