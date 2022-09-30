@@ -122,8 +122,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Login.aspx" />
+    <Content Include="Media\iconhandshake.png" />
     <Content Include="Media\iconroad.png" />
     <Content Include="Media\iconstar.png" />
+    <Content Include="Media\iconusers.png" />
     <Content Include="Media\iconwheelchair.png" />
     <Content Include="Media\r1map.png" />
     <Content Include="Media\r1zone.png" />
