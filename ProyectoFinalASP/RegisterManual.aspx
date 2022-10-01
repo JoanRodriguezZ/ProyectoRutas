@@ -48,7 +48,7 @@
                             <br>
 
                             <label class="form-label">Dependencia</label>
-                            <asp:TextBox type="text" ID="dependenciaBox" class="form-control" required="true" runat="server">0</asp:TextBox>
+                            <asp:TextBox type="text" ID="dependenciaBox" class="form-control" required="true" runat="server">Ninguna</asp:TextBox>
                             <br>
                             <br>
 

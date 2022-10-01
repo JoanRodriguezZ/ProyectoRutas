@@ -6,6 +6,9 @@
 
         <asp:Literal ID="ltRutasDisponibles" runat="server" />
         <asp:HiddenField ID="idRutaSeleccionada" runat="server" />
+        
+        <br />
+        <br />
 
         <script>
             function irRuta(idRuta) {

@@ -43,21 +43,25 @@ namespace ProyectoFinalASP
             user = usuarioDal.SelectUsuarioByIDUsuario(id);
             Debug.WriteLine(id);
 
-            sb.Append(" <div id ='base1' class='row border border-dark border-4 mt-2'>");
-            sb.Append("     <div class='col-4'>");
-            sb.Append("         <label class='form-label' id='lblNombre'>" + user.ToString() + "</label><br/>");
-            sb.Append("         <label class='form-label' id='lblTipo'>" + user.Tipo() + "</label><br/>");
+            sb.Append(" <div id ='base1' class='row border border-3 rounded mt-2 p-2'>");
+            sb.Append("     <div class='col-2'>");
+            sb.Append("         <img src='Media/iconpfp.png' alt='Participantes del evento' class='w-100 rounded' />");
+            sb.Append("         <label class='h4 w-100 text-center' id='lblNombre'>" + user.ToString() + "</label><br/>");
+            //sb.Append("         <label class='form-label' id='lblTipo'>" + user.Tipo() + "</label><br/>");
             sb.Append("     </div>");
-            sb.Append("     <div class='col-4'>");
-            sb.Append("         <label class='form-label' id='lblLocalidad'>Localidad: " + user.Localidad + "</label><br/>");
-            sb.Append("         <label class='form-label' id='lblEmail'>Email: " + user.Email + "</label><br/>");
-            sb.Append("         <label class='form-label' id='lblTelefono'>Telefono: " + user.Telefono + "</label>");
+            sb.Append("     <div class='col-6 pt-4'>");
+            sb.Append("         <img src='Media/iconlocation.png' alt='Localidad del usuario' width='20px' />");
+            sb.Append("         <label class='h5 mb-3' id='lblLocalidad'>" + user.Localidad + "</label><br/>");
+            sb.Append("         <img src='Media/iconmail.png' alt='Correo electronico del usuario' width='20px' />");
+            sb.Append("         <label class='h5 mb-3' id='lblEmail'>" + user.Email + "</label><br/>");
+            sb.Append("         <img src='Media/icontelef.png' alt='Numero de telefono del usuario' width='20px' />");
+            sb.Append("         <label class='h5 mb-3' id='lblTelefono'>" + user.Telefono + "</label>");
             sb.Append("     </div>");
             if (user.EsMinusvalido)
             {
-                sb.Append("     <div class='col-4'>");
-                sb.Append("         <label class='form-label' id='lblTipoMinusvalia'>Tipo M: " + user.TipoMinusvalia + "</label><br/>");
-                sb.Append("         <label class='form-label' id='lblPorcentajeMinusvalia'>Porcentaje M: " + user.PorcentajeMinusvalia + "%</label><br/>");
+                sb.Append("     <div class='col-3  pt-4'>");
+                sb.Append("         <label class='form-label' id='lblTipoMinusvalia'>Minusvalia: " + user.TipoMinusvalia + "</label><br/>");
+                sb.Append("         <label class='form-label' id='lblPorcentajeMinusvalia'>Porcentaje: " + user.PorcentajeMinusvalia + "%</label><br/>");
                 sb.Append("         <label class='form-label' id='lblDependencia'>Dependencia: " + user.Dependencias + "</label>");
                 sb.Append("     </div>");
             }
@@ -77,43 +81,45 @@ namespace ProyectoFinalASP
                     switch (estado.IdEstado)
                     {
                         case 1:
-                            sbEv.Append("         <label class='form-label' id='lblEstado'><h3>" + estado.EstadoDescripcion + "</h3></label><br />");
-                            sbEv.Append("         <div class='row border border-primary border-3 rounded-pill'>");
+                            sbEv.Append("         <div class='row border border-primary border-3 rounded-pill p-4 my-3'>");
                             break;
                         case 2:
-                            sbEv.Append("         <label class='form-label' id='lblEstado'><h3>" + estado.EstadoDescripcion + "</h3></label><br />");
-                            sbEv.Append("         <div class='row border border-success border-3 rounded-pill'>");
+                            sbEv.Append("         <div class='row border border-success border-3 rounded-pill p-4'>");
                             break;
                         case 3:
-                            sbEv.Append("         <label class='form-label' id='lblEstado'><h3>" + estado.EstadoDescripcion + "</h3></label><br />");
-                            sbEv.Append("         <div class='row border border-danger border-3 rounded-pill'>");
+                            sbEv.Append("         <div class='row border border-danger border-3 rounded-pill p-4'>");
                             break;
                         case 4:
-                            sbEv.Append("         <label class='form-label' id='lblEstado'><h3>" + estado.EstadoDescripcion + "</h3></label><br />");
-                            sbEv.Append("         <div class='row border border-dark border-3 rounded-pill'>");
+                            sbEv.Append("         <div class='row border border-dark border-3 rounded-pill p-4'>");
                             break;
                         default:
-                            sbEv.Append("         <div class='row border bg-info border-3 rounded-pill'>");
+                            sbEv.Append("         <div class='row border bg-info border-3 rounded-pill p-4'>");
                             break;
                     }
 
-                    sbEv.Append("     <div class='col-3'>");
-                    sbEv.Append("         <label class='form-label ms-3 mt-3' id='lblRuta'>" + ruta.Nombre + "</label><br />");
-                    sbEv.Append("         <label class='form-label ms-3 mt-3' id='lblCreador'>" + user.ToString() + "</label>");
+                    sbEv.Append("         <label class='form-label' id='lblEstado'>Evento " + estado.EstadoDescripcion + "</label>");
+                    sbEv.Append("     <div id='base1' class='row'>");
+                    sbEv.Append("         <div class='col-10'>");
+                    sbEv.Append("             <label class='h3' id='lblRuta'>" + ruta.Nombre + "</label>");
+                    sbEv.Append("             <label class='form-label' id='lblCreador'> por " + user.ToString() + "</label>");
+                    sbEv.Append("         </div>");
+                    sbEv.Append("         <div class='col-1'>");
+                    sbEv.Append("             <img src='Media/iconusers.png' alt='Participantes del evento' width='20px' />");
+                    sbEv.Append("             <label class='form-label' id='numUsuarios'>" + participanteDal.SelectCountParticipantesByIdEvento(evento.IdEvento).ToString() + "</label>");
+                    sbEv.Append("         </div>");
+                    sbEv.Append("         <div class='col-1'>");
+                    sbEv.Append("             <img src='Media/iconhandshake.png' alt='Voluntarios apuntados' width='20px' />");
+                    sbEv.Append("             <label class='form-label' id='numVoluntarios'>" + participanteDal.SelectCountParticipantesVoluntariosByIdEvento(evento.IdEvento).ToString() + "</label>");
+                    sbEv.Append("         </div>");
                     sbEv.Append("     </div>");
-                    sbEv.Append("     <div class='col-3'>");
-                    sbEv.Append("         <label class='form-label' id='lblKm'>Km: " + ((int)ruta.LongitudKm) + "</label><br />");
-                    sbEv.Append("         <label class='form-label' id='lblAccesibilidad'>Accesibilidad: " + ruta.NivelAccesibilidad + "</label><br />");
-                    sbEv.Append("         <label class='form-label' id='lblValoracion'>Valoracion: " + ruta.ValoracionMedia + "</label>");
-                    sbEv.Append("     </div>");
-                    sbEv.Append("     <div class='col-3'>");
-                    sbEv.Append("         <label class='form-label' id='numUsuarios'>Participantes: " + participanteDal.SelectCountParticipantesByIdEvento(evento.IdEvento).ToString() + "</label><br />");
-                    sbEv.Append("         <label class='form-label' id='numVoluntarios'>Voluntarios: " + participanteDal.SelectCountParticipantesVoluntariosByIdEvento(evento.IdEvento).ToString() + "</label><br />");
-                    sbEv.Append("     </div>");
-                    sbEv.Append("     <div class='col-3'>");
-                    sbEv.Append("         <label class='form-label' id='lblFecha'>" + evento.FechaDeRealizacion.Value.ToString("dd/MM/yyyy") + "</label><br />");
-                    sbEv.Append("         <label class='form-label' id='lblHora'>" + evento.FechaDeRealizacion.Value.TimeOfDay + "</label><br />");
-                    sbEv.Append("         <button type='button' class='btn btn-outline-dark' onClick='irEvento(" + evento.IdEvento + ")' id='btnVerEvento'>Ver Evento</button>");
+                    sbEv.Append("     <div id='base2' class='row'>");
+                    sbEv.Append("         <div class='col-10'>");
+                    sbEv.Append("             <label class='h5' id='lblFecha'>" + evento.FechaDeRealizacion.Value.ToString("dd/MM/yyyy") + "</label>");
+                    sbEv.Append("             <label class='h5' id='lblHora'>" + evento.FechaDeRealizacion.Value.ToString("HH:mm") + "</label>");
+                    sbEv.Append("         </div>");
+                    sbEv.Append("         <div class='col-2'>");
+                    sbEv.Append("             <button type='button' class='btn btn-outline-dark' onClick='irEvento(" + evento.IdEvento + ")' id='btnVerEvento'>Ver Evento</button>");
+                    sbEv.Append("         </div>");
                     sbEv.Append("     </div>");
                     sbEv.Append(" </div>");
 

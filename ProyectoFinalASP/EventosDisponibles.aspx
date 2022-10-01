@@ -5,6 +5,8 @@
     <div class="container">
 
         <asp:Literal ID="ltEventosDisponibles" runat="server" />
+        <br />
+        <br />
 
         <script>
             //Ir Evento concreto
