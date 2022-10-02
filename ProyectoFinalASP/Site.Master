@@ -17,8 +17,15 @@
     <link href="./Content/styles.css" rel="stylesheet" type="text/css" />
     <%-- Icono Página --%>
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <%-- JQuery 3.6.1 --%>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"
+        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+        crossorigin="anonymous"></script>
     <%-- Bootstrap 5.2.1 --%>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous"></script>
     <%-- Leaflet --%>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ==" crossorigin="" />
     <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
@@ -33,8 +40,6 @@
                 <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
                 <%--Framework Scripts--%>
                 <asp:ScriptReference Name="MsAjaxBundle" />
-                <asp:ScriptReference Name="jquery" />
-                <asp:ScriptReference Name="bootstrap" />
                 <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
                 <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
                 <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
@@ -57,39 +62,39 @@
             <ul class="nav justify-content-center menuPrincipal pb-3" id="listadoPaginas">
 
                 <li class="nav-item">
-                    <asp:Label class="nav-link" ID="textoUserLogin" runat="server"></asp:Label>
+                    <asp:Label class="nav-link" ID="textoUserLogin" runat="server" Font-Size="Large"></asp:Label>
                 </li>
 
                 <li class="nav-item">
-                    <asp:HyperLink class="nav-link" href="./PaginaPrincipal.aspx" ID="PagPrincipal" runat="server">Página Principal</asp:HyperLink>
+                    <asp:HyperLink class="nav-link" href="./PaginaPrincipal.aspx" ID="PagPrincipal" runat="server" Font-Size="Large">Página Principal</asp:HyperLink>
                 </li>
 
                 <li class="nav-item">
-                    <asp:HyperLink class="nav-link" href="./RutasDisponibles.aspx" ID="RutasDisp" runat="server">Rutas Disponibles</asp:HyperLink>
+                    <asp:HyperLink class="nav-link" href="./RutasDisponibles.aspx" ID="RutasDisp" runat="server" Font-Size="Large">Rutas Disponibles</asp:HyperLink>
                 </li>
 
                 <li class="nav-item">
-                    <asp:HyperLink class="nav-link" href="./RutaCrear.aspx" ID="CrearRuta" runat="server">Crear Ruta</asp:HyperLink>
+                    <asp:HyperLink class="nav-link" href="./RutaCrear.aspx" ID="CrearRuta" runat="server" Font-Size="Large">Crear Ruta</asp:HyperLink>
                 </li>
 
                 <li class="nav-item">
-                    <asp:HyperLink class="nav-link" href="./EventosDisponibles.aspx" ID="EventosDisp" runat="server">Eventos Disponibles</asp:HyperLink>
+                    <asp:HyperLink class="nav-link" href="./EventosDisponibles.aspx" ID="EventosDisp" runat="server" Font-Size="Large">Eventos Disponibles</asp:HyperLink>
                 </li>
 
                 <li class="nav-item">
-                    <asp:HyperLink class="nav-link" href="./PaginaUsuario.aspx" ID="PagUser" runat="server">Mi Perfil</asp:HyperLink>
+                    <asp:HyperLink class="nav-link" href="./PaginaUsuario.aspx" ID="PagUser" runat="server" Font-Size="Large">Mi Perfil</asp:HyperLink>
                 </li>
 
                 <li class="nav-item">
-                    <asp:HyperLink class="nav-link" href="./Register.aspx" ID="Register" runat="server">Registro</asp:HyperLink>
+                    <asp:HyperLink class="nav-link" href="./Register.aspx" ID="Register" runat="server" Font-Size="Large">Registro</asp:HyperLink>
                 </li>
 
                 <li class="nav-item">
-                    <asp:HyperLink class="nav-link" href="./Login.aspx" ID="Login" runat="server">Iniciar Sesión</asp:HyperLink>
+                    <asp:HyperLink class="nav-link" href="./Login.aspx" ID="Login" runat="server" Font-Size="Large">Iniciar Sesión</asp:HyperLink>
                 </li>
 
                 <li class="nav-item">
-                    <asp:LinkButton class="nav-link" ID="Logout" runat="server" OnClick="Logout_Click">Cerrar Sesión</asp:LinkButton>
+                    <asp:LinkButton class="nav-link" ID="Logout" runat="server" OnClick="Logout_Click" Font-Size="Large">Cerrar Sesión</asp:LinkButton>
                 </li>
             </ul>
         </div>
@@ -105,10 +110,6 @@
             Todos los derechos reservados &copy; <%: DateTime.Now.Year %>
         </footer>
     </form>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
-        crossorigin="anonymous"></script>
 
 </body>
 

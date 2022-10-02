@@ -47,8 +47,9 @@
         </div>
     </div>
 
+    <%--
     <div class="container" style="width: 30%">
-
+        
         <div class="row justify-content-center">
             <asp:Button ID="Button2" runat="server" Text="Sign up with Google" />
         </div>
@@ -57,5 +58,5 @@
             <asp:Button ID="Button3" runat="server" Text="Facebook" />
         </div>
     </div>
-
+    --%>
 </asp:Content>

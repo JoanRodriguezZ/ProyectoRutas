@@ -20,9 +20,8 @@ namespace ProyectoFinalASP
         DALRuta rutaDal = new DALRuta();
         Ruta ruta = new Ruta();
         List<Evento> eventos = new List<Evento>();
-        DAL.DALPuntoDeControl puntoDeControlDal = new DAL.DALPuntoDeControl();
-        
-        
+        DALPuntoDeControl puntoDeControlDal = new DALPuntoDeControl();
+
         List<decimal> coordenadasList = new List<decimal>();
 
         int idRutaSeleccionada;
@@ -37,7 +36,7 @@ namespace ProyectoFinalASP
             {
                 Response.Redirect("RutasDisponibles");
             }
-            
+
             List<PuntoDeControl> puntosDeControl = puntoDeControlDal.SelectPuntosDeControlByIdRuta(idRutaSeleccionada);
             foreach (var checkpoint in puntosDeControl)
             {
@@ -45,7 +44,7 @@ namespace ProyectoFinalASP
             }
 
             JavaScriptSerializer ser = new JavaScriptSerializer();
-            coordenadas.Value = ser.Serialize(coordenadasList);            
+            coordenadas.Value = ser.Serialize(coordenadasList);
 
             //DATOS RUTA
             ruta = rutaDal.SelectRutaByIdRuta(idRutaSeleccionada);
@@ -59,7 +58,7 @@ namespace ProyectoFinalASP
             eventos = eventoDal.SelectEventosByRuta(idRutaSeleccionada);
             foreach (var evento in eventos)
             {
-                
+
                 sbEventos.Append("     <button type='button' class='list-group-item list-group-item-action' onClick='irEvento(" + evento.IdEvento + ")'>" + evento.FechaDeRealizacion.Value.ToString("dd/MM/yyyy HH:mm") + "</button>");
             }
             ltEventosRuta.Text = sbEventos.ToString();
@@ -74,5 +73,21 @@ namespace ProyectoFinalASP
             idRutaNuevoEvento.Value = ser2.Serialize(ruta.IdRuta);
         }
 
+        protected void btnCrearEvento_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                HttpCookie reqCookies = Request.Cookies["userInfo"];
+                int id = int.Parse(reqCookies["id"]);
+            }
+            catch (NullReferenceException ex)
+            {
+                Response.Redirect("Register");
+            }
+
+            ScriptManager.RegisterStartupScript(this, GetType(), "ServerControlScript", "<script>$(window).on('load', function() { $('#Formulario').modal('show'); });</script>", false);
+
+        }
     }
 }

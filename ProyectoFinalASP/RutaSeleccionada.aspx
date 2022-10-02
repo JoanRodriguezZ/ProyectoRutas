@@ -1,27 +1,28 @@
 ﻿<%@ Page Title="Ruta Seleccionada" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="RutaSeleccionada.aspx.cs" Inherits="ProyectoFinalASP.RutaSeleccionada" %>
 
-<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">    
+<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="col-12">
-            <asp:Literal ID="ltDatosRuta" runat="server"/> 
-        </div>
-    
-    <div class="container">        
+        <asp:Literal ID="ltDatosRuta" runat="server" />
+    </div>
+
+    <div class="container">
         <div class="row">
             <label>Eventos</label>
             <div class="col-2 list-group">
-                <asp:Literal ID="ltEventosRuta" runat="server"/>                
+                <asp:Literal ID="ltEventosRuta" runat="server" />
             </div>
             <div class="col-7" id="map" style="height: 500px;"></div>
 
-            <div class="col-3">                
-                <asp:Literal ID="ltDescripcion" runat="server"/> 
+            <div class="col-3">
+                <asp:Literal ID="ltDescripcion" runat="server" />
 
-                 <!-- Botón que triggerea el modal -->
+                <!-- Botón que triggerea el modal -->
                 <div class="center">
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Formulario">
+                    <asp:Button class="btn btn-primary" runat="server" ID="btnCrearEvento" Text="Crear Evento" OnClick="btnCrearEvento_Click"/>
+                    <%--<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Formulario">
                         Crear Evento
-                    </button>
+                    </button>--%>
                 </div>
 
                 <!-- Modal -->
@@ -64,8 +65,8 @@
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary" onclick="crearEvento()">Submit</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                <button type="button" class="btn btn-primary" onclick="crearEvento()">Crear evento</button>
                             </div>
                         </div>
                     </div>
@@ -87,7 +88,7 @@
                 var hora = document.getElementById("txtHoraEvento").value;
                 var needVoluntario = document.getElementById("cbVoluntarios").checked;
                 var idRutaHidden = document.getElementById("<%=idRutaNuevoEvento.ClientID%>").value;
-                window.location.href = '/EventoSeleccionado.aspx?idRuta=' + idRutaHidden + '&fechaEvento=' + fecha + '&horaEvento=' + hora +' &volEvento=' + needVoluntario;
+                window.location.href = '/EventoSeleccionado.aspx?idRuta=' + idRutaHidden + '&fechaEvento=' + fecha + '&horaEvento=' + hora + ' &volEvento=' + needVoluntario;
             }
 
             var HiddenValue = document.getElementById("<%=coordenadas.ClientID%>").value;

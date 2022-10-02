@@ -67,7 +67,7 @@ namespace ProyectoFinalASP
             }
             catch (NullReferenceException ex)
             {
-                Response.Redirect("PaginaPrincipal");
+                Response.Redirect("Register");
             }
 
             //Se le pasa un valor al evento hasta que se lo enviemos desde otro lado
