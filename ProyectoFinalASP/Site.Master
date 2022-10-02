@@ -112,7 +112,7 @@
 
         <!-- Floor content -->
         <footer class="fixed-bottom text-center pt-2 pb-2" id="footer">
-            Todos los derechos reservados &copy; &nbsp;MoviRutas - <%: DateTime.Now.Year %>
+            MoviRutas &nbsp;&copy;&nbsp; <%: DateTime.Now.Year %>
         </footer>
     </form>
 
