@@ -48,10 +48,10 @@ namespace ProyectoFinalASP
 
             //DATOS RUTA
             ruta = rutaDal.SelectRutaByIdRuta(idRutaSeleccionada);
-            sbDatosRuta.Append("        <label class='form-label' id='lblRuta'>" + ruta.Nombre + " |</label>");
+            sbDatosRuta.Append("        </br><div style='text-align:center;'><label class='form-label' id='lblRuta'>" + ruta.Nombre + " |</label>");
             sbDatosRuta.Append("        <label class='form-label' id='lblLongitud'> " + ((int)ruta.LongitudKm) + " km |</label>");
             sbDatosRuta.Append("        <label class='form-label' id='lblValoracion'> Valoracion " + ruta.ValoracionMedia + " |</label>");
-            sbDatosRuta.Append("        <label class='form-label' id='lblAccesibilidad'> Accesibilidad: " + ruta.NivelAccesibilidad + "</label>");
+            sbDatosRuta.Append("        <label class='form-label' id='lblAccesibilidad'> Accesibilidad: " + ruta.NivelAccesibilidad + "</label></div>");
             ltDatosRuta.Text = sbDatosRuta.ToString();
 
             //EVENTOS RUTA    

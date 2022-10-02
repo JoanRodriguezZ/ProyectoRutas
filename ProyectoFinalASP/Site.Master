@@ -59,44 +59,49 @@
         </nav>
 
         <div class="sticky-top">
-            <ul class="nav justify-content-center menuPrincipal pb-3" id="listadoPaginas">
+            <div class="row nav menuPrincipal pb-2" style="width:100.65%">
+                <div class="col-md-3">
+                    <asp:Label class="nav-link" ID="textoUserLogin" runat="server" Font-Size="Large" Style="text-align: left"></asp:Label>
+                </div>
 
-                <li class="nav-item">
-                    <asp:Label class="nav-link" ID="textoUserLogin" runat="server" Font-Size="Large"></asp:Label>
-                </li>
+                <div class="col-md-6 content-justify-center">
+                    <ul class="nav">
+                        <li class="nav-item">
+                            <asp:HyperLink class="nav-link" href="./PaginaPrincipal.aspx" ID="PagPrincipal" runat="server" Font-Size="Large">Página Principal</asp:HyperLink>
+                        </li>
 
-                <li class="nav-item">
-                    <asp:HyperLink class="nav-link" href="./PaginaPrincipal.aspx" ID="PagPrincipal" runat="server" Font-Size="Large">Página Principal</asp:HyperLink>
-                </li>
+                        <li class="nav-item">
+                            <asp:HyperLink class="nav-link" href="./RutasDisponibles.aspx" ID="RutasDisp" runat="server" Font-Size="Large">Rutas Disponibles</asp:HyperLink>
+                        </li>
 
-                <li class="nav-item">
-                    <asp:HyperLink class="nav-link" href="./RutasDisponibles.aspx" ID="RutasDisp" runat="server" Font-Size="Large">Rutas Disponibles</asp:HyperLink>
-                </li>
+                        <li class="nav-item">
+                            <asp:HyperLink class="nav-link" href="./RutaCrear.aspx" ID="CrearRuta" runat="server" Font-Size="Large">Crear Ruta</asp:HyperLink>
+                        </li>
 
-                <li class="nav-item">
-                    <asp:HyperLink class="nav-link" href="./RutaCrear.aspx" ID="CrearRuta" runat="server" Font-Size="Large">Crear Ruta</asp:HyperLink>
-                </li>
+                        <li class="nav-item">
+                            <asp:HyperLink class="nav-link" href="./EventosDisponibles.aspx" ID="EventosDisp" runat="server" Font-Size="Large">Eventos Disponibles</asp:HyperLink>
+                        </li>
 
-                <li class="nav-item">
-                    <asp:HyperLink class="nav-link" href="./EventosDisponibles.aspx" ID="EventosDisp" runat="server" Font-Size="Large">Eventos Disponibles</asp:HyperLink>
-                </li>
+                        <li class="nav-item">
+                            <asp:HyperLink class="nav-link" href="./PaginaUsuario.aspx" ID="PagUser" runat="server" Font-Size="Large">Mi Perfil</asp:HyperLink>
+                        </li>
+                    </ul>
+                </div>
 
-                <li class="nav-item">
-                    <asp:HyperLink class="nav-link" href="./PaginaUsuario.aspx" ID="PagUser" runat="server" Font-Size="Large">Mi Perfil</asp:HyperLink>
-                </li>
-
-                <li class="nav-item">
-                    <asp:HyperLink class="nav-link" href="./Register.aspx" ID="Register" runat="server" Font-Size="Large">Registro</asp:HyperLink>
-                </li>
-
-                <li class="nav-item">
-                    <asp:HyperLink class="nav-link" href="./Login.aspx" ID="Login" runat="server" Font-Size="Large">Iniciar Sesión</asp:HyperLink>
-                </li>
-
-                <li class="nav-item">
-                    <asp:LinkButton class="nav-link" ID="Logout" runat="server" OnClick="Logout_Click" Font-Size="Large">Cerrar Sesión</asp:LinkButton>
-                </li>
-            </ul>
+                <div class="col-md-3 content-justify-right">
+                    <ul class="nav">
+                        <li class="nav-item">
+                            <asp:HyperLink class="nav-link ms-4" href="./Register.aspx" ID="Register" runat="server" Font-Size="Large">Registro</asp:HyperLink>
+                        </li>
+                        <li class="nav-item">
+                            <asp:HyperLink class="nav-link ms-4" href="./Login.aspx" ID="Login" runat="server" Font-Size="Large">Iniciar Sesión</asp:HyperLink>
+                        </li>
+                        <li class="nav-item">
+                            <asp:LinkButton class="nav-link ms-4" ID="Logout" runat="server" OnClick="Logout_Click" Font-Size="Large">Cerrar Sesión</asp:LinkButton>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
 
         <!-- Body content -->
@@ -107,7 +112,7 @@
 
         <!-- Floor content -->
         <footer class="fixed-bottom text-center pt-2 pb-2" id="footer">
-            Todos los derechos reservados &copy; <%: DateTime.Now.Year %>
+            Todos los derechos reservados &copy; &nbsp;MoviRutas - <%: DateTime.Now.Year %>
         </footer>
     </form>
 

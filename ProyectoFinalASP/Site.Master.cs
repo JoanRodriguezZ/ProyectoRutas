@@ -16,7 +16,7 @@ namespace ProyectoFinalASP
             {
                 string username = reqCookies["username"];
                 string surname = reqCookies["surname"];
-                textoUserLogin.Text = "Bienvenid@, " + username + " " + surname;
+                textoUserLogin.Text = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bienvenid@, " + username + " " + surname;
 
                 Register.Visible = false;
                 Login.Visible = false;
