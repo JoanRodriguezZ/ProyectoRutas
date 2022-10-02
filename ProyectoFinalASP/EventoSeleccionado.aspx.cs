@@ -74,57 +74,63 @@ namespace ProyectoFinalASP
             evento = eventoDal.SelectEventoByIdEvento(idEventoSeleccionado);
             ruta = rutaDal.SelectRutaByIdRuta(evento.FkIDRuta);
 
-            sb.Append(" <h3>" + ruta.Nombre + "</h3><br/>");
-            sb.Append(" <div id='base1' class='row'>");
-            sb.Append("     <div class='col-8'>");
-            sb.Append("         <label class='form-label' id='lblKm'>Longitud: " + ((int)ruta.LongitudKm) + " km | </label>");
-            sb.Append("         <label class='form-label' id='lblValoracion'>Valoracion: " + ruta.ValoracionMedia + " | </label>");
-            sb.Append("         <label class='form-label' id='lblAccesibilidad'>Nivel Accesibilidad: " + ruta.NivelAccesibilidad + " </label>");
+            sb.Append(" <div class='m-3'>");
+            sb.Append("     <div id='base1' class='row'>");
+            sb.Append("         <div class='col-6'>");
+            sb.Append("             <label class='h3' id='lblRuta'>" + ruta.Nombre + "</label>");
+            sb.Append("             <label class='form-label' id='lblRuta'>, " + ruta.Localizacion + "</label>");
+            sb.Append("         </div>");
+            sb.Append("         <div class='col-2'>");
+            sb.Append("             <img src='Media/iconroad.png' alt='Kilometros de distancia' width='20px' />");
+            sb.Append("             <label class='form-label' id='lblLongitud'> " + ((int)ruta.LongitudKm) + " km </label>");
+            sb.Append("         </div>");
+            sb.Append("         <div class='col-2'>");
+            sb.Append("             <img src='Media/iconwheelchair.png' alt='Adaptabilidad de la ruta' width='20px' />");
+            sb.Append("             <label class='form-label' id='lblLocalizacion'>" + ruta.NivelAccesibilidad + "/5</label>");
+            sb.Append("         </div>");
+            sb.Append("         <div class='col-2'>");
+            sb.Append("             <img src='Media/iconstar.png' alt='Valoracion de la ruta' width='20px' />");
+            sb.Append("             <label class='form-label' id='lblValoracion'> " + ruta.ValoracionMedia + " </label><br />");
+            sb.Append("         </div>");
             sb.Append("     </div>");
-            //sb.Append("     <div class='col-4'>");
-            //sb.Append("         <button class='btn btn-success' onClick='unirseEvento(" + evento.IdEvento +")' id='btnUnirseEvento'>¡Únete al evento!</button>");
-            //sb.Append("     </div>");
-            sb.Append(" </div>");
-            sb.Append(" <div id='base2' class='row'>");
-            sb.Append("     <label style='' id='lblChat'>Chat del evento</label>");
-            sb.Append("     <div class='col-8 align-self-end'>");
+            sb.Append("     <div id='base2' class='row'>");
+            sb.Append("         <div class='col-8'>");
+            sb.Append("             <label class='form-label' id='lblComentarios'>" + ruta.Descripcion + "</label>");
+            sb.Append("             <label style='' id='lblChat'>Chat:</label>");
+            sb.Append("             <div class='align-self-end border border-2 rounded'>");
 
             chat = chatDal.SelectChatsByIdEvento(evento.IdEvento);
             foreach (var mensaje in chat)
             {
-                sb.Append("         <div style='font-size:13px; class='' id='lblChat'>" + usuarioDal.SelectUsuarioByIDUsuario(mensaje.FkIDUsuario).Nombre + ": " + mensaje.Mensaje + "</div>");
+                sb.Append("             <div style='font-size:13px; class='' id='lblChat'>" + usuarioDal.SelectUsuarioByIDUsuario(mensaje.FkIDUsuario).Nombre + ": " + mensaje.Mensaje + "</div>");
             }
 
-            sb.Append("     </div>");
-            sb.Append("     <div class='col-4'>");
-            sb.Append("         <div class='row border'>");
-            sb.Append("             <label class='form-label col-6' id='lblFecha'>Fecha: " + evento.FechaDeRealizacion.Value.ToString("dd/MM/yyyy") + "</label>");
-            sb.Append("             <label class='form-label col-4' id='lblHora'>Hora: " + evento.FechaDeRealizacion.Value.TimeOfDay + "</label>");
+            sb.Append("             </div>");
             sb.Append("         </div>");
-            sb.Append("         <div class='row border'>");
-            sb.Append("             <ul class='list-group list-group-flush'>");
-            sb.Append("                 <li class='list-group-item'><b>Usuarios: " + participanteDal.SelectCountParticipantesByIdEvento(evento.IdEvento) + "</b></li>");
+            sb.Append("         <div class='col-4 border rounded'>");
+            sb.Append("                 <label class='h5 m-2' id='lblFecha'>" + evento.FechaDeRealizacion.Value.ToString("dd/MM/yyyy") + "   -   " + evento.FechaDeRealizacion.Value.TimeOfDay + "</label>");
+            sb.Append("             <div class='row'>");
+            sb.Append("                 <ul class='list-group list-group-flush'>");
+            sb.Append("                     <li class='list-group-item'><b>Participantes: " + participanteDal.SelectCountParticipantesByIdEvento(evento.IdEvento) + "</b></li>");
 
             participantes = participanteDal.SelectParticipantesByIdEvento(evento.IdEvento);
             foreach (var participante in participantes)
             {
                 sb.Append("                 <li class='list-group-item'>" + usuarioDal.SelectUsuarioByIDUsuario(participante.FkIDUsuario).ToString() + "</li>");
             }
-            sb.Append("             </ul>");
-            sb.Append("         </div>");
-            sb.Append("         <div class='row border'>");
-            sb.Append("             <ul class='list-group list-group-flush'>");
-            sb.Append("                 <li class='list-group-item'><b>Voluntarios: " + participanteDal.SelectCountParticipantesVoluntariosByIdEvento(evento.IdEvento) + "</b></li>");
+            sb.Append("                 </ul>");
+            sb.Append("             </div>");
+            sb.Append("             <div class='row'>");
+            sb.Append("                 <ul class='list-group list-group-flush'>");
+            sb.Append("                     <li class='list-group-item'><b>Voluntarios: " + participanteDal.SelectCountParticipantesVoluntariosByIdEvento(evento.IdEvento) + "</b></li>");
 
             voluntarios = participanteDal.SelectParticipantesVoluntariosByIdEvento(evento.IdEvento);
             foreach (var voluntario in voluntarios)
             {
                 sb.Append("                 <li class='list-group-item'>" + usuarioDal.SelectUsuarioByIDUsuario(voluntario.FkIDUsuario).ToString() + "</li>");
             }
-            sb.Append("             </ul>");
-            sb.Append("         </div>");
-            sb.Append("         <div class='row'>");
-            sb.Append("             <label class='form-label' id='lblComentarios'>" + ruta.Descripcion + "</label>");
+            sb.Append("                 </ul>");
+            sb.Append("             </div>");
             sb.Append("         </div>");
             sb.Append("     </div>");
             sb.Append(" </div>");
