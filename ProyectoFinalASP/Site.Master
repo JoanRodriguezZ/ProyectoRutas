@@ -61,29 +61,29 @@
         <div class="sticky-top">
             <div class="row nav menuPrincipal pb-2" style="width:100.65%">
                 <div class="col-md-3">
-                    <asp:Label class="nav-link" ID="textoUserLogin" runat="server" Font-Size="Large" Style="text-align: left"></asp:Label>
+                    <asp:Label class="nav-link" ID="textoUserLogin" runat="server" Font-Size="Medium" Style="text-align: left"></asp:Label>
                 </div>
 
                 <div class="col-md-6 content-justify-center">
                     <ul class="nav">
                         <li class="nav-item">
-                            <asp:HyperLink class="nav-link" href="./PaginaPrincipal.aspx" ID="PagPrincipal" runat="server" Font-Size="Large">Página Principal</asp:HyperLink>
+                            <asp:HyperLink class="nav-link" href="./PaginaPrincipal.aspx" ID="PagPrincipal" runat="server" Font-Size="Medium">Página Principal</asp:HyperLink>
                         </li>
 
                         <li class="nav-item">
-                            <asp:HyperLink class="nav-link" href="./RutasDisponibles.aspx" ID="RutasDisp" runat="server" Font-Size="Large">Rutas Disponibles</asp:HyperLink>
+                            <asp:HyperLink class="nav-link" href="./RutasDisponibles.aspx" ID="RutasDisp" runat="server" Font-Size="Medium">Rutas Disponibles</asp:HyperLink>
                         </li>
 
                         <li class="nav-item">
-                            <asp:HyperLink class="nav-link" href="./RutaCrear.aspx" ID="CrearRuta" runat="server" Font-Size="Large">Crear Ruta</asp:HyperLink>
+                            <asp:HyperLink class="nav-link" href="./RutaCrear.aspx" ID="CrearRuta" runat="server" Font-Size="Medium">Crear Ruta</asp:HyperLink>
                         </li>
 
                         <li class="nav-item">
-                            <asp:HyperLink class="nav-link" href="./EventosDisponibles.aspx" ID="EventosDisp" runat="server" Font-Size="Large">Eventos Disponibles</asp:HyperLink>
+                            <asp:HyperLink class="nav-link" href="./EventosDisponibles.aspx" ID="EventosDisp" runat="server" Font-Size="Medium">Eventos Disponibles</asp:HyperLink>
                         </li>
 
                         <li class="nav-item">
-                            <asp:HyperLink class="nav-link" href="./PaginaUsuario.aspx" ID="PagUser" runat="server" Font-Size="Large">Mi Perfil</asp:HyperLink>
+                            <asp:HyperLink class="nav-link" href="./PaginaUsuario.aspx" ID="PagUser" runat="server" Font-Size="Medium">Mi Perfil</asp:HyperLink>
                         </li>
                     </ul>
                 </div>
@@ -91,13 +91,13 @@
                 <div class="col-md-3 content-justify-right">
                     <ul class="nav">
                         <li class="nav-item">
-                            <asp:HyperLink class="nav-link ms-4" href="./Register.aspx" ID="Register" runat="server" Font-Size="Large">Registro</asp:HyperLink>
+                            <asp:HyperLink class="nav-link ms-2" href="./Register.aspx" ID="Register" runat="server" Font-Size="Medium">Registro</asp:HyperLink>
                         </li>
                         <li class="nav-item">
-                            <asp:HyperLink class="nav-link ms-4" href="./Login.aspx" ID="Login" runat="server" Font-Size="Large">Iniciar Sesión</asp:HyperLink>
+                            <asp:HyperLink class="nav-link ms-2" href="./Login.aspx" ID="Login" runat="server" Font-Size="Medium">Iniciar Sesión</asp:HyperLink>
                         </li>
                         <li class="nav-item">
-                            <asp:LinkButton class="nav-link ms-4" ID="Logout" runat="server" OnClick="Logout_Click" Font-Size="Large">Cerrar Sesión</asp:LinkButton>
+                            <asp:LinkButton class="nav-link ms-2" ID="Logout" runat="server" OnClick="Logout_Click" Font-Size="Medium">Cerrar Sesión</asp:LinkButton>
                         </li>
                     </ul>
                 </div>

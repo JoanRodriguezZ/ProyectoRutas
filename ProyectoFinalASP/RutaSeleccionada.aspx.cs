@@ -76,18 +76,13 @@ namespace ProyectoFinalASP
         protected void btnCrearEvento_Click(object sender, EventArgs e)
         {
 
-            try
-            {
-                HttpCookie reqCookies = Request.Cookies["userInfo"];
-                int id = int.Parse(reqCookies["id"]);
-            }
-            catch (NullReferenceException ex)
+            HttpCookie reqCookies = Request.Cookies["userInfo"];
+            if (reqCookies == null)
             {
                 Response.Redirect("Register");
             }
-
-            ScriptManager.RegisterStartupScript(this, GetType(), "ServerControlScript", "<script>$(window).on('load', function() { $('#Formulario').modal('show'); });</script>", false);
-
+            else
+                ScriptManager.RegisterStartupScript(this, GetType(), "ServerControlScript", "<script>$(window).on('load', function() { $('#Formulario').modal('show'); });</script>", false);
         }
     }
 }

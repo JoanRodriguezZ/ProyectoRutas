@@ -60,15 +60,15 @@ namespace ProyectoFinalASP
                 Response.Redirect("EventosDisponibles");
             }
 
-            try
+
+            HttpCookie reqCookies = Request.Cookies["userInfo"];
+            if (reqCookies != null)
             {
-                HttpCookie reqCookies = Request.Cookies["userInfo"];
                 id = int.Parse(reqCookies["id"]);
             }
-            catch (NullReferenceException ex)
-            {
+            else
                 Response.Redirect("Register");
-            }
+
 
             //Se le pasa un valor al evento hasta que se lo enviemos desde otro lado
             evento = eventoDal.SelectEventoByIdEvento(idEventoSeleccionado);
