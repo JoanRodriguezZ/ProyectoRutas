@@ -110,6 +110,7 @@
     <Content Include="Contact.aspx" />
     <Content Include="Content\gente_silla_ruedas.png" />
     <Content Include="Content\imagen_chat.png" />
+    <Content Include="Content\mapicon.png" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\styles.css" />
     <Content Include="Default.aspx" />

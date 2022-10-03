@@ -13,8 +13,7 @@
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
 
-    <%-- CSS --%>
-    <link href="./Content/styles.css" rel="stylesheet" type="text/css" />
+    
     <%-- Icono Página --%>
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <%-- JQuery 3.6.1 --%>
@@ -31,6 +30,8 @@
     <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
         integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
         crossorigin=""></script>
+    <%-- CSS --%>
+    <link href="./Content/styles.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -61,7 +62,7 @@
         <div class="sticky-top">
             <div class="row nav menuPrincipal pb-2" style="width:100.65%">
                 <div class="col-md-3">
-                    <asp:Label class="nav-link" ID="textoUserLogin" runat="server" Font-Size="Medium" Style="text-align: left"></asp:Label>
+                    <asp:Label Font-Names="Calibri, sans-seriff" class="nav-link" ID="textoUserLogin" runat="server" Font-Size="Medium" Style="text-align: left"></asp:Label>
                 </div>
 
                 <div class="col-md-6 content-justify-center">
